@@ -1,5 +1,26 @@
+@font-face {
+	font-family: "Bogart";
+	font-style: normal, italic;
+	font-weight: 400, 500, 600, 700;
+	font-stretch: 100%;
+	font-display: swap;
+	src: url("../../../public/fonts/Bogart-Regular-trial.ttf"), url("../../../public/fonts/Bogart-Medium-trial.ttf"),
+		url("../../../public/fonts/Bogart-Semibold-trial.ttf"),
+		url("../../../public/fonts/Bogart-Semibold-Italic-trial.ttf"), url("../../../public/fonts/Bogart-Bold-trial.ttf");
+}
+
+@font-face {
+	font-family: "Stolzl";
+	font-style: normal;
+	font-weight: 300, 400, 500, 700;
+	font-stretch: 100%;
+	font-display: swap;
+	src: url("../../../public/fonts/stolzl_light.otf"), url("../../../public/fonts/stolzl_regular.otf"),
+		url("../../../public/fonts/stolzl_medium.otf"), url("../../../public/fonts/stolzl_bold.otf");
+}
+
 * {
-	font-family: "Source Sans Pro";
+	font-family: "Bogart";
 	font-weight: 400;
 	font-style: normal;
 	padding: 0;
@@ -26,8 +47,4 @@ a {
 
 ul {
 	list-style: none;
-}
-
-header {
-	padding: 0 !important;
 }

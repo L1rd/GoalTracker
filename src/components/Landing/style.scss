@@ -1,0 +1,185 @@
+@import "assets/styles/mixins";
+
+.landing {
+	background: linear-gradient(360deg, #200568 0%, #03288f 23.44%, #164bb1 49.48%, #03288f 77.08%, #200568 99.99%);
+	// background: linear-gradient(190deg, rgba(32, 5, 104, 1) 10%, rgba(64, 17, 128, 1) 35%, rgba(169, 129, 254, 1) 90%);
+	&__appointment {
+		@include flex($align: center, $justify: center, $direction: row);
+		gap: 45px;
+		margin: 144px 0;
+	}
+
+	&__main-info {
+		flex: 0 1 320px;
+	}
+
+	&__features {
+		@include flex($align: flex-start, $justify: center, $direction: column);
+		gap: 48px;
+		text-align: justify;
+		flex: 0 1 364px;
+
+		& div {
+			@include flex($align: center, $justify: center, $direction: row);
+			gap: 20px;
+
+			&::before {
+				height: 32px;
+				content: url("~assets/icons/feature.svg");
+			}
+
+			&:hover::before {
+				animation-name: hittingAnArrow;
+				animation-fill-mode: forwards;
+				animation-duration: 0.15s;
+			}
+		}
+	}
+
+	&__benefits {
+		margin-bottom: 144px;
+
+		&-row {
+			display: grid;
+			grid-gap: 32px;
+			grid-template-columns: minmax(200px, 1fr) 256px 256px;
+			height: 450px;
+		}
+
+		&__info {
+			padding: 24px 24px 0 24px;
+
+			& p {
+				font-family: "Stolzl";
+				font-style: normal;
+				font-weight: 500;
+				font-size: 28px;
+				line-height: 34px;
+				letter-spacing: 0.0025em;
+				color: #200568;
+			}
+		}
+	}
+
+	&__team,
+	&__tracking,
+	&__calendar {
+		@include flex($align: center, $justify: flex-start, $direction: column);
+		position: relative;
+		filter: drop-shadow(4px 4px 8px rgba(32, 5, 104, 0.75));
+		height: 100%;
+
+		& img {
+			position: absolute;
+			bottom: 0;
+		}
+	}
+
+	&__team {
+		background: url("~assets/images/team-background.svg") center / cover no-repeat;
+	}
+
+	&__tracking,
+	&__calendar {
+		background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
+	}
+
+	& .left,
+	& .right {
+		@include flex($align: center, $justify: center, $direction: row);
+		width: 64px;
+		height: 64px;
+		border-radius: 50px;
+		background: #200568;
+		filter: drop-shadow(4px 4px 8px rgba(11, 57, 84, 0.25));
+		cursor: pointer;
+		transition: 0.3s;
+
+		&:hover {
+			background: #8ea6fc;
+
+			& img {
+				filter: invert(21%) sepia(98%) saturate(7477%) hue-rotate(270deg) brightness(44%) contrast(138%);
+			}
+		}
+
+		&:active {
+			background: #8ea6fc;
+			box-shadow: inset 0px 0px 8px rgba(32, 5, 104, 0.25);
+			filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
+
+			& img {
+				filter: invert(21%) sepia(98%) saturate(7477%) hue-rotate(270deg) brightness(44%) contrast(138%);
+			}
+		}
+	}
+
+	& .left {
+		transform: rotate(-180deg);
+	}
+
+	&__reviews {
+		@include flex($align: center, $justify: center, $direction: column);
+	}
+
+	&__carousel {
+		@include flex($align: center, $justify: space-between, $direction: row);
+		width: 100%;
+		margin-bottom: 80px;
+	}
+
+	&__review {
+		filter: drop-shadow(4px 4px 8px rgba(32, 5, 104, 0.75));
+		border-radius: 20px;
+		width: 256px;
+		background: url("~assets/images/review-background.svg") center / cover no-repeat;
+
+		&__header {
+			@include flex($align: center, $justify: flex-start, $direction: row);
+			gap: 16px;
+			background: #fff6e0;
+			border-radius: 20px 20px 0px 0px;
+			padding: 16px;
+
+			& img {
+				width: 48px;
+				height: 48px;
+			}
+
+			& div {
+				@include flex($align: flex-start, $justify: center, $direction: column);
+			}
+		}
+
+		&__content {
+			@include flex($align: center, $justify: center, $direction: column);
+			padding: 24px 16px;
+			text-align: justify;
+		}
+	}
+
+	&__invitation {
+		padding: 24px 0;
+		@include flex($align: center, $justify: center, $direction: row);
+		gap: 62px;
+		background: url("~assets/images/team-background.svg") center / cover no-repeat;
+	}
+	&__questions {
+		@include flex($align: center, $justify: center, $direction: column);
+	}
+	&__question {
+		width: 72%;
+	}
+}
+
+@keyframes hittingAnArrow {
+	0% {
+		content: url("~assets/icons/feature.svg");
+	}
+	50% {
+		content: url("~assets/icons/feature-hover-2.svg");
+	}
+	100% {
+		content: url("~assets/icons/feature-hover.svg");
+	}
+}

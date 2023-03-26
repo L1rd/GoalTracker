@@ -1,0 +1,109 @@
+@import "assets/styles/mixins";
+
+.navigation {
+	width: 256px;
+	background: #401180;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+	&__header {
+		@include flex($align: center, $justify: center, $direction: column);
+		gap: 16px;
+		padding: 30px 24px;
+		text-align: center;
+		border-bottom: 3px solid #ffd260;
+	}
+
+	&__user-info {
+		@include flex($align: center, $justify: flex, $direction: column);
+		gap: 4px;
+	}
+
+	&__actions {
+		padding: 40px 0 48px 12px;
+
+		&-user {
+			@include flex($align: flex-start, $justify: center, $direction: column);
+			gap: 28px;
+		}
+	}
+
+	&__add-goal {
+		@include flex($align: flex-start, $justify: flex-start, $direction: row);
+		cursor: pointer;
+		gap: 16px;
+		padding: 0 12px;
+		width: auto;
+		transition: 0.3s;
+
+		&::before {
+			content: url("~assets/icons/add.svg");
+		}
+
+		&:hover,
+		&.choosen {
+			color: #8ea6fc;
+
+			&::before {
+				filter: invert(55%) sepia(90%) saturate(252%) hue-rotate(191deg) brightness(101%) contrast(98%);
+			}
+		}
+	}
+
+	&__pages {
+		@include flex($align: flex-start, $justify: flex, $direction: column);
+		gap: 15px;
+		margin-bottom: 115px;
+	}
+
+	&__link {
+		@include flex($align: flex-start, $justify: flex-start, $direction: row);
+		cursor: pointer;
+		padding: 10px 12px;
+		gap: 16px;
+		width: 55%;
+		transition: all 0.5s;
+		border-radius: 12px;
+
+		&:hover,
+		&.choosen {
+			background: #ffd260;
+			box-shadow: 0px 6px 4px rgba(10, 23, 83, 0.4);
+			width: 100%;
+
+			& span {
+				color: #200568;
+			}
+
+			& img {
+				filter: invert(18%) sepia(80%) saturate(7500%) hue-rotate(259deg) brightness(42%) contrast(110%);
+			}
+		}
+	}
+
+	&__settings,
+	&__log-out {
+		@include flex($align: flex-start, $justify: flex-start, $direction: row);
+		cursor: pointer;
+		gap: 16px;
+		padding: 0 12px;
+		width: auto;
+		transition: 0.3s;
+
+		&:hover,
+		&.choosen {
+			color: #8ea6fc;
+
+			&::before {
+				filter: invert(55%) sepia(90%) saturate(252%) hue-rotate(191deg) brightness(101%) contrast(98%);
+			}
+		}
+	}
+
+	&__settings::before {
+		content: url("~assets/icons/settings.svg");
+	}
+
+	&__log-out::before {
+		content: url("~assets/icons/logOut.svg");
+	}
+}
