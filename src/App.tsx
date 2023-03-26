@@ -6,7 +6,7 @@ import GoalTracker from 'components/MainApp';
 const App = () => (
 	<div className="App">
 		<Routes>
-			<Route path="/" element={<LandingPage />} />
+			<Route path="/GoalTracker/" element={<LandingPage />} />
 			<Route path="/MainApp" element={<GoalTracker />} />
 		</Routes>
 	</div>

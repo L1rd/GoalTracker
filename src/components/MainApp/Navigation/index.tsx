@@ -104,7 +104,7 @@ const Navigation = () => {
 						sx={{ color: `${theme.palette.lightYellow}` }}
 						onClick={() => {
 							setChoosenAction('Log out');
-							navigate('/');
+							navigate('/GoalTracker/');
 						}}
 					>
 						Log out
