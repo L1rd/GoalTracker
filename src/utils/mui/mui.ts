@@ -3,18 +3,53 @@ import { CSSProperties } from 'react';
 export {};
 declare module '@mui/material/Button' {
 	interface ButtonPropsVariantOverrides {
-		navItem: true;
+		logIn: true;
+		buttonDark: true;
+		buttonLight: true;
 	}
 }
 
 declare module '@mui/material/styles' {
 	interface Palette {
-		black: CSSProperties['color'];
-		darkBlue: CSSProperties['color'];
-		white: CSSProperties['color'];
+		darkYellow: CSSProperties['color'];
+		lightYellow: CSSProperties['color'];
+		muchLightYellow: CSSProperties['color'];
 		lightBlue: CSSProperties['color'];
-		lightGrey: CSSProperties['color'];
-		turquoise: CSSProperties['color'];
-		purpleGradient: CSSProperties['color'];
+		darkPurple: CSSProperties['color'];
+		brown: CSSProperties['color'];
+	}
+}
+
+declare module '@mui/material/styles' {
+	interface TypographyVariants {
+		subtitle: React.CSSProperties;
+		body: React.CSSProperties;
+		smallDetails: React.CSSProperties;
+		smallDetailsSecondBold: React.CSSProperties;
+		smallDetailsSecond: React.CSSProperties;
+		reviews: React.CSSProperties;
+	}
+
+	// allow configuration using `createTheme`
+	interface TypographyVariantsOptions {
+		subtitle?: React.CSSProperties;
+		body?: React.CSSProperties;
+		smallDetails: React.CSSProperties;
+		smallDetailsSecondBold: React.CSSProperties;
+		smallDetailsSecond: React.CSSProperties;
+		reviews: React.CSSProperties;
+	}
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+	interface TypographyPropsVariantOverrides {
+		subtitle: true;
+		body: true;
+		smallDetails: true;
+		smallDetailsSecondBold: true;
+		smallDetailsSecond: true;
+		reviews: true;
+		link: true;
 	}
 }
