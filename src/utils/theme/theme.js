@@ -5,6 +5,9 @@ const palette = createTheme({
 		darkYellow: '#FFD260',
 		lightYellow: '#FFEFC6',
 		muchLightYellow: '#FFF6E0',
+		darkBlue: '#0B215C',
+		midBlue: '#0D2569',
+		blue: '#2647AC',
 		lightBlue: '#8EA6FC',
 		darkPurple: '#200568',
 		black: '#000000',
@@ -21,7 +24,6 @@ export const theme = createTheme(palette, {
 			fontSize: '56px',
 			lineHeight: '53px',
 			letterSpacing: '-0.015em',
-			color: `${palette.palette.black}`,
 		},
 		h2: {
 			fontFamily: 'Bogart',
@@ -30,7 +32,6 @@ export const theme = createTheme(palette, {
 			fontSize: '44px',
 			lineHeight: '125%',
 			letterSpacing: '-0.005em',
-			color: `${palette.palette.black}`,
 		},
 		h3: {
 			fontFamily: 'Bogart',
@@ -38,7 +39,6 @@ export const theme = createTheme(palette, {
 			fontWeight: '400',
 			fontSize: '36px',
 			lineHeight: '125%',
-			color: `${palette.palette.black}`,
 		},
 		h4: {
 			fontFamily: 'Stolzl',
@@ -47,7 +47,6 @@ export const theme = createTheme(palette, {
 			fontSize: '24px',
 			lineHeight: '29px',
 			letterSpacing: '0.0025em',
-			color: `${palette.palette.black}`,
 		},
 		subtitle: {
 			fontFamily: 'Stolzl',
@@ -56,7 +55,6 @@ export const theme = createTheme(palette, {
 			fontSize: '18px',
 			lineHeight: '150%',
 			letterSpacing: '0.0015em',
-			color: `${palette.palette.black}`,
 		},
 		body: {
 			fontFamily: 'Stolzl',
@@ -65,7 +63,6 @@ export const theme = createTheme(palette, {
 			fontSize: '16px',
 			lineHeight: '150%',
 			letterSpacing: '0.005em',
-			color: `${palette.palette.black}`,
 		},
 		smallDetails: {
 			fontFamily: 'Stolzl',
@@ -74,7 +71,6 @@ export const theme = createTheme(palette, {
 			fontSize: '14px',
 			lineHeight: '150%',
 			letterSpacing: '0.004em',
-			color: `${palette.palette.black}`,
 		},
 		smallDetailsSecondBold: {
 			fontFamily: 'Stolzl',
@@ -83,7 +79,6 @@ export const theme = createTheme(palette, {
 			fontSize: '10px',
 			lineHeight: '15px',
 			letterSpacing: '0.015em',
-			color: `${palette.palette.black}`,
 		},
 		smallDetailsSecond: {
 			fontFamily: 'Stolzl',
@@ -92,7 +87,6 @@ export const theme = createTheme(palette, {
 			fontSize: '10px',
 			lineHeight: '12px',
 			letterSpacing: '0.015em',
-			color: `${palette.palette.black}`,
 		},
 		link: {
 			fontFamily: 'Stolzl',
@@ -103,7 +97,6 @@ export const theme = createTheme(palette, {
 			letterSpacing: '0.004em',
 			textDecoration: 'underline',
 			cursor: 'pointer',
-			color: `${palette.palette.black}`,
 		},
 		reviews: {
 			fontFamily: 'Stolzl',
@@ -112,7 +105,6 @@ export const theme = createTheme(palette, {
 			fontSize: '12px',
 			lineHeight: '150%',
 			letterSpacing: '0.004em',
-			color: `${palette.palette.black}`,
 		},
 	},
 	components: {
@@ -121,7 +113,7 @@ export const theme = createTheme(palette, {
 				{
 					props: { color: 'primary', variant: 'buttonDark', size: 'large' },
 					style: {
-						background: `${palette.palette.darkPurple}`,
+						background: `${palette.palette.darkBlue}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '8px',
 						padding: '16px 48px',
@@ -131,7 +123,7 @@ export const theme = createTheme(palette, {
 
 						'&:hover': {
 							background: `${palette.palette.lightBlue}`,
-							'& span': { color: `${palette.palette.darkPurple}` },
+							'& span': { color: `${palette.palette.darkBlue}` },
 						},
 
 						'&:active': {
@@ -144,7 +136,7 @@ export const theme = createTheme(palette, {
 				{
 					props: { color: 'primary', variant: 'buttonDark', size: 'medium' },
 					style: {
-						background: `${palette.palette.darkPurple}`,
+						background: `${palette.palette.darkBlue}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '8px',
 						padding: '8px 32px',
@@ -154,7 +146,7 @@ export const theme = createTheme(palette, {
 
 						'&:hover': {
 							background: `${palette.palette.lightBlue}`,
-							'& span': { color: `${palette.palette.darkPurple}` },
+							'& span': { color: `${palette.palette.darkBlue}` },
 						},
 
 						'&:active': {
@@ -167,7 +159,7 @@ export const theme = createTheme(palette, {
 				{
 					props: { color: 'primary', variant: 'buttonDark', size: 'small' },
 					style: {
-						background: `${palette.palette.darkPurple}`,
+						background: `${palette.palette.darkBlue}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '6px',
 						padding: '8px 24px',
@@ -177,7 +169,7 @@ export const theme = createTheme(palette, {
 
 						'&:hover': {
 							background: `${palette.palette.lightBlue}`,
-							'& span': { color: `${palette.palette.darkPurple}` },
+							'& span': { color: `${palette.palette.darkBlue}` },
 						},
 
 						'&:active': {
@@ -196,7 +188,7 @@ export const theme = createTheme(palette, {
 						transition: '0.5s',
 						padding: '16px 48px',
 
-						'& span': { color: `${palette.palette.darkPurple}`, textTransform: 'none' },
+						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
 
 						'&:hover': {
 							background: `${palette.palette.lightYellow}`,
@@ -219,7 +211,7 @@ export const theme = createTheme(palette, {
 						transition: '0.5s',
 						padding: '8px 32px',
 
-						'& span': { color: `${palette.palette.darkPurple}`, textTransform: 'none' },
+						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
 
 						'&:hover': {
 							background: `${palette.palette.lightYellow}`,
@@ -242,7 +234,7 @@ export const theme = createTheme(palette, {
 						transition: '0.5s',
 						padding: '8px 24px',
 
-						'& span': { color: `${palette.palette.darkPurple}`, textTransform: 'none' },
+						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
 
 						'&:hover': {
 							background: `${palette.palette.lightYellow}`,
@@ -329,6 +321,78 @@ export const theme = createTheme(palette, {
 						},
 					},
 				},
+				{
+					props: { color: 'secondary', variant: 'buttonDark', size: 'large' },
+					style: {
+						background: `${palette.palette.blue}`,
+						boxShadow: '4px 4px 8px rgba(11, 33, 92, 0.25);',
+						borderRadius: '8px',
+						transition: '0.5s',
+						padding: '16px 48px',
+						border: `1px solid ${palette.palette.blue}`,
+
+						'& span': { color: `${palette.palette.lightYellow}`, textTransform: 'none' },
+
+						'&:hover': {
+							background: 'inherit',
+							border: `1px solid ${palette.palette.lightBlue}`,
+							'& span': { color: `${palette.palette.lightBlue}` },
+						},
+
+						'&:active': {
+							border: `1px solid ${palette.palette.blue}`,
+							'& span': { color: `${palette.palette.blue}` },
+						},
+					},
+				},
+				{
+					props: { color: 'secondary', variant: 'buttonDark', size: 'medium' },
+					style: {
+						background: `${palette.palette.blue}`,
+						boxShadow: '4px 4px 8px rgba(11, 33, 92, 0.25);',
+						borderRadius: '8px',
+						transition: '0.5s',
+						padding: '8px 32px',
+						border: `1px solid ${palette.palette.blue}`,
+
+						'& span': { color: `${palette.palette.lightYellow}`, textTransform: 'none' },
+
+						'&:hover': {
+							background: 'inherit',
+							border: `1px solid ${palette.palette.lightBlue}`,
+							'& span': { color: `${palette.palette.lightBlue}` },
+						},
+
+						'&:active': {
+							border: `1px solid ${palette.palette.blue}`,
+							'& span': { color: `${palette.palette.blue}` },
+						},
+					},
+				},
+				{
+					props: { color: 'secondary', variant: 'buttonDark', size: 'small' },
+					style: {
+						background: `${palette.palette.blue}`,
+						boxShadow: '4px 4px 8px rgba(11, 33, 92, 0.25);',
+						borderRadius: '6px',
+						transition: '0.5s',
+						padding: '8px 24px',
+						border: `1px solid ${palette.palette.blue}`,
+
+						'& span': { color: `${palette.palette.lightYellow}`, textTransform: 'none' },
+
+						'&:hover': {
+							background: 'inherit',
+							border: `1px solid ${palette.palette.lightBlue}`,
+							'& span': { color: `${palette.palette.lightBlue}` },
+						},
+
+						'&:active': {
+							border: `1px solid ${palette.palette.blue}`,
+							'& span': { color: `${palette.palette.blue}` },
+						},
+					},
+				},
 			],
 		},
 		MuiLinearProgress: {
@@ -368,6 +432,29 @@ export const theme = createTheme(palette, {
 					flexDirection: 'row-reverse',
 					gap: '16px',
 					border: 'none',
+				},
+			},
+		},
+		MuiSelect: {
+			styleOverrides: {
+				root: {
+					'& .MuiSelect-icon': {
+						display: 'none !important',
+					},
+
+					'&.Mui-focused': {
+						'& .MuiSelect-select': {
+							color: `${palette.palette.lightBlue}`,
+						},
+
+						'& .MuiOutlinedInput-notchedOutline': {
+							borderColor: `${palette.palette.lightBlue}`,
+							transition: 'all 0.3s ease-in-out',
+						},
+					},
+				},
+				select: {
+					padding: '5px 6px !important',
 				},
 			},
 		},

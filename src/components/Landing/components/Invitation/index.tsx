@@ -1,18 +1,30 @@
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { Box, Button, Typography } from '@mui/material';
 import InvitationImg from 'assets/images/invitation.svg';
+import { selectorGetTheme } from 'redux/goals-service/selectors';
 
-const Invitation = () => (
-	<Box className="landing__invitation">
-		<img src={InvitationImg} alt="invitation" />
-		<Box className="landing__invitation__info" sx={{ textAlign: 'center', width: '558px' }}>
-			<Typography variant="h2" sx={{ fontWeight: '500', marginBottom: '48px' }}>
-				Ready to crush your goals?Sign up and get started!
-			</Typography>
-			<Button variant="buttonDark" size="large">
-				<Typography variant="subtitle">Set my goals</Typography>
-			</Button>
+const Invitation = () => {
+	const theme = useSelector(selectorGetTheme);
+	const { t } = useTranslation('landing');
+
+	return (
+		<Box className="landing__invitation">
+			<img src={InvitationImg} alt="invitation" />
+			<Box className="landing__invitation__info" sx={{ textAlign: 'center', width: '558px' }}>
+				<Typography
+					variant="h2"
+					sx={{ fontWeight: '500', marginBottom: '48px' }}
+					className="landing__invitation-title"
+				>
+					{t('invitation')}
+				</Typography>
+				<Button variant={theme === 'theme-dark' ? 'buttonDark' : 'buttonLight'} color="primary" size="large">
+					<Typography variant="subtitle">{t('set-goals')}</Typography>
+				</Button>
+			</Box>
 		</Box>
-	</Box>
-);
+	);
+};
 
 export default Invitation;

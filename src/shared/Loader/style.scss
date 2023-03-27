@@ -1,0 +1,39 @@
+@import "assets/styles/main";
+
+.loader {
+	position: absolute;
+	left: 45%;
+	top: 37%;
+	width: 160px;
+	height: 201px;
+	background: url("~assets/icons/state_1.svg") center no-repeat;
+	animation-name: loaderAnimation;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-duration: 3s;
+
+	&__wrapper {
+		position: relative;
+		background: linear-gradient(360deg, #012075 0%, #2647ac 33.65%, #012075 68.54%, #0b215c 99.99%);
+		height: 100vh;
+		width: 100%;
+	}
+}
+
+@keyframes loaderAnimation {
+	0% {
+		background: url("~assets/icons/state_2.svg");
+	}
+	25% {
+		background: url("~assets/icons/state_3.svg");
+	}
+	50% {
+		background: url("~assets/icons/state_4.svg");
+	}
+	75% {
+		background: url("~assets/icons/state_5.svg");
+	}
+	100% {
+		background: url("~assets/icons/state_6.svg");
+	}
+}

@@ -17,6 +17,9 @@ declare module '@mui/material/styles' {
 		lightBlue: CSSProperties['color'];
 		darkPurple: CSSProperties['color'];
 		brown: CSSProperties['color'];
+		darkBlue: CSSProperties['color'];
+		midBlue: CSSProperties['color'];
+		blue: CSSProperties['color'];
 	}
 }
 

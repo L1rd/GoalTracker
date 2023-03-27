@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 import { store } from 'redux/store';
 import { theme } from 'utils/theme/theme';
+import './i18n/config';
 import App from './App';
 import './index.scss';
 
