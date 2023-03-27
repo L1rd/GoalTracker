@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/GoalTracker/static/css/main.5a194c7c.css",
-    "main.js": "/GoalTracker/static/js/main.b5450c1f.js",
+    "main.css": "/GoalTracker/static/css/main.de61d789.css",
+    "main.js": "/GoalTracker/static/js/main.3629c981.js",
+    "static/media/team-light-background.svg": "/GoalTracker/static/media/team-light-background.340bc3101b88ea0a8cad.svg",
     "static/media/tracking-background.svg": "/GoalTracker/static/media/tracking-background.ed1ea7618597aa0d8741.svg",
     "static/media/avatar.svg": "/GoalTracker/static/media/avatar.02c9ad67386664c0b907a4346fbb2b00.svg",
     "static/media/review-background.svg": "/GoalTracker/static/media/review-background.c162cde955cb0cca942c.svg",
@@ -23,23 +24,24 @@
     "static/media/feature.svg": "/GoalTracker/static/media/feature.5740dac50e63813e6645.svg",
     "static/media/feature-hover-2.svg": "/GoalTracker/static/media/feature-hover-2.aa87de1f34998d221368.svg",
     "static/media/feature-hover.svg": "/GoalTracker/static/media/feature-hover.fb9157e02330a2a15d7c.svg",
+    "static/media/light-theme-icon.svg": "/GoalTracker/static/media/light-theme-icon.d6368c9f3d6cb3b2675a.svg",
     "static/media/team.svg": "/GoalTracker/static/media/team.535cf48c40be68d01587b454efdcfbbb.svg",
-    "static/media/app-background.svg": "/GoalTracker/static/media/app-background.79aa541cae5c483ad01628c98333cee5.svg",
     "static/media/duration-icon.svg": "/GoalTracker/static/media/duration-icon.6e8d95f5b07ace52399eb8bbd13ae7a0.svg",
     "static/media/settings.svg": "/GoalTracker/static/media/settings.d0195d48f6bf716533cf.svg",
     "static/media/logo.svg": "/GoalTracker/static/media/logo.ee7a1a38a516d7294a3ef63bb0400699.svg",
     "static/media/goals.svg": "/GoalTracker/static/media/goals.d3e13131fcc2338f55864a4b72ba7975.svg",
     "index.html": "/GoalTracker/index.html",
+    "static/media/dark-theme-icon.svg": "/GoalTracker/static/media/dark-theme-icon.a32c94ffa0528ed4ac59.svg",
     "static/media/logOut.svg": "/GoalTracker/static/media/logOut.0e589023b5aef9b86939.svg",
     "static/media/dashboard.svg": "/GoalTracker/static/media/dashboard.740fbe22bff399b30d41393d37e4a50a.svg",
     "static/media/arrow.svg": "/GoalTracker/static/media/arrow.06149f5e01497760c089684632cfc6fc.svg",
     "static/media/question-arrow.svg": "/GoalTracker/static/media/question-arrow.204211001e07c8acab176c837f48c749.svg",
     "static/media/add.svg": "/GoalTracker/static/media/add.981fd7ea76bc5f173120.svg",
-    "main.5a194c7c.css.map": "/GoalTracker/static/css/main.5a194c7c.css.map",
-    "main.b5450c1f.js.map": "/GoalTracker/static/js/main.b5450c1f.js.map"
+    "main.de61d789.css.map": "/GoalTracker/static/css/main.de61d789.css.map",
+    "main.3629c981.js.map": "/GoalTracker/static/js/main.3629c981.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a194c7c.css",
-    "static/js/main.b5450c1f.js"
+    "static/css/main.de61d789.css",
+    "static/js/main.3629c981.js"
   ]
 }
