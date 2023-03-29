@@ -32,6 +32,7 @@
 				"tsx": "never"
 			}
 		],
+		"no-param-reassign": 0,
 		"import/no-extraneous-dependencies": [
 			"error",
 			{

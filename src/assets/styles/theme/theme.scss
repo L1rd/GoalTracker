@@ -1,0 +1,43 @@
+.theme-light {
+  --landingPage-background: linear-gradient(360deg, #ffd260 0%, #ffefc6 33.65%, #ffefc6 68.54%, #ffd260 99.99%);
+  --landingPage-header-background: #0b215c;
+  --landingPage-themeToggle-icon: url("~assets/icons/dark-theme-icon.svg") 0 0/100% no-repeat;
+  --landingPage-header-logo-color: #ffd260;
+  --landingPage-header-logo-icon-color: invert(100%) sepia(80%) saturate(1801%) hue-rotate(315deg) brightness(102%)
+    contrast(101%);
+  --landingPage-header-nav-elements-color: #ffd260;
+  --landingPage-main-title-color: #0b215c;
+  --landingPage-main-features-color: #0b215c;
+  --landingPage-main-features-icon-color: invert(30%) sepia(12%) saturate(7474%) hue-rotate(206deg) brightness(55%)
+    contrast(103%);
+  --landingPage-team-block-background: url("~assets/images/team-light-background.svg") center / cover no-repeat;
+  --landingPage-tracking-block-background: url("~assets/images/team-light-background.svg") center / cover no-repeat;
+  --landingPage-reviews-header-background: #ffd260;
+  --landingPage-reviews-background: url("~assets/images/team-light-background.svg") center / cover no-repeat;
+  --landingPage-reviews-text-color: #ffefc6;
+  --landingPage-reviews-nav-icon-color: invert(21%) sepia(98%) saturate(7477%) hue-rotate(270deg) brightness(44%)
+    contrast(138%);
+  --landingPage-reviews-click-nav-icon-color: none;
+  --landingPage-review-shadow: drop-shadow(4px 4px 8px rgba(255, 210, 96, 0.5));
+}
+.theme-dark {
+  --landingPage-background: linear-gradient(360deg, #012075 0%, #2647ac 33.65%, #012075 68.54%, #0b215c 99.99%);
+  --landingPage-header-background: #ffd260;
+  --landingPage-themeToggle-icon: url("~assets/icons/light-theme-icon.svg") 0 0/100% no-repeat;
+  --landingPage-header-logo-color: #0b215c;
+  --landingPage-header-logo-icon-color: none;
+  --landingPage-header-nav-elements-color: #0b215c;
+  --landingPage-main-title-color: #ffd260;
+  --landingPage-main-info-color: #ffefc6;
+  --landingPage-main-features-color: #ffefc6;
+  --landingPage-main-features-icon-color: none;
+  --landingPage-team-block-background: url("~assets/images/team-background.svg") center / cover no-repeat;
+  --landingPage-tracking-block-background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
+  --landingPage-reviews-header-background: #fff6e0;
+  --landingPage-reviews-background: url("~assets/images/review-background.svg") center / cover no-repeat;
+  --landingPage-reviews-text-color: #0b215c;
+  --landingPage-reviews-nav-icon-color: none;
+  --landingPage-reviews-click-nav-icon-color: invert(21%) sepia(98%) saturate(7477%) hue-rotate(270deg) brightness(44%)
+    contrast(138%);
+  --landingPage-review-shadow: drop-shadow(4px 4px 8px rgba(255, 210, 96, 0.5));
+}

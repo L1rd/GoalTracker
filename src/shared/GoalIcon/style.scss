@@ -1,8 +1,9 @@
 @import "assets/styles/mixins";
+@import "assets/styles/consts";
 
 .goal-icon {
 	@include flex($align: center, $justify: center, $direction: row);
-	background: #7b28ad;
+	background: $darkBlue;
 	border-radius: 12px;
 	padding: 6px;
 }

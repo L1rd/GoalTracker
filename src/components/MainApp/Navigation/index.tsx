@@ -40,14 +40,7 @@ const Navigation = () => {
 	return (
 		<Box className="navigation">
 			<Box className="navigation__header">
-				<Box
-					sx={{
-						width: '64px',
-						height: '64px',
-						borderRadius: '50px',
-						background: '#787878',
-					}}
-				>
+				<Box>
 					<img src={Avatar} alt="avatar" />
 				</Box>
 				<Box className="navigation__user-info">

@@ -1,16 +1,32 @@
-@import "assets/styles/mixins";
+@import "assets/styles/main";
 
 .landing {
-	background: linear-gradient(360deg, #200568 0%, #03288f 23.44%, #164bb1 49.48%, #03288f 77.08%, #200568 99.99%);
-	// background: linear-gradient(190deg, rgba(32, 5, 104, 1) 10%, rgba(64, 17, 128, 1) 35%, rgba(169, 129, 254, 1) 90%);
+	background: $landingPage-background;
+	transition: background 12s;
+
 	&__appointment {
 		@include flex($align: center, $justify: center, $direction: row);
 		gap: 45px;
 		margin: 144px 0;
 	}
 
-	&__main-info {
-		flex: 0 1 320px;
+	&__main {
+		&-info {
+			flex: 0 1 320px;
+		}
+		&-title {
+			color: $landingPage-main-title-color;
+			margin-bottom: 24px !important;
+			transition: all 0.5s ease-out;
+		}
+
+		&-about {
+			display: block;
+			color: $landingPage-main-info-color;
+			margin-bottom: 48px !important;
+			text-align: justify;
+			transition: all 0.5s ease-out;
+		}
 	}
 
 	&__features {
@@ -23,9 +39,15 @@
 			@include flex($align: center, $justify: center, $direction: row);
 			gap: 20px;
 
+			& span {
+				color: $landingPage-main-features-color;
+				transition: all 0.5s ease-out;
+			}
+
 			&::before {
 				height: 32px;
 				content: url("~assets/icons/feature.svg");
+				filter: $landingPage-main-features-icon-color;
 			}
 
 			&:hover::before {
@@ -38,6 +60,12 @@
 
 	&__benefits {
 		margin-bottom: 144px;
+
+		&-title {
+			margin-bottom: 24px !important;
+			color: $landingPage-main-title-color;
+			transition: all 0.5s ease-out;
+		}
 
 		&-row {
 			display: grid;
@@ -56,7 +84,8 @@
 				font-size: 28px;
 				line-height: 34px;
 				letter-spacing: 0.0025em;
-				color: #200568;
+				color: $landingPage-header-nav-elements-color;
+				transition: all 0.5s ease-out;
 			}
 		}
 	}
@@ -66,7 +95,7 @@
 	&__calendar {
 		@include flex($align: center, $justify: flex-start, $direction: column);
 		position: relative;
-		filter: drop-shadow(4px 4px 8px rgba(32, 5, 104, 0.75));
+		filter: drop-shadow(4px 4px 8px rgba(11, 33, 92, 0.75));
 		height: 100%;
 
 		& img {
@@ -76,12 +105,14 @@
 	}
 
 	&__team {
-		background: url("~assets/images/team-background.svg") center / cover no-repeat;
+		background: $landingPage-team-block-background;
+		transition: all 0.5s ease-out;
 	}
 
 	&__tracking,
 	&__calendar {
-		background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
+		background: $landingPage-tracking-block-background;
+		transition: all 0.5s ease-out;
 	}
 
 	& .left,
@@ -90,27 +121,32 @@
 		width: 64px;
 		height: 64px;
 		border-radius: 50px;
-		background: #200568;
+		background: $landingPage-header-nav-elements-color;
 		filter: drop-shadow(4px 4px 8px rgba(11, 57, 84, 0.25));
 		cursor: pointer;
-		transition: 0.3s;
+		transition: all 0.5s ease-out;
+		z-index: 101;
+
+		& img {
+			filter: $landingPage-reviews-nav-icon-color;
+		}
 
 		&:hover {
-			background: #8ea6fc;
-
-			& img {
-				filter: invert(21%) sepia(98%) saturate(7477%) hue-rotate(270deg) brightness(44%) contrast(138%);
-			}
+			background: $lightBlue;
 		}
 
 		&:active {
-			background: #8ea6fc;
+			background: $lightBlue;
 			box-shadow: inset 0px 0px 8px rgba(32, 5, 104, 0.25);
 			filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
 
 			& img {
-				filter: invert(21%) sepia(98%) saturate(7477%) hue-rotate(270deg) brightness(44%) contrast(138%);
+				filter: $landingPage-reviews-click-nav-icon-color;
 			}
+		}
+
+		&::after {
+			display: none;
 		}
 	}
 
@@ -120,6 +156,14 @@
 
 	&__reviews {
 		@include flex($align: center, $justify: center, $direction: column);
+
+		&-title {
+			color: $landingPage-main-title-color;
+			text-align: center;
+			margin-bottom: 48px !important;
+			transition: all 0.5s ease-out;
+			width: 60%;
+		}
 	}
 
 	&__carousel {
@@ -129,17 +173,19 @@
 	}
 
 	&__review {
-		filter: drop-shadow(4px 4px 8px rgba(32, 5, 104, 0.75));
+		filter: $landingPage-review-shadow;
 		border-radius: 20px;
 		width: 256px;
-		background: url("~assets/images/review-background.svg") center / cover no-repeat;
+		background: $landingPage-reviews-background;
+		transition: all 0.5s ease-out;
 
 		&__header {
 			@include flex($align: center, $justify: flex-start, $direction: row);
 			gap: 16px;
-			background: #fff6e0;
+			background: $landingPage-reviews-header-background;
 			border-radius: 20px 20px 0px 0px;
 			padding: 16px;
+			transition: all 0.5s ease-out;
 
 			& img {
 				width: 48px;
@@ -155,6 +201,8 @@
 			@include flex($align: center, $justify: center, $direction: column);
 			padding: 24px 16px;
 			text-align: justify;
+			color: $landingPage-reviews-text-color;
+			transition: all 0.5s ease-out;
 		}
 	}
 
@@ -162,13 +210,40 @@
 		padding: 24px 0;
 		@include flex($align: center, $justify: center, $direction: row);
 		gap: 62px;
-		background: url("~assets/images/team-background.svg") center / cover no-repeat;
+		background: $landingPage-tracking-block-background;
+		transition: all 0.5s ease-out;
+
+		&-title {
+			font-weight: 500;
+			margin-bottom: 48px !important;
+			color: $landingPage-header-nav-elements-color;
+			transition: all 0.5s ease-out;
+		}
 	}
+
 	&__questions {
 		@include flex($align: center, $justify: center, $direction: column);
+
+		&-title {
+			color: $landingPage-main-title-color;
+			text-align: center;
+			margin-bottom: 48px !important;
+			transition: all 0.5s ease-out;
+		}
 	}
+
 	&__question {
 		width: 72%;
+
+		& .MuiButtonBase-root img {
+			filter: $landingPage-reviews-nav-icon-color;
+		}
+
+		&-title,
+		&-info {
+			color: $landingPage-main-title-color;
+			transition: all 0.5s ease-out;
+		}
 	}
 }
 
@@ -181,5 +256,46 @@
 	}
 	100% {
 		content: url("~assets/icons/feature-hover.svg");
+	}
+}
+
+.swiper {
+	&::after {
+		content: "";
+		width: 60px;
+		height: 65%;
+		position: absolute;
+		top: 55px;
+		left: -15px;
+		background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, $landingPage-reviews-text-color 90%);
+		will-change: opacity;
+		pointer-events: none;
+		z-index: 100;
+	}
+	&::before {
+		content: "";
+		width: 60px;
+		height: 65%;
+		position: absolute;
+		top: 55px;
+		right: -10px;
+		background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, $landingPage-reviews-text-color 90%);
+		will-change: opacity;
+		pointer-events: none;
+		z-index: 100;
+	}
+	&-slide {
+		width: 256px !important;
+		margin-right: 25px;
+		border-radius: 20px;
+
+		&-active {
+			transform: none !important;
+		}
+	}
+
+	&-pagination {
+		position: relative;
+		margin-top: 20px;
 	}
 }

@@ -1,16 +1,23 @@
 @import "assets/styles/mixins";
+@import "assets/styles/consts";
 
 .navigation {
 	width: 256px;
-	background: #401180;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	background: $darkBlue;
+	box-shadow: 0px 4px 8px 4px rgba(12, 4, 36, 0.25);
 
 	&__header {
 		@include flex($align: center, $justify: center, $direction: column);
 		gap: 16px;
 		padding: 30px 24px;
 		text-align: center;
-		border-bottom: 3px solid #ffd260;
+		border-bottom: 3px solid $darkYellow;
+
+		& div {
+			width: 64px;
+			height: 64px;
+			border-radius: 50px;
+		}
 	}
 
 	&__user-info {
@@ -41,10 +48,10 @@
 
 		&:hover,
 		&.choosen {
-			color: #8ea6fc;
+			color: $lightBlue;
 
 			&::before {
-				filter: invert(55%) sepia(90%) saturate(252%) hue-rotate(191deg) brightness(101%) contrast(98%);
+				filter: invert(14%) sepia(24%) saturate(4477%) hue-rotate(199deg) brightness(90%) contrast(100%);
 			}
 		}
 	}
@@ -66,16 +73,16 @@
 
 		&:hover,
 		&.choosen {
-			background: #ffd260;
+			background: $darkYellow;
 			box-shadow: 0px 6px 4px rgba(10, 23, 83, 0.4);
 			width: 100%;
 
 			& span {
-				color: #200568;
+				color: $darkPurple;
 			}
 
 			& img {
-				filter: invert(18%) sepia(80%) saturate(7500%) hue-rotate(259deg) brightness(42%) contrast(110%);
+				filter: invert(30%) sepia(12%) saturate(7474%) hue-rotate(206deg) brightness(55%) contrast(103%);
 			}
 		}
 	}
@@ -91,7 +98,7 @@
 
 		&:hover,
 		&.choosen {
-			color: #8ea6fc;
+			color: $lightBlue;
 
 			&::before {
 				filter: invert(55%) sepia(90%) saturate(252%) hue-rotate(191deg) brightness(101%) contrast(98%);

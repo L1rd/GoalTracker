@@ -1,22 +1,22 @@
 export const QUESTIONS = [
 	{
-		question: 'What types of goals can I track using this website?',
+		question: 'common-first-question',
 		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
 	},
 	{
-		question: 'Can I track my goals with a friend or family member?',
+		question: 'common-second-question',
 		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
 	},
 	{
-		question: 'What happens if I don`t achieve my goal by the deadline?',
+		question: 'common-third-question',
 		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
 	},
 	{
-		question: 'How often should I update my progress on my goals?',
+		question: 'common-fourth-question',
 		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
 	},
 	{
-		question: 'Is my information secure on this website?',
+		question: 'common-fifth-question',
 		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
 	},
 ];

@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import Background from 'assets/images/app-background.svg';
 import Dashboard from './Pages/Dashboard';
 import Navigation from './Navigation';
 
@@ -9,7 +8,7 @@ const GoalTracker = () => (
 			display: 'flex',
 			justifyContent: 'center',
 			gap: '32px',
-			background: `url(${Background}) center/cover no-repeat`,
+			background: 'linear-gradient(360deg, #012075 0%, #2647AC 33.65%, #012075 68.54%, #0B215C 99.99%)',
 			height: '100%',
 		}}
 	>

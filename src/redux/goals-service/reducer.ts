@@ -1,17 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IGoalReducer } from './interfaces';
+import { changeThemeOperation } from './operations';
 
-export interface MoviewState {
-	goals: unknown[];
-}
-
-const initialState: MoviewState = {
+const initialState: IGoalReducer = {
 	goals: [],
+	theme: 'theme-dark',
 };
 
 export const goalsSlice = createSlice({
 	name: 'goals',
 	initialState,
-	reducers: {},
+	reducers: {
+		changeTheme: changeThemeOperation,
+	},
 });
-
+export const { changeTheme } = goalsSlice.actions;
 export default goalsSlice.reducer;
