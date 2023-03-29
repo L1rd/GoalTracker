@@ -19,6 +19,9 @@
     contrast(138%);
   --landingPage-reviews-click-nav-icon-color: none;
   --landingPage-review-shadow: drop-shadow(4px 4px 8px rgba(255, 210, 96, 0.5));
+  --landingPage-scroll-to-top-background: invert(54%) sepia(82%) saturate(266%) hue-rotate(190deg) brightness(103%)
+    contrast(98%);
+  --landingPage-scroll-to-top-active-background: #8ea6fc;
 }
 .theme-dark {
   --landingPage-background: linear-gradient(360deg, #012075 0%, #2647ac 33.65%, #012075 68.54%, #0b215c 99.99%);
@@ -40,4 +43,6 @@
   --landingPage-reviews-click-nav-icon-color: invert(21%) sepia(98%) saturate(7477%) hue-rotate(270deg) brightness(44%)
     contrast(138%);
   --landingPage-review-shadow: drop-shadow(4px 4px 8px rgba(255, 210, 96, 0.5));
+  --landingPage-scroll-to-top-background: none;
+  --landingPage-scroll-to-top-active-background: #0c88eb;
 }

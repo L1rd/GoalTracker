@@ -4,6 +4,8 @@ import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Container, 
 import QuestionArrow from 'assets/icons/question-arrow.svg';
 import User from 'assets/images/appoinment-user.svg';
 import { selectorGetTheme } from 'redux/goals-service/selectors';
+import ScrollToTop from 'shared/components/ScrollToTop';
+import { useScrollToTop } from 'shared/hooks/useScrollToTop';
 import { QUESTIONS } from 'utils/constans/questions';
 import Benefits from './components/Benefits';
 import Footer from './components/Footer';
@@ -14,6 +16,7 @@ import './style.scss';
 
 const LandingPage = () => {
 	const theme = useSelector(selectorGetTheme);
+	const { isShowScrollToTop } = useScrollToTop();
 	const { t } = useTranslation('landing');
 
 	return (
@@ -77,6 +80,7 @@ const LandingPage = () => {
 				</Box>
 			</Container>
 			<Footer />
+			{isShowScrollToTop && <ScrollToTop />}
 		</Box>
 	);
 };

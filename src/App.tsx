@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import cx from 'classnames';
 import { selectorGetTheme } from 'redux/goals-service/selectors';
-import Loader from 'shared/Loader';
+import Loader from 'shared/components/Loader';
 
 const LandingPage = lazy(() => import('components/Landing'));
 const GoalTracker = lazy(() => import('components/MainApp'));

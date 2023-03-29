@@ -1,6 +1,6 @@
 import { Box, LinearProgress, Typography, useTheme } from '@mui/material';
 import GoalDurationIcon from 'assets/icons/duration-icon.svg';
-import GoalIcon from 'shared/GoalIcon';
+import GoalIcon from 'shared/components/GoalIcon';
 import './style.scss';
 
 interface GoalProps {

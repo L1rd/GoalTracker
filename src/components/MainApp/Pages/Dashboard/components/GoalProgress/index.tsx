@@ -1,5 +1,5 @@
 import { Box, Typography, useTheme } from '@mui/material';
-import Goal from 'shared/Goal';
+import Goal from 'shared/components/Goal';
 
 const GoalProgress = () => {
 	const theme = useTheme();

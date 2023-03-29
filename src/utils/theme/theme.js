@@ -117,9 +117,12 @@ export const theme = createTheme(palette, {
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '8px',
 						padding: '16px 48px',
-						transition: '0.3s',
+						transition: '0.5s ease-in-out',
 
-						'& span': { color: `${palette.palette.darkYellow}`, textTransform: 'none' },
+						'& span': {
+							color: `${palette.palette.darkYellow}`,
+							textTransform: 'none',
+						},
 
 						'&:hover': {
 							background: `${palette.palette.lightBlue}`,
@@ -140,7 +143,7 @@ export const theme = createTheme(palette, {
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '8px',
 						padding: '8px 32px',
-						transition: '0.3s',
+						transition: '0.5s ease-in-out',
 
 						'& span': { color: `${palette.palette.darkYellow}`, textTransform: 'none' },
 
@@ -163,7 +166,7 @@ export const theme = createTheme(palette, {
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '6px',
 						padding: '8px 24px',
-						transition: '0.3s',
+						transition: '0.5s ease-in-out',
 
 						'& span': { color: `${palette.palette.darkYellow}`, textTransform: 'none' },
 
@@ -185,7 +188,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.darkYellow}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '8px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '16px 48px',
 
 						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
@@ -208,7 +211,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.darkYellow}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '8px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '8px 32px',
 
 						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
@@ -231,7 +234,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.darkYellow}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '6px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '8px 24px',
 
 						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
@@ -254,7 +257,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.lightYellow}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '8px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '16px 48px',
 						border: `1px solid ${palette.palette.lightYellow}`,
 
@@ -278,7 +281,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.lightYellow}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '8px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '8px 32px',
 						border: `1px solid ${palette.palette.lightYellow}`,
 
@@ -302,7 +305,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.lightYellow}`,
 						boxShadow: '4px 4px 8px rgba(32, 5, 104, 0.25)',
 						borderRadius: '6px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '8px 24px',
 						border: `1px solid ${palette.palette.lightYellow}`,
 
@@ -327,7 +330,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.blue}`,
 						boxShadow: '4px 4px 8px rgba(11, 33, 92, 0.25);',
 						borderRadius: '8px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '16px 48px',
 						border: `1px solid ${palette.palette.blue}`,
 
@@ -351,7 +354,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.blue}`,
 						boxShadow: '4px 4px 8px rgba(11, 33, 92, 0.25);',
 						borderRadius: '8px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '8px 32px',
 						border: `1px solid ${palette.palette.blue}`,
 
@@ -375,7 +378,7 @@ export const theme = createTheme(palette, {
 						background: `${palette.palette.blue}`,
 						boxShadow: '4px 4px 8px rgba(11, 33, 92, 0.25);',
 						borderRadius: '6px',
-						transition: '0.5s',
+						transition: '0.5s ease-in-out',
 						padding: '8px 24px',
 						border: `1px solid ${palette.palette.blue}`,
 
