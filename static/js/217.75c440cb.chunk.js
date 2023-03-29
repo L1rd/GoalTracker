@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_app=self.webpackChunkmy_app||[]).push([[217],{3217:function(a,p,c){c(2791);p.Z=c.p+"static/media/avatar.02c9ad67386664c0b907a4346fbb2b00.svg"}}]);
+//# sourceMappingURL=217.75c440cb.chunk.js.map

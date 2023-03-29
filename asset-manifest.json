@@ -1,7 +1,14 @@
 {
   "files": {
-    "main.css": "/GoalTracker/static/css/main.de61d789.css",
-    "main.js": "/GoalTracker/static/js/main.3629c981.js",
+    "main.css": "/GoalTracker/static/css/main.9aa6daef.css",
+    "main.js": "/GoalTracker/static/js/main.6de47455.js",
+    "static/css/804.91aad32b.chunk.css": "/GoalTracker/static/css/804.91aad32b.chunk.css",
+    "static/js/804.bda28c18.chunk.js": "/GoalTracker/static/js/804.bda28c18.chunk.js",
+    "static/css/46.f8ef393a.chunk.css": "/GoalTracker/static/css/46.f8ef393a.chunk.css",
+    "static/js/46.17520b01.chunk.js": "/GoalTracker/static/js/46.17520b01.chunk.js",
+    "static/js/222.fc986725.chunk.js": "/GoalTracker/static/js/222.fc986725.chunk.js",
+    "static/js/178.c75ecf93.chunk.js": "/GoalTracker/static/js/178.c75ecf93.chunk.js",
+    "static/js/217.75c440cb.chunk.js": "/GoalTracker/static/js/217.75c440cb.chunk.js",
     "static/media/team-light-background.svg": "/GoalTracker/static/media/team-light-background.340bc3101b88ea0a8cad.svg",
     "static/media/tracking-background.svg": "/GoalTracker/static/media/tracking-background.ed1ea7618597aa0d8741.svg",
     "static/media/avatar.svg": "/GoalTracker/static/media/avatar.02c9ad67386664c0b907a4346fbb2b00.svg",
@@ -21,6 +28,12 @@
     "static/media/stolzl_bold.otf": "/GoalTracker/static/media/stolzl_bold.e7dbff6869476c4643de.otf",
     "static/media/teamwork.svg": "/GoalTracker/static/media/teamwork.9e2008f2fde9aed88a46cff970dc3a9c.svg",
     "static/media/invitation.svg": "/GoalTracker/static/media/invitation.3ea7f83b8beea86253c3ba8f3043b14b.svg",
+    "static/media/state_3.svg": "/GoalTracker/static/media/state_3.f69e6ecd81e9cdddc7ef.svg",
+    "static/media/state_4.svg": "/GoalTracker/static/media/state_4.e018737a50f9eb374b9b.svg",
+    "static/media/state_5.svg": "/GoalTracker/static/media/state_5.87a22ae68559299d6a8b.svg",
+    "static/media/state_1.svg": "/GoalTracker/static/media/state_1.5e1a535077b75c211e80.svg",
+    "static/media/state_2.svg": "/GoalTracker/static/media/state_2.4f4d9dea342d659cdf08.svg",
+    "static/media/state_6.svg": "/GoalTracker/static/media/state_6.7ded66421883ddd1f621.svg",
     "static/media/feature.svg": "/GoalTracker/static/media/feature.5740dac50e63813e6645.svg",
     "static/media/feature-hover-2.svg": "/GoalTracker/static/media/feature-hover-2.aa87de1f34998d221368.svg",
     "static/media/feature-hover.svg": "/GoalTracker/static/media/feature-hover.fb9157e02330a2a15d7c.svg",
@@ -37,11 +50,18 @@
     "static/media/arrow.svg": "/GoalTracker/static/media/arrow.06149f5e01497760c089684632cfc6fc.svg",
     "static/media/question-arrow.svg": "/GoalTracker/static/media/question-arrow.204211001e07c8acab176c837f48c749.svg",
     "static/media/add.svg": "/GoalTracker/static/media/add.981fd7ea76bc5f173120.svg",
-    "main.de61d789.css.map": "/GoalTracker/static/css/main.de61d789.css.map",
-    "main.3629c981.js.map": "/GoalTracker/static/js/main.3629c981.js.map"
+    "main.9aa6daef.css.map": "/GoalTracker/static/css/main.9aa6daef.css.map",
+    "main.6de47455.js.map": "/GoalTracker/static/js/main.6de47455.js.map",
+    "804.91aad32b.chunk.css.map": "/GoalTracker/static/css/804.91aad32b.chunk.css.map",
+    "804.bda28c18.chunk.js.map": "/GoalTracker/static/js/804.bda28c18.chunk.js.map",
+    "46.f8ef393a.chunk.css.map": "/GoalTracker/static/css/46.f8ef393a.chunk.css.map",
+    "46.17520b01.chunk.js.map": "/GoalTracker/static/js/46.17520b01.chunk.js.map",
+    "222.fc986725.chunk.js.map": "/GoalTracker/static/js/222.fc986725.chunk.js.map",
+    "178.c75ecf93.chunk.js.map": "/GoalTracker/static/js/178.c75ecf93.chunk.js.map",
+    "217.75c440cb.chunk.js.map": "/GoalTracker/static/js/217.75c440cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.de61d789.css",
-    "static/js/main.3629c981.js"
+    "static/css/main.9aa6daef.css",
+    "static/js/main.6de47455.js"
   ]
 }
