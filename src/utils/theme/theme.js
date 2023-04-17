@@ -43,7 +43,7 @@ export const theme = createTheme(palette, {
 		h4: {
 			fontFamily: 'Stolzl',
 			fontStyle: 'normal',
-			fontWeight: '500',
+			fontWeight: '600',
 			fontSize: '24px',
 			lineHeight: '29px',
 			letterSpacing: '0.0025em',
@@ -51,7 +51,7 @@ export const theme = createTheme(palette, {
 		subtitle: {
 			fontFamily: 'Stolzl',
 			fontStyle: 'normal',
-			fontWeight: '500',
+			fontWeight: '600',
 			fontSize: '18px',
 			lineHeight: '150%',
 			letterSpacing: '0.0015em',
@@ -190,6 +190,7 @@ export const theme = createTheme(palette, {
 						borderRadius: '8px',
 						transition: '0.5s ease-in-out',
 						padding: '16px 48px',
+						border: `1px solid ${palette.palette.darkYellow}`,
 
 						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
 
@@ -213,6 +214,7 @@ export const theme = createTheme(palette, {
 						borderRadius: '8px',
 						transition: '0.5s ease-in-out',
 						padding: '8px 32px',
+						border: `1px solid ${palette.palette.darkYellow}`,
 
 						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
 
@@ -236,6 +238,7 @@ export const theme = createTheme(palette, {
 						borderRadius: '6px',
 						transition: '0.5s ease-in-out',
 						padding: '8px 24px',
+						border: `1px solid ${palette.palette.darkYellow}`,
 
 						'& span': { color: `${palette.palette.darkBlue}`, textTransform: 'none' },
 
@@ -418,6 +421,11 @@ export const theme = createTheme(palette, {
 					borderRadius: '0',
 					boxShadow: 'none',
 					border: 'none',
+					transition: 'all .4s ease-in-out',
+
+					'&:hover': {
+						transform: 'scale(1.1)',
+					},
 
 					'&.Mui-expanded': {
 						margin: '0 0',
@@ -458,6 +466,43 @@ export const theme = createTheme(palette, {
 				},
 				select: {
 					padding: '5px 6px !important',
+				},
+			},
+		},
+		MuiCircularProgress: {
+			styleOverrides: {
+				root: {
+					width: '100px !important',
+					height: '100px !important',
+					color: `${palette.palette.darkBlue}`,
+					zIndex: '1',
+				},
+			},
+		},
+		MuiSnackbar: {
+			styleOverrides: {
+				root: {
+					alignItems: 'flex-start',
+					right: '10px !important',
+					top: '10px',
+					left: 'inherit !important',
+					bottom: 'inherit',
+				},
+			},
+		},
+		MuiAlert: {
+			styleOverrides: {
+				icon: {
+					color: '#FF2D55 !important',
+					fontSize: '25px',
+				},
+				action: {
+					paddingTop: '0px',
+				},
+				root: {
+					background: `${palette.palette.lightYellow}`,
+					alignItems: 'center',
+					color: '#FF2D55',
 				},
 			},
 		},

@@ -59,6 +59,11 @@
 		}
 	}
 
+	&__made {
+		@include flex($align: center, $justify: center, $direction: row);
+		gap: 6px;
+	}
+
 	&__action {
 		@include flex($align: center, $justify: center, $direction: row);
 		gap: 24px;
@@ -71,6 +76,12 @@
 			padding: 12px 0 12px 24px;
 			border: none;
 			transition: 0.3s;
+			font-family: "Stolzl";
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: 0.005em;
+			color: #0b215c;
 
 			&:focus {
 				outline: none;

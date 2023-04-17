@@ -18,7 +18,7 @@ const Navigation = () => {
 		{
 			icon: Dashboard,
 			title: 'Dashboard',
-			path: '',
+			path: '/GoalTracker/MainApp/Dashboard',
 		},
 		{
 			icon: Team,
@@ -28,7 +28,7 @@ const Navigation = () => {
 		{
 			icon: Goals,
 			title: 'Goals',
-			path: '',
+			path: '/GoalTracker/MainApp/Goals',
 		},
 		{
 			icon: Calendar,
@@ -69,7 +69,10 @@ const Navigation = () => {
 							className={cx('navigation__link', {
 								choosen: choosenAction === page.title,
 							})}
-							onClick={() => setChoosenAction(page.title)}
+							onClick={() => {
+								setChoosenAction(page.title);
+								navigate(page.path);
+							}}
 						>
 							<img src={page.icon} alt={page.title} />
 							<Typography variant="subtitle" sx={{ color: `${theme.palette.lightYellow}` }}>

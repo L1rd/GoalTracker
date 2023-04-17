@@ -1,0 +1,16 @@
+@import "assets/styles/mixins";
+
+.goal-task {
+	@include flex($align: center, $justify: flex-start, $direction: row);
+	width: 100%;
+	gap: 8px;
+
+	&__info {
+		width: 100%;
+	}
+
+	&__description {
+		@include flex($align: center, $justify: space-between, $direction: row);
+		margin-bottom: 12px;
+	}
+}

@@ -8,9 +8,9 @@
 	height: 201px;
 	background: url("~assets/icons/state_1.svg") center no-repeat;
 	animation-name: loaderAnimation;
-	animation-timing-function: ease-in-out;
+	animation-timing-function: ease-out;
 	animation-iteration-count: infinite;
-	animation-duration: 3s;
+	animation-duration: 4s;
 
 	&__wrapper {
 		position: relative;
@@ -24,16 +24,22 @@
 	0% {
 		background: url("~assets/icons/state_2.svg");
 	}
-	25% {
+	20% {
 		background: url("~assets/icons/state_3.svg");
 	}
-	50% {
+	40% {
 		background: url("~assets/icons/state_4.svg");
 	}
-	75% {
+	60% {
 		background: url("~assets/icons/state_5.svg");
+		filter: none;
+	}
+	80% {
+		background: url("~assets/icons/state_6.svg");
+		filter: drop-shadow(0 0 0.75rem rgb(220, 210, 20));
 	}
 	100% {
 		background: url("~assets/icons/state_6.svg");
+		filter: drop-shadow(0 0 0.75rem rgb(220, 210, 20));
 	}
 }
