@@ -129,6 +129,7 @@
 
 		& img {
 			filter: $landingPage-reviews-nav-icon-color;
+			user-select: none;
 		}
 
 		&:hover {
@@ -267,7 +268,7 @@
 		position: absolute;
 		top: 55px;
 		left: -15px;
-		background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, $landingPage-reviews-text-color 90%);
+		background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, $landingPage-swiper-sides-shadow-color 90%);
 		will-change: opacity;
 		pointer-events: none;
 		z-index: 100;
@@ -279,7 +280,11 @@
 		position: absolute;
 		top: 55px;
 		right: -10px;
-		background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, $landingPage-reviews-text-color 90%);
+		background-image: linear-gradient(
+			to right,
+			rgba(255, 255, 255, 0) 0%,
+			$landingPage-swiper-sides-shadow-color 90%
+		);
 		will-change: opacity;
 		pointer-events: none;
 		z-index: 100;

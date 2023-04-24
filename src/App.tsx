@@ -16,7 +16,7 @@ const App = () => {
 			<Suspense fallback={<Loader />}>
 				<Routes>
 					<Route path="/GoalTracker/" element={<LandingPage />} />
-					<Route path="/MainApp" element={<GoalTracker />} />
+					<Route path="/GoalTracker/MainApp/*" element={<GoalTracker />} />
 				</Routes>
 			</Suspense>
 		</div>

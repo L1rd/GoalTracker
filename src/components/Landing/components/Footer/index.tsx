@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Box, Button, Container, Typography } from '@mui/material';
 import Logo from 'assets/icons/logo.svg';
+import UkraineFlag from 'assets/icons/ukraine-flag-icon.svg';
 import { selectorGetTheme } from 'redux/goals-service/selectors';
 import './style.scss';
 
@@ -31,7 +32,7 @@ const Footer = () => {
 							<Button
 								variant={theme === 'theme-dark' ? 'buttonDark' : 'buttonLight'}
 								color="primary"
-								size="small"
+								size="medium"
 							>
 								<Typography variant="smallDetails">{t('subscribe')}</Typography>
 							</Button>
@@ -39,7 +40,10 @@ const Footer = () => {
 					</Box>
 				</Box>
 				<Box className="footer__copyright">
-					<Typography variant="smallDetailsSecond">© Copyright 2023</Typography>
+					<Box className="footer__made">
+						<img src={UkraineFlag} alt="Ukraine Flag" />
+						<Typography variant="smallDetails">{t('made-in-ukraine')}</Typography>
+					</Box>
 					<Typography variant="smallDetailsSecond" sx={{ textAlign: 'center' }}>
 						Copyright 2023. All rights reserved. <br />
 						Powered by “Життя це страждання”

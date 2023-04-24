@@ -1,16 +1,59 @@
-@import "assets/styles/mixins";
+@import "~assets/styles/main.scss";
 
 .goal {
 	@include flex($align: center, $justify: flex-start, $direction: row);
-	width: 100%;
-	gap: 8px;
+	gap: 16px;
+	padding: 16px;
+	background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
+	filter: drop-shadow(4px 4px 8px rgba(11, 33, 92, 0.75));
+	border-radius: 12px;
+	width: 555px;
+
+	&__progress {
+		@include flex($align: center, $justify: center, $direction: row);
+		background: linear-gradient(0deg, rgba(226, 155, 41, 0.5) 15%, rgba(226, 155, 41, 0) 100%);
+		border-radius: 12px;
+		padding: 18px;
+	}
+
+	&__delete {
+		display: block;
+		cursor: pointer;
+		transition: all 0.5s;
+
+		&:hover {
+			filter: drop-shadow(0 0 0.75rem #0d2569);
+		}
+	}
+
+	&__header {
+		@include flex($align: center, $justify: space-between, $direction: row);
+		margin-bottom: 8px;
+		width: 100%;
+
+		&-title {
+			@include flex($align: center, $justify: flex-start, $direction: row);
+			gap: 8px;
+			color: #0d2569;
+			font-weight: bolder !important;
+		}
+	}
 
 	&__info {
+		@include flex($align: flex-start, $justify: center, $direction: column);
 		width: 100%;
 	}
 
-	&__description {
-		@include flex($align: center, $justify: space-between, $direction: row);
-		margin-bottom: 12px;
+	&__parameters {
+		@include flex($align: flex-start, $justify: center, $direction: column);
+		gap: 2px;
+
+		& span span {
+			font-weight: bold;
+		}
+	}
+
+	&__view {
+		align-self: flex-end;
 	}
 }

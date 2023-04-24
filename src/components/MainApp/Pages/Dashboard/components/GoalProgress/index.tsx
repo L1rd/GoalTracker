@@ -1,5 +1,5 @@
 import { Box, Typography, useTheme } from '@mui/material';
-import Goal from 'shared/components/Goal';
+import GoalTask from 'shared/components/GoalTask';
 
 const GoalProgress = () => {
 	const theme = useTheme();
@@ -14,9 +14,9 @@ const GoalProgress = () => {
 				</Typography>
 			</Box>
 			<Box className="goal-progress__list">
-				<Goal goal="Save 1500$" progress="$375/1500" />
-				<Goal goal="Save 1500$" progress="$375/1500" />
-				<Goal goal="Save 1500$" progress="$375/1500" />
+				<GoalTask goal="Save 1500$" progress="$375/1500" />
+				<GoalTask goal="Save 1500$" progress="$375/1500" />
+				<GoalTask goal="Save 1500$" progress="$375/1500" />
 			</Box>
 		</Box>
 	);

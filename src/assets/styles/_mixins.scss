@@ -4,3 +4,18 @@
 	justify-content: $justify;
 	flex-direction: $direction;
 }
+
+@mixin text-ellipsis($lines: 1) {
+	@if $lines == 1 {
+		white-space: nowrap;
+		display: list-item !important;
+	} @else {
+		word-wrap: break-word;
+		display: -webkit-box;
+		-webkit-line-clamp: $lines;
+		-webkit-box-orient: vertical;
+	}
+
+	overflow: hidden !important;
+	text-overflow: ellipsis;
+}

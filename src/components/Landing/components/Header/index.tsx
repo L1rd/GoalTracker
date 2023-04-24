@@ -75,7 +75,7 @@ const Header = () => {
 								variant={theme === 'theme-dark' ? 'buttonDark' : 'buttonLight'}
 								size="small"
 								color="primary"
-								onClick={() => navigate('/MainApp')}
+								onClick={() => navigate('/GoalTracker/MainApp/Dashboard')}
 							>
 								<Typography variant="body">{t('signUp')}</Typography>
 							</Button>
