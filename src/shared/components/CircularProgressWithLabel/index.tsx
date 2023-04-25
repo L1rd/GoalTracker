@@ -13,8 +13,7 @@ const CircularProgressWithLabel = ({ value }: { value: number }) => (
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				border: '9px solid white',
-				zIndex: '-1',
+				border: '9px solid #FFEFC6',
 				borderRadius: '50px',
 			}}
 		>

@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react';
+import ReactDom from 'react-dom';
 import { Alert, Box, Button, Snackbar, TextField, Typography } from '@mui/material';
 import cx from 'classnames';
 import { useEnableEffect } from 'shared/hooks/useEnableEffect';
@@ -11,6 +13,9 @@ interface AddCategoryModalProps {
 	isShowError: boolean;
 	setIsShowError: Dispatch<SetStateAction<boolean>>;
 }
+
+// @ts-ignore
+const containerEl = document.getElementById('portal-root');
 
 const AddCategoryModal: FC<AddCategoryModalProps> = ({
 	isShow,
@@ -30,7 +35,7 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({
 		setInputValue(event.target.value.trim());
 	};
 
-	return (
+	return ReactDom.createPortal(
 		<Box className="add-modal__wrapper">
 			<Box
 				className={cx('add-modal', {
@@ -73,7 +78,9 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({
 					</Alert>
 				</Snackbar>
 			</Box>
-		</Box>
+		</Box>,
+		// @ts-ignore
+		containerEl
 	);
 };
 

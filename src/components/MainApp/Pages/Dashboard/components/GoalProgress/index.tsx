@@ -7,7 +7,7 @@ const GoalProgress = () => {
 		<Box className="goal-progress">
 			<Box className="goal-progress__header">
 				<Typography variant="subtitle" sx={{ color: `${theme.palette.darkYellow}` }}>
-					Goal Progress
+					Recently updated
 				</Typography>
 				<Typography variant="link" sx={{ color: `${theme.palette.darkYellow}` }}>
 					View all

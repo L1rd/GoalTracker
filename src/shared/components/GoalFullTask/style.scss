@@ -1,0 +1,20 @@
+@import "~assets/styles/main.scss";
+
+.goal-full-task {
+	@include flex($align: center, $justify: space-between, $direction: row);
+	width: 90%;
+
+	&__time {
+		color: $brown;
+	}
+
+	&__title {
+		color: $darkBlue;
+		font-weight: bold;
+	}
+
+	&__sides {
+		@include flex($align: center, $justify: flex-start, $direction: row);
+		gap: 12px;
+	}
+}
