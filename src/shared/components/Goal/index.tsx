@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import Delete from 'assets/icons/delete-icon.svg';
 import HighPriority from 'assets/icons/high-priority.svg';
@@ -15,9 +16,10 @@ interface GoalProps {
 	timeStart: string;
 	timeEnd: string;
 	category: string;
+	setIsShow: Dispatch<SetStateAction<boolean>>;
 }
 
-const Goal = ({ progress, title, priority, status, timeStart, timeEnd, category }: GoalProps) => {
+const Goal = ({ progress, title, priority, status, timeStart, timeEnd, category, setIsShow }: GoalProps) => {
 	const getPriority = (priority: number) => {
 		switch (priority) {
 			case 5:
@@ -62,7 +64,13 @@ const Goal = ({ progress, title, priority, status, timeStart, timeEnd, category 
 						<span>Category</span>: {category}
 					</Typography>
 				</Box>
-				<Button variant="buttonLight" size="small" color="secondary" className="goal__view">
+				<Button
+					variant="buttonLight"
+					size="small"
+					color="secondary"
+					className="goal__view"
+					onClick={() => setIsShow(true)}
+				>
 					<Typography variant="smallDetails">View goal</Typography>
 				</Button>
 			</Box>

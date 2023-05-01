@@ -6,7 +6,7 @@ const DailyTasks = () => {
 		<Box className="daily-tasks">
 			<Box className="daily-tasks__header">
 				<Typography variant="subtitle" sx={{ color: `${theme.palette.darkYellow}` }}>
-					Team Updates
+					Daily tasks
 				</Typography>
 			</Box>
 			<Box className="daily-tasks__list">
