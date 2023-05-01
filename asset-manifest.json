@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/GoalTracker/static/css/main.1aa0ef29.css",
-    "main.js": "/GoalTracker/static/js/main.d1c7e079.js",
+    "main.js": "/GoalTracker/static/js/main.3690a28a.js",
     "static/css/525.089754c1.chunk.css": "/GoalTracker/static/css/525.089754c1.chunk.css",
-    "static/js/525.a889a6b2.chunk.js": "/GoalTracker/static/js/525.a889a6b2.chunk.js",
+    "static/js/525.1cfe9354.chunk.js": "/GoalTracker/static/js/525.1cfe9354.chunk.js",
     "static/css/240.5b01828c.chunk.css": "/GoalTracker/static/css/240.5b01828c.chunk.css",
-    "static/js/240.15007ab3.chunk.js": "/GoalTracker/static/js/240.15007ab3.chunk.js",
-    "static/js/809.d9d0bcd2.chunk.js": "/GoalTracker/static/js/809.d9d0bcd2.chunk.js",
-    "static/js/692.dc19c109.chunk.js": "/GoalTracker/static/js/692.dc19c109.chunk.js",
-    "static/js/207.6f3944cb.chunk.js": "/GoalTracker/static/js/207.6f3944cb.chunk.js",
+    "static/js/240.26a2fa9d.chunk.js": "/GoalTracker/static/js/240.26a2fa9d.chunk.js",
+    "static/js/431.647e8935.chunk.js": "/GoalTracker/static/js/431.647e8935.chunk.js",
+    "static/js/6.dcea20b4.chunk.js": "/GoalTracker/static/js/6.dcea20b4.chunk.js",
+    "static/js/478.7910c2da.chunk.js": "/GoalTracker/static/js/478.7910c2da.chunk.js",
     "static/js/217.75c440cb.chunk.js": "/GoalTracker/static/js/217.75c440cb.chunk.js",
     "static/media/team-light-background.svg": "/GoalTracker/static/media/team-light-background.340bc3101b88ea0a8cad.svg",
     "static/media/tracking-background.svg": "/GoalTracker/static/media/tracking-background.ed1ea7618597aa0d8741.svg",
@@ -64,18 +64,18 @@
     "static/media/high-priority.svg": "/GoalTracker/static/media/high-priority.b71e693fd9f4d84dfa0197df194ebe6a.svg",
     "static/media/add.svg": "/GoalTracker/static/media/add.981fd7ea76bc5f173120.svg",
     "main.1aa0ef29.css.map": "/GoalTracker/static/css/main.1aa0ef29.css.map",
-    "main.d1c7e079.js.map": "/GoalTracker/static/js/main.d1c7e079.js.map",
+    "main.3690a28a.js.map": "/GoalTracker/static/js/main.3690a28a.js.map",
     "525.089754c1.chunk.css.map": "/GoalTracker/static/css/525.089754c1.chunk.css.map",
-    "525.a889a6b2.chunk.js.map": "/GoalTracker/static/js/525.a889a6b2.chunk.js.map",
+    "525.1cfe9354.chunk.js.map": "/GoalTracker/static/js/525.1cfe9354.chunk.js.map",
     "240.5b01828c.chunk.css.map": "/GoalTracker/static/css/240.5b01828c.chunk.css.map",
-    "240.15007ab3.chunk.js.map": "/GoalTracker/static/js/240.15007ab3.chunk.js.map",
-    "809.d9d0bcd2.chunk.js.map": "/GoalTracker/static/js/809.d9d0bcd2.chunk.js.map",
-    "692.dc19c109.chunk.js.map": "/GoalTracker/static/js/692.dc19c109.chunk.js.map",
-    "207.6f3944cb.chunk.js.map": "/GoalTracker/static/js/207.6f3944cb.chunk.js.map",
+    "240.26a2fa9d.chunk.js.map": "/GoalTracker/static/js/240.26a2fa9d.chunk.js.map",
+    "431.647e8935.chunk.js.map": "/GoalTracker/static/js/431.647e8935.chunk.js.map",
+    "6.dcea20b4.chunk.js.map": "/GoalTracker/static/js/6.dcea20b4.chunk.js.map",
+    "478.7910c2da.chunk.js.map": "/GoalTracker/static/js/478.7910c2da.chunk.js.map",
     "217.75c440cb.chunk.js.map": "/GoalTracker/static/js/217.75c440cb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1aa0ef29.css",
-    "static/js/main.d1c7e079.js"
+    "static/js/main.3690a28a.js"
   ]
 }
