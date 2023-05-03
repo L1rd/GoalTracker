@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IGoalReducer } from './interfaces';
-import { changeThemeOperation } from './operations';
+import { changePageOperation, changeThemeOperation } from './operations';
 
 const initialState: IGoalReducer = {
 	goals: [],
 	theme: 'theme-dark',
+	currentPage: '',
 };
 
 export const goalsSlice = createSlice({
@@ -12,7 +13,8 @@ export const goalsSlice = createSlice({
 	initialState,
 	reducers: {
 		changeTheme: changeThemeOperation,
+		changePage: changePageOperation,
 	},
 });
-export const { changeTheme } = goalsSlice.actions;
+export const { changeTheme, changePage } = goalsSlice.actions;
 export default goalsSlice.reducer;

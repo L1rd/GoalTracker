@@ -149,7 +149,7 @@
 
 	&__list {
 		@include flex($align: flex-start, $justify: flex-start, $direction: column);
-		height: 700px;
+		height: 83vh;
 		overflow-y: auto;
 		overflow-x: visible;
 		gap: 17px;

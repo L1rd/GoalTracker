@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Container, Typography } from '@mui/material';
 import QuestionArrow from 'assets/icons/question-arrow.svg';
 import User from 'assets/images/appoinment-user.svg';
@@ -18,6 +19,7 @@ const LandingPage = () => {
 	const theme = useSelector(selectorGetTheme);
 	const { isShowScrollToTop } = useScrollToTop();
 	const { t } = useTranslation('landing');
+	const navigate = useNavigate();
 
 	return (
 		<Box className="landing">
@@ -35,6 +37,7 @@ const LandingPage = () => {
 							variant={theme === 'theme-dark' ? 'buttonLight' : 'buttonDark'}
 							color={theme === 'theme-dark' ? 'primary' : 'secondary'}
 							size="large"
+							onClick={() => navigate('/GoalTracker/Auth/SignUp')}
 						>
 							<Typography variant="subtitle">{t('start-your-journey')}</Typography>
 						</Button>
@@ -63,7 +66,7 @@ const LandingPage = () => {
 					</Typography>
 					<Box className="landing__question" sx={{ marginBottom: '144px' }}>
 						{QUESTIONS.map(item => (
-							<Accordion>
+							<Accordion key={item.question}>
 								<AccordionSummary expandIcon={<img src={QuestionArrow} alt="QuestionArrow" />}>
 									<Typography variant="h4" className="landing__question-title">
 										{t(item.question)}

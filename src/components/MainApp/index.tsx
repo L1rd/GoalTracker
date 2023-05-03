@@ -15,6 +15,7 @@ const GoalTracker = () => {
 				justifyContent: 'center',
 				background: 'linear-gradient(360deg, #012075 0%, #2647AC 33.65%, #012075 68.54%, #0B215C 99.99%)',
 				height: '100%',
+				minHeight: '100vh',
 			}}
 		>
 			<Navigation />

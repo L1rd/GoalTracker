@@ -1,0 +1,33 @@
+@import "~assets/styles/main.scss";
+
+.custom-input {
+	width: 100%;
+
+	& label {
+		display: block;
+	}
+
+	& .error {
+		color: #e83838;
+		font-weight: bold;
+	}
+
+	& input {
+		background: #fff6e0;
+		border: 1px solid $blue;
+		box-shadow: 4px 4px 8px rgba(11, 33, 92, 0.25);
+		border-radius: 8px;
+		height: 40px;
+		width: 100%;
+		padding: 0 10px;
+		box-sizing: border-box;
+
+		&.input-error {
+			border: 1px solid #e83838;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
