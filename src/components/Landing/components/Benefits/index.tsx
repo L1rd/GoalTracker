@@ -1,5 +1,9 @@
 import { useTranslation } from 'react-i18next';
+
+// MUI
 import { Box, Typography } from '@mui/material';
+
+// Icons
 import Calendar from 'assets/images/calendar.svg';
 import Teamwork from 'assets/images/teamwork.svg';
 import Tracking from 'assets/images/tracking.svg';

@@ -9,12 +9,7 @@ const DailyTasks = () => {
 					Daily tasks
 				</Typography>
 			</Box>
-			<Box className="daily-tasks__list">
-				<Box sx={{ background: '#FFF6E0', borderRadius: '12px', width: '100%', height: '40px' }} />
-				<Box sx={{ background: '#FFF6E0', borderRadius: '12px', width: '100%', height: '40px' }} />
-				<Box sx={{ background: '#FFF6E0', borderRadius: '12px', width: '100%', height: '40px' }} />
-				<Box sx={{ background: '#FFF6E0', borderRadius: '12px', width: '100%', height: '40px' }} />
-			</Box>
+			<Box className="daily-tasks__list" />
 		</Box>
 	);
 };

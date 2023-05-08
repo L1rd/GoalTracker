@@ -1,5 +1,9 @@
+import { GoalCategory, GoalInterface, GoalStatus } from 'utils/interfaces/goal';
+
 export interface IGoalReducer {
-	goals: unknown[];
+	goals: GoalInterface[];
+	categories: GoalCategory[];
+	statuses: GoalStatus[];
 	theme: string;
 	currentPage: string;
 }

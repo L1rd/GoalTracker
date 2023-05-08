@@ -248,18 +248,6 @@
 	}
 }
 
-@keyframes hittingAnArrow {
-	0% {
-		content: url("~assets/icons/feature.svg");
-	}
-	50% {
-		content: url("~assets/icons/feature-hover-2.svg");
-	}
-	100% {
-		content: url("~assets/icons/feature-hover.svg");
-	}
-}
-
 .swiper {
 	&::after {
 		content: "";

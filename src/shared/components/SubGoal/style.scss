@@ -1,0 +1,14 @@
+@import "~assets/styles/main.scss";
+
+.subgoal {
+	&__info {
+		display: flex;
+		gap: 32px;
+		align-items: center;
+	}
+
+	&__title {
+		@include text-ellipsis();
+		max-width: 250px;
+	}
+}

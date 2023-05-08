@@ -1,15 +1,23 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+// MUI
 import { Box, Button, Rating, Typography } from '@mui/material';
-import Arrow from 'assets/icons/arrow.svg';
-import Avatar from 'assets/icons/avatar.svg';
-import { selectorGetTheme } from 'redux/goals-service/selectors';
+
+// Swiper
 import { EffectCoverflow, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
+// Icons
+import Arrow from 'assets/icons/arrow.svg';
+import Avatar from 'assets/icons/avatar.svg';
+
+// Selectors
+import { selectorGetTheme } from 'redux/goals-service/selectors';
 
 const Reviews = () => {
 	const theme = useSelector(selectorGetTheme);

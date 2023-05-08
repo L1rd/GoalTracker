@@ -16,16 +16,6 @@
 		padding: 18px;
 	}
 
-	&__delete {
-		display: block;
-		cursor: pointer;
-		transition: all 0.5s;
-
-		&:hover {
-			filter: drop-shadow(0 0 0.75rem #0d2569);
-		}
-	}
-
 	&__header {
 		@include flex($align: center, $justify: space-between, $direction: row);
 		margin-bottom: 8px;
@@ -36,6 +26,10 @@
 			gap: 8px;
 			color: #0d2569;
 			font-weight: bolder !important;
+			& h4 {
+				@include text-ellipsis();
+				max-width: 250px;
+			}
 		}
 	}
 

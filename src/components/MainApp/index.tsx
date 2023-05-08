@@ -1,6 +1,10 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { Box } from '@mui/material';
 import { AnimatePresence } from 'framer-motion';
+
+// MUI
+import { Box } from '@mui/material';
+
+// Components
 import Dashboard from './Pages/Dashboard';
 import Goals from './Pages/Goals';
 import Navigation from './Navigation';
@@ -22,7 +26,7 @@ const GoalTracker = () => {
 			<AnimatePresence>
 				<Routes location={location}>
 					<Route path="/Dashboard/" element={<Dashboard />} />
-					<Route path="/Goals/" element={<Goals />} />
+					<Route path="/Goals/*" element={<Goals />} />
 				</Routes>
 			</AnimatePresence>
 		</Box>

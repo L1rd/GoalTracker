@@ -8,8 +8,12 @@
 	}
 
 	& .error {
+		display: block;
 		color: #e83838;
 		font-weight: bold;
+		text-align: justify;
+		width: 100%;
+		margin-top: 3px;
 	}
 
 	& input {

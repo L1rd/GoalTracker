@@ -19,27 +19,3 @@
 		width: 100%;
 	}
 }
-
-@keyframes loaderAnimation {
-	0% {
-		background: url("~assets/icons/state_2.svg");
-	}
-	20% {
-		background: url("~assets/icons/state_3.svg");
-	}
-	40% {
-		background: url("~assets/icons/state_4.svg");
-	}
-	60% {
-		background: url("~assets/icons/state_5.svg");
-		filter: none;
-	}
-	80% {
-		background: url("~assets/icons/state_6.svg");
-		filter: drop-shadow(0 0 0.75rem rgb(220, 210, 20));
-	}
-	100% {
-		background: url("~assets/icons/state_6.svg");
-		filter: drop-shadow(0 0 0.75rem rgb(220, 210, 20));
-	}
-}

@@ -11,10 +11,20 @@
 	&__title {
 		color: $darkBlue;
 		font-weight: bold;
+		@include text-ellipsis();
+		max-width: 250px;
 	}
 
 	&__sides {
 		@include flex($align: center, $justify: flex-start, $direction: row);
 		gap: 12px;
+
+		& span {
+			transition: 0.4s;
+		}
+
+		&.checked span {
+			color: grey;
+		}
 	}
 }

@@ -1,15 +1,25 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import cx from 'classnames';
+
+// Selectors
+import { selectorGetCurrentPage } from 'redux/goals-service/selectors';
+
+// Ations
+import { changePage } from 'redux/goals-service/reducer';
+
+// MUI
 import { Box, Typography, useTheme } from '@mui/material';
+
+// Icons
 import Avatar from 'assets/icons/avatar.svg';
 import Calendar from 'assets/icons/calendar.svg';
 import Dashboard from 'assets/icons/dashboard.svg';
 import Goals from 'assets/icons/goals.svg';
 import Team from 'assets/icons/team.svg';
-import cx from 'classnames';
-import { changePage } from 'redux/goals-service/reducer';
-import { selectorGetCurrentPage } from 'redux/goals-service/selectors';
+
+// Styles
 import './style.scss';
 
 const Navigation = () => {
@@ -23,7 +33,7 @@ const Navigation = () => {
 		{
 			icon: Dashboard,
 			title: 'Dashboard',
-			path: '/GoalTracker/MainApp/Dashboard',
+			path: 'Dashboard',
 		},
 		{
 			icon: Team,
@@ -33,7 +43,7 @@ const Navigation = () => {
 		{
 			icon: Goals,
 			title: 'Goals',
-			path: '/GoalTracker/MainApp/Goals',
+			path: 'Goals',
 		},
 		{
 			icon: Calendar,
@@ -70,7 +80,7 @@ const Navigation = () => {
 						choosen: currentPage === 'Add new goal',
 					})}
 					sx={{ color: `${theme.palette.darkYellow}`, marginBottom: '55px' }}
-					onClick={() => handleChangeCurrentPage('Add new goal')}
+					onClick={() => navigate('Goals/CreateGoal')}
 				>
 					Add new goal
 				</Typography>
@@ -78,7 +88,7 @@ const Navigation = () => {
 					{PAGES_LIST.map(page => (
 						<Box
 							className={cx('navigation__link', {
-								choosen: currentPage === page.title,
+								choosen: currentPage?.includes(page.title),
 							})}
 							onClick={() => navigate(page.path)}
 							key={page.title}

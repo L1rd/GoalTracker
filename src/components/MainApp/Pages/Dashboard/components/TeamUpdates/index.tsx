@@ -12,12 +12,7 @@ const TeamUpdates = () => {
 					View all
 				</Typography>
 			</Box>
-			<Box className="team-updates__list">
-				<Box sx={{ background: '#FFF6E0', borderRadius: '12px', width: '100%', height: '40px' }} />
-				<Box sx={{ background: '#FFF6E0', borderRadius: '12px', width: '100%', height: '40px' }} />
-				<Box sx={{ background: '#FFF6E0', borderRadius: '12px', width: '100%', height: '40px' }} />
-				<Box sx={{ background: '#FFF6E0', borderRadius: '12px', width: '100%', height: '40px' }} />
-			</Box>
+			<Box className="team-updates__list" />
 		</Box>
 	);
 };
