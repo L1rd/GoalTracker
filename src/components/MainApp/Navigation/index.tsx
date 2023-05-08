@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Box, Typography, useTheme } from '@mui/material';
 import Avatar from 'assets/icons/avatar.svg';
 import Calendar from 'assets/icons/calendar.svg';
@@ -7,12 +8,16 @@ import Dashboard from 'assets/icons/dashboard.svg';
 import Goals from 'assets/icons/goals.svg';
 import Team from 'assets/icons/team.svg';
 import cx from 'classnames';
+import { changePage } from 'redux/goals-service/reducer';
+import { selectorGetCurrentPage } from 'redux/goals-service/selectors';
 import './style.scss';
 
 const Navigation = () => {
 	const theme = useTheme();
-	const [choosenAction, setChoosenAction] = useState('Dashboard');
+	const currentPage = useSelector(selectorGetCurrentPage);
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const param = useParams();
 
 	const PAGES_LIST = [
 		{
@@ -37,6 +42,12 @@ const Navigation = () => {
 		},
 	];
 
+	const handleChangeCurrentPage = (page: string) => dispatch(changePage(page));
+
+	useEffect(() => {
+		if (param['*']) dispatch(changePage(param['*']));
+	}, [param['*']]);
+
 	return (
 		<Box className="navigation">
 			<Box className="navigation__header">
@@ -56,10 +67,10 @@ const Navigation = () => {
 				<Typography
 					variant="subtitle"
 					className={cx('navigation__add-goal', {
-						choosen: choosenAction === 'Add new goal',
+						choosen: currentPage === 'Add new goal',
 					})}
 					sx={{ color: `${theme.palette.darkYellow}`, marginBottom: '55px' }}
-					onClick={() => setChoosenAction('Add new goal')}
+					onClick={() => handleChangeCurrentPage('Add new goal')}
 				>
 					Add new goal
 				</Typography>
@@ -67,12 +78,10 @@ const Navigation = () => {
 					{PAGES_LIST.map(page => (
 						<Box
 							className={cx('navigation__link', {
-								choosen: choosenAction === page.title,
+								choosen: currentPage === page.title,
 							})}
-							onClick={() => {
-								setChoosenAction(page.title);
-								navigate(page.path);
-							}}
+							onClick={() => navigate(page.path)}
+							key={page.title}
 						>
 							<img src={page.icon} alt={page.title} />
 							<Typography variant="subtitle" sx={{ color: `${theme.palette.lightYellow}` }}>
@@ -85,23 +94,20 @@ const Navigation = () => {
 					<Typography
 						variant="subtitle"
 						className={cx('navigation__settings', {
-							choosen: choosenAction === 'Settings',
+							choosen: currentPage === 'Settings',
 						})}
 						sx={{ color: `${theme.palette.lightYellow}` }}
-						onClick={() => setChoosenAction('Settings')}
+						onClick={() => handleChangeCurrentPage('Settings')}
 					>
 						Settings
 					</Typography>
 					<Typography
 						variant="subtitle"
 						className={cx('navigation__log-out', {
-							choosen: choosenAction === 'Log out',
+							choosen: currentPage === 'Log out',
 						})}
 						sx={{ color: `${theme.palette.lightYellow}` }}
-						onClick={() => {
-							setChoosenAction('Log out');
-							navigate('/GoalTracker/');
-						}}
+						onClick={() => navigate('/GoalTracker/')}
 					>
 						Log out
 					</Typography>

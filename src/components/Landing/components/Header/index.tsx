@@ -68,6 +68,7 @@ const Header = () => {
 								variant={theme === 'theme-dark' ? 'buttonLight' : 'buttonDark'}
 								size="small"
 								color="secondary"
+								onClick={() => navigate('/GoalTracker/Auth/LogIn')}
 							>
 								<Typography variant="body">{t('logIn')}</Typography>
 							</Button>
@@ -75,7 +76,7 @@ const Header = () => {
 								variant={theme === 'theme-dark' ? 'buttonDark' : 'buttonLight'}
 								size="small"
 								color="primary"
-								onClick={() => navigate('/GoalTracker/MainApp/Dashboard')}
+								onClick={() => navigate('/GoalTracker/Auth/SignUp')}
 							>
 								<Typography variant="body">{t('signUp')}</Typography>
 							</Button>

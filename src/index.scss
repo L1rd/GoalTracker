@@ -31,7 +31,7 @@
 
 body {
 	padding: 0 !important;
-	overflow-y: scroll !important;
+	overflow-y: auto !important;
 	&::-webkit-scrollbar {
 		width: 0.5em;
 	}

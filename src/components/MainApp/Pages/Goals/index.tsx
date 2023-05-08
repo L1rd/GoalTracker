@@ -45,7 +45,7 @@ const STATUSES = [
 		count: 2,
 	},
 	{
-		title: 'On pause',
+		title: 'On hold',
 		count: 0,
 	},
 	{
@@ -143,6 +143,7 @@ const Goals = () => {
 											className={cx('goals__category', {
 												choosen: isChoosen.category === category.title,
 											})}
+											key={category.title}
 										>
 											<Typography variant="body">{category.title}</Typography>
 											{!category?.isCustom && (
@@ -190,6 +191,7 @@ const Goals = () => {
 										className={cx('goals__status', {
 											choosen: isChoosen.status === status.title,
 										})}
+										key={status.title}
 									>
 										<Typography variant="body">{status.title}</Typography>
 										<Box className="goals__category-count">{status.count}</Box>

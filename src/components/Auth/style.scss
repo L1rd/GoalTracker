@@ -1,0 +1,167 @@
+@import "~assets/styles/main.scss";
+
+.auth {
+	@include flex($align: center, $justify: center, $direction: row);
+	background: linear-gradient(360deg, #012075 0%, #2647ac 33.65%, #012075 68.54%, #0b215c 99.99%);
+	height: 100%;
+
+	&__back {
+		position: absolute;
+		top: -80px;
+		left: -40px;
+		@include flex($align: center, $justify: flex-start, $direction: row);
+		gap: 12px;
+		cursor: pointer;
+
+		&::before {
+			content: url("~assets/icons/back-arrow.svg");
+			height: 25px;
+		}
+	}
+
+	&__logo {
+		@include flex($align: center, $justify: center, $direction: row);
+		gap: 14px;
+
+		& img {
+			filter: $landingPage-header-logo-icon-color;
+		}
+
+		& p {
+			font-family: "Bogart";
+			font-style: italic;
+			font-weight: 600;
+			font-size: 32px;
+			line-height: 19px;
+			letter-spacing: 0.0025em;
+			color: $landingPage-header-logo-color;
+			transition: all 0.5s ease-out;
+		}
+	}
+
+	&__container {
+		@include flex($align: center, $justify: center, $direction: row);
+		gap: 32px;
+		height: auto;
+	}
+
+	&__actions {
+		background: $lightYellow;
+		height: 89vh;
+		padding: 103px 72px 0 72px;
+		position: relative;
+		overflow-y: auto;
+
+		&::-webkit-scrollbar {
+			width: 0.5em;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 5px;
+			background-color: lightgrey;
+		}
+	}
+
+	&__column {
+		@include flex($align: center, $justify: flex-start, $direction: column);
+		max-width: 305px;
+		width: 305px;
+	}
+
+	&__title {
+		margin: 80px 0 32px 0;
+	}
+
+	&__inputs {
+		@include flex($align: flex-start, $justify: center, $direction: column);
+		width: 100%;
+
+		& form {
+			@include flex($align: flex-start, $justify: center, $direction: column);
+			width: 100%;
+
+			& .custom-input {
+				margin-bottom: 10px;
+
+				&:nth-of-type(2) {
+					margin-bottom: 15px;
+				}
+			}
+		}
+
+		& button {
+			width: 100%;
+			margin: 35px 0 32px 0;
+		}
+	}
+
+	&__link {
+		margin-top: 40px;
+
+		& span {
+			font-family: Stolzl;
+			font-weight: bold;
+			cursor: pointer;
+		}
+	}
+
+	&__buttons {
+		@include flex($align: center, $justify: center, $direction: column);
+		gap: 16px;
+		width: 100%;
+
+		& button {
+			@include flex($align: center, $justify: center, $direction: row);
+			gap: 12px;
+			background: $muchLightYellow;
+			border: 1px solid $darkBlue;
+			padding: 8px 40px;
+			border-radius: 8px;
+			text-transform: inherit;
+			width: 100%;
+
+			& span {
+				font-weight: bold;
+				color: $darkBlue;
+			}
+
+			&:first-of-type::before,
+			&:nth-of-type(2)::before {
+				content: url("~assets/icons/Google.svg");
+				width: 24px;
+				height: 24px;
+			}
+
+			&:nth-of-type(2)::before {
+				content: url("~assets/icons/Facebook.svg");
+			}
+
+			&:last-of-type::before {
+				content: url("~assets/icons/mail.svg");
+				width: 23px;
+				height: 18px;
+			}
+
+			&:hover {
+				background: linear-gradient(0deg, rgba(255, 210, 96, 0.4), rgba(255, 210, 96, 0.4)), #fff6e0;
+				box-shadow: 4px 4px 8px rgba(11, 33, 92, 0.25);
+			}
+		}
+	}
+
+	&__terms {
+		text-align: center;
+
+		& span {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+	}
+
+	&__agreement {
+		margin-top: 32px;
+		text-align: center;
+		color: $blue;
+		font-weight: bold;
+	}
+}

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
 import InvitationImg from 'assets/images/invitation.svg';
 import { selectorGetTheme } from 'redux/goals-service/selectors';
@@ -7,6 +8,7 @@ import { selectorGetTheme } from 'redux/goals-service/selectors';
 const Invitation = () => {
 	const theme = useSelector(selectorGetTheme);
 	const { t } = useTranslation('landing');
+	const navigate = useNavigate();
 
 	return (
 		<Box className="landing__invitation">
@@ -19,7 +21,12 @@ const Invitation = () => {
 				>
 					{t('invitation')}
 				</Typography>
-				<Button variant={theme === 'theme-dark' ? 'buttonDark' : 'buttonLight'} color="primary" size="large">
+				<Button
+					variant={theme === 'theme-dark' ? 'buttonDark' : 'buttonLight'}
+					color="primary"
+					size="large"
+					onClick={() => navigate('/GoalTracker/Auth/LogIn')}
+				>
 					<Typography variant="subtitle">{t('set-goals')}</Typography>
 				</Button>
 			</Box>
