@@ -1,66 +1,53 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
+import cx from 'classnames';
+import { motion } from 'framer-motion';
+
+// MUI
 import { Box, Button, Typography } from '@mui/material';
+
+// Types
+import { GoalInterface } from 'utils/interfaces/goal';
+
+// Selectors
+import { selectorGetCategories, selectorGetGoals, selectorGetStatuses } from 'redux/goals-service/selectors';
+
+// Actions
+import { createCategory, deleteCategory, updateCategory, updateStatus } from 'redux/goals-service/reducer';
+
+// Icons
 import AddCategory from 'assets/icons/add-category.svg';
 import EditCategory from 'assets/icons/edit-category.svg';
 import EditCategoryAccept from 'assets/icons/edit-category-accept.svg';
 import RemoveCategory from 'assets/icons/remove-category.svg';
-import cx from 'classnames';
-import { motion } from 'framer-motion';
-import Goal from 'shared/components/Goal';
+import EmptyStateIcon from 'assets/icons/empty-goal-state.png';
+
+// Hooks
 import { useEnableEffect } from 'shared/hooks/useEnableEffect';
+
+// Components
+import Goal from 'shared/components/Goal';
 import AddCategoryModal from './components/AddCategoryModal';
+import CreateGoal from './components/CreateGoal';
 import MainGoal from './components/MainGoal';
+
+// Styles
 import './style.scss';
 
-const CATEGORIES = [
-	{
-		title: 'All',
-		isCustom: false,
-		count: 5,
-	},
-	{
-		title: 'Personal',
-		isCustom: false,
-		count: 3,
-	},
-	{
-		title: 'Home',
-		isCustom: false,
-		count: 1,
-	},
-	{
-		title: 'Work',
-		isCustom: false,
-		count: 1,
-	},
-];
-
-const STATUSES = [
-	{
-		title: 'Complete',
-		count: 3,
-	},
-	{
-		title: 'In progress',
-		count: 2,
-	},
-	{
-		title: 'On hold',
-		count: 0,
-	},
-	{
-		title: 'Timed out',
-		count: 0,
-	},
-];
-
 const Goals = () => {
+	const dispatch = useDispatch();
+	const goals = useSelector(selectorGetGoals);
+	const statuses = useSelector(selectorGetStatuses);
+	const categories = useSelector(selectorGetCategories);
+	const navigate = useNavigate();
 	const [isCheck, setIsCheck] = useState(false);
-	const [categories, setCategories] = useState(CATEGORIES);
 	const [isShowModal, setIsShowModal] = useState(false);
-	const [isShowGoal, setIsShowGoal] = useState(false);
 	const [isShowError, setIsShowError] = useState(false);
-	const [isChoosen, setIsChoosen] = useState({ category: 'All', status: 'In progress' });
+	const param = useParams();
+	const [isChoosen, setIsChoosen] = useState({ category: 'All', status: 'In Progress' });
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const [currentGoal, setCurrentGoal] = useState<any>();
 	const { enableCloseEffect, handleCloseModal } = useEnableEffect(setIsCheck);
 
 	const handleEditCategory = () => {
@@ -75,19 +62,80 @@ const Goals = () => {
 		if (categories.find(category => category.title === title)) {
 			setIsShowError(true);
 		} else {
-			setCategories(prev => [
-				...prev,
-				{
-					title,
-					isCustom: true,
-					count: 5,
-				},
-			]);
+			dispatch(createCategory({ title, isCustom: true, count: 0 }));
 		}
 	};
 
 	const handleDeleteCategory = (title: string) => {
-		setCategories(prev => prev.filter(category => category.title !== title));
+		if (!goals.find(goal => goal.category === title)) {
+			setIsChoosen(prev => ({ ...prev, category: 'All' }));
+			dispatch(deleteCategory(title));
+		}
+	};
+
+	useEffect(() => {
+		if (goals) {
+			const arr = categories.map(category => ({
+				...category,
+				count: goals.filter(goal => goal.category === category.title).length,
+			}));
+			dispatch(updateCategory(arr));
+		}
+		if (statuses) {
+			const arr = statuses.map(status => ({
+				...status,
+				count: goals.filter(goal => goal.status === status.title).length,
+			}));
+			dispatch(updateStatus(arr));
+		}
+	}, [goals]);
+
+	const getTitle = useMemo(() => {
+		switch (param['*']) {
+			case 'Goal':
+				return (
+					<Typography variant="h2" className="goals__header-title">
+						Goal overview
+					</Typography>
+				);
+			case 'CreateGoal':
+				return (
+					<Typography variant="h2" className="goals__header-title">
+						Set a goal
+					</Typography>
+				);
+
+			case 'CreateGoal/CreateSubGoal':
+				return (
+					<Typography variant="h2" className="goals__header-title">
+						Set a subgoal
+					</Typography>
+				);
+
+			default:
+				return (
+					<>
+						<Typography variant="h2" className="goals__header-title">
+							My goals
+						</Typography>
+						<Button
+							variant="buttonDark"
+							color="primary"
+							size="medium"
+							onClick={() => navigate('CreateGoal')}
+						>
+							<Typography variant="body" className="goals__header-title">
+								Create goal
+							</Typography>
+						</Button>
+					</>
+				);
+		}
+	}, [param]);
+
+	const handleShowGoal = (goal: GoalInterface) => {
+		navigate('Goal');
+		setCurrentGoal(goal);
 	};
 
 	return (
@@ -99,172 +147,138 @@ const Goals = () => {
 				transform: 'translate(0, 220px)',
 				opacity: 0,
 			}}
-			// initial={{ opacity: 0 }}
-			// animate={{ opacity: 1 }}
-			// exit={{
-			// 	opacity: 0,
-			// }}
 		>
-			<Box className="goals__header">
-				{!isShowGoal ? (
-					<>
-						<Typography variant="h2" className="goals__header-title">
-							My goals
-						</Typography>
-						<Button variant="buttonDark" color="primary" size="medium">
-							<Typography variant="body" className="goals__header-title">
-								Create goal
-							</Typography>
-						</Button>
-					</>
-				) : (
-					<Typography variant="h2" className="goals__header-title">
-						Goal overview
-					</Typography>
-				)}
-			</Box>
-			{!isShowGoal && (
-				<Box className="goals__main-info">
-					<Box className="goals__filter">
-						<Box className="goals__categories">
-							<Box className="goals__categories-title">
-								<Typography variant="subtitle">Category</Typography>
-								<Box onClick={handleEditCategory}>
-									<img src={!isCheck ? EditCategory : EditCategoryAccept} alt="edit-categories" />
-								</Box>
-							</Box>
-							<Box className="goals__category-list">
-								<Box className="categories">
-									{categories.map(category => (
-										<Box
-											onClick={() =>
-												setIsChoosen(prev => ({ ...prev, category: category.title }))
-											}
-											className={cx('goals__category', {
-												choosen: isChoosen.category === category.title,
-											})}
-											key={category.title}
-										>
-											<Typography variant="body">{category.title}</Typography>
-											{!category?.isCustom && (
-												<Box className="goals__category-count">{category.count}</Box>
-											)}
-											{isCheck && category?.isCustom && (
-												<Box onClick={() => handleDeleteCategory(category.title)}>
-													<img src={RemoveCategory} alt="remove" />
-												</Box>
-											)}
-											{category?.isCustom && !isCheck && (
-												<Box className="goals__category-count">{category.count}</Box>
-											)}
+			<Box className="goals__header">{getTitle}</Box>
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<Box className="goals__main-info">
+							<Box className="goals__filter">
+								<Box className="goals__categories">
+									<Box className="goals__categories-title">
+										<Typography variant="subtitle">Category</Typography>
+										<Box onClick={handleEditCategory}>
+											<img
+												src={!isCheck ? EditCategory : EditCategoryAccept}
+												alt="edit-categories"
+											/>
 										</Box>
-									))}
+									</Box>
+									<Box className="goals__category-list">
+										<Box className="categories">
+											<Box
+												onClick={() => setIsChoosen(prev => ({ ...prev, category: 'All' }))}
+												className={cx('goals__category', {
+													choosen: isChoosen.category === 'All',
+												})}
+											>
+												<Typography variant="body">All</Typography>
+												<Box className="goals__category-count">{goals.length}</Box>
+											</Box>
+											{categories.map(category => (
+												<Box
+													onClick={() =>
+														setIsChoosen(prev => ({ ...prev, category: category.title }))
+													}
+													className={cx('goals__category', {
+														choosen: isChoosen.category === category.title,
+													})}
+													key={category.title}
+												>
+													<Typography variant="body">{category.title}</Typography>
+													{!category?.isCustom && (
+														<Box className="goals__category-count">{category.count}</Box>
+													)}
+													{isCheck && category?.isCustom && (
+														<Box onClick={() => handleDeleteCategory(category.title)}>
+															<img src={RemoveCategory} alt="remove" />
+														</Box>
+													)}
+													{category?.isCustom && !isCheck && (
+														<Box className="goals__category-count">{category.count}</Box>
+													)}
+												</Box>
+											))}
+										</Box>
+										{isCheck && (
+											<Box
+												className={cx('goals__category-add', {
+													hide: enableCloseEffect,
+												})}
+												onClick={() => setIsShowModal(true)}
+											>
+												<Typography variant="body">Add category</Typography>
+												<img src={AddCategory} alt="add" />
+											</Box>
+										)}
+										<AddCategoryModal
+											isShow={isShowModal}
+											setIsShow={setIsShowModal}
+											handleAddCustomCategory={handleAddCustomCategory}
+											isShowError={isShowError}
+											setIsShowError={setIsShowError}
+										/>
+									</Box>
 								</Box>
-								{isCheck && (
-									<Box
-										className={cx('goals__category-add', {
-											hide: enableCloseEffect,
-										})}
-										onClick={() => setIsShowModal(true)}
-									>
-										<Typography variant="body">Add category</Typography>
-										<img src={AddCategory} alt="add" />
+								<Box className="goals__statuses">
+									<Box className="goals__statuses-title">
+										<Typography variant="subtitle">Status</Typography>
 									</Box>
-								)}
-								<AddCategoryModal
-									isShow={isShowModal}
-									setIsShow={setIsShowModal}
-									handleAddCustomCategory={handleAddCustomCategory}
-									isShowError={isShowError}
-									setIsShowError={setIsShowError}
-								/>
-							</Box>
-						</Box>
-						<Box className="goals__statuses">
-							<Box className="goals__statuses-title">
-								<Typography variant="subtitle">Status</Typography>
-							</Box>
-							<Box className="goals__status-list">
-								{STATUSES.map(status => (
-									<Box
-										onClick={() => setIsChoosen(prev => ({ ...prev, status: status.title }))}
-										className={cx('goals__status', {
-											choosen: isChoosen.status === status.title,
-										})}
-										key={status.title}
-									>
-										<Typography variant="body">{status.title}</Typography>
-										<Box className="goals__category-count">{status.count}</Box>
+									<Box className="goals__status-list">
+										{statuses.map(status => (
+											<Box
+												onClick={() =>
+													setIsChoosen(prev => ({ ...prev, status: status.title }))
+												}
+												className={cx('goals__status', {
+													choosen: isChoosen.status === status.title,
+												})}
+												key={status.title}
+											>
+												<Typography variant="body">{status.title}</Typography>
+												<Box className="goals__category-count">{status.count}</Box>
+											</Box>
+										))}
 									</Box>
-								))}
+								</Box>
 							</Box>
+
+							{goals.length ? (
+								<Box className="goals__list">
+									{goals
+										.filter(
+											goal =>
+												(goal.category === isChoosen.category ||
+													isChoosen.category === 'All') &&
+												goal.status === isChoosen.status
+										)
+										.map((goal: GoalInterface) => (
+											<Goal
+												progress={0}
+												title={goal.title}
+												priority={goal.priority}
+												status="In Progress"
+												timeStart={goal.start}
+												timeEnd={goal.end}
+												category={goal.category}
+												setIsShow={() => handleShowGoal(goal)}
+												key={goal.title}
+											/>
+										))}
+								</Box>
+							) : (
+								<Box className="goals__list-empty">
+									<img src={EmptyStateIcon} alt="empty state icon" />
+									<Typography variant="body">You have no goals created yet</Typography>
+								</Box>
+							)}
 						</Box>
-					</Box>
-					<Box className="goals__list">
-						<Goal
-							progress={79}
-							title="Reach level A1 in Sp..."
-							priority={5}
-							status="In Progress"
-							timeStart="18.02.2023"
-							timeEnd="18.04.2023"
-							category="Personal"
-							setIsShow={setIsShowGoal}
-						/>
-						<Goal
-							progress={79}
-							title="Reach level A1 in Sp..."
-							priority={5}
-							status="In Progress"
-							timeStart="18.02.2023"
-							timeEnd="18.04.2023"
-							category="Personal"
-							setIsShow={setIsShowGoal}
-						/>
-						<Goal
-							progress={79}
-							title="Reach level A1 in Sp..."
-							priority={5}
-							status="In Progress"
-							timeStart="18.02.2023"
-							timeEnd="18.04.2023"
-							category="Personal"
-							setIsShow={setIsShowGoal}
-						/>
-						<Goal
-							progress={79}
-							title="Reach level A1 in Sp..."
-							priority={5}
-							status="In Progress"
-							timeStart="18.02.2023"
-							timeEnd="18.04.2023"
-							category="Personal"
-							setIsShow={setIsShowGoal}
-						/>
-						<Goal
-							progress={79}
-							title="Reach level A1 in Sp..."
-							priority={5}
-							status="In Progress"
-							timeStart="18.02.2023"
-							timeEnd="18.04.2023"
-							category="Personal"
-							setIsShow={setIsShowGoal}
-						/>
-						<Goal
-							progress={79}
-							title="Reach level A1 in Sp..."
-							priority={5}
-							status="In Progress"
-							timeStart="18.02.2023"
-							timeEnd="18.04.2023"
-							category="Personal"
-							setIsShow={setIsShowGoal}
-						/>
-					</Box>
-				</Box>
-			)}
-			<MainGoal isShown={isShowGoal} setIsShown={setIsShowGoal} />
+					}
+				/>
+				<Route path="/Goal/" element={<MainGoal goal={currentGoal} />} />
+				<Route path="/CreateGoal/*" element={<CreateGoal />} />
+			</Routes>
 		</motion.div>
 	);
 };

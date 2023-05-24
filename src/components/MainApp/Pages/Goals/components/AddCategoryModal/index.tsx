@@ -1,9 +1,15 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react';
 import ReactDom from 'react-dom';
-import { Alert, Box, Button, Snackbar, TextField, Typography } from '@mui/material';
 import cx from 'classnames';
+
+// MUI
+import { Alert, Box, Button, Snackbar, TextField, Typography } from '@mui/material';
+
+// Hooks
 import { useEnableEffect } from 'shared/hooks/useEnableEffect';
+
+// Styles
 import './style.scss';
 
 interface AddCategoryModalProps {
@@ -35,6 +41,12 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({
 		setInputValue(event.target.value.trim());
 	};
 
+	const handleAddCategory = () => {
+		handleCloseModal();
+		handleAddCustomCategory(inputValue);
+		setInputValue('');
+	};
+
 	return ReactDom.createPortal(
 		<Box className="add-modal__wrapper">
 			<Box
@@ -56,17 +68,14 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({
 					/>
 					<Box className="add-modal__buttons">
 						<Button variant="buttonLight" color="secondary" size="medium" onClick={handleCloseModal}>
-							<Typography variant="smallDetails">Cansel</Typography>
+							<Typography variant="smallDetails">Canсel</Typography>
 						</Button>
 						<Button
 							variant="buttonDark"
 							color="primary"
 							size="medium"
 							disabled={!inputValue}
-							onClick={() => {
-								handleAddCustomCategory(inputValue);
-								setInputValue('');
-							}}
+							onClick={handleAddCategory}
 						>
 							<Typography variant="smallDetails">Add category</Typography>
 						</Button>

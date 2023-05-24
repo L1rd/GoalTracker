@@ -1,22 +1,22 @@
 export const QUESTIONS = [
 	{
 		question: 'common-first-question',
-		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+		answer: 'common-first-question-answer',
 	},
 	{
 		question: 'common-second-question',
-		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+		answer: 'common-second-question-answer',
 	},
 	{
 		question: 'common-third-question',
-		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+		answer: 'common-third-question-answer',
 	},
 	{
 		question: 'common-fourth-question',
-		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+		answer: 'common-fourth-question-answer',
 	},
 	{
 		question: 'common-fifth-question',
-		answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+		answer: 'common-fifth-question-answer',
 	},
 ];

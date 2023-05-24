@@ -2,17 +2,29 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Container, Typography } from '@mui/material';
+
+// Icons
 import QuestionArrow from 'assets/icons/question-arrow.svg';
 import User from 'assets/images/appoinment-user.svg';
-import { selectorGetTheme } from 'redux/goals-service/selectors';
-import ScrollToTop from 'shared/components/ScrollToTop';
-import { useScrollToTop } from 'shared/hooks/useScrollToTop';
+
+// Constants
 import { QUESTIONS } from 'utils/constans/questions';
+
+// Selectors
+import { selectorGetTheme } from 'redux/goals-service/selectors';
+
+// Hooks
+import { useScrollToTop } from 'shared/hooks/useScrollToTop';
+
+// Components
+import ScrollToTop from 'shared/components/ScrollToTop';
 import Benefits from './components/Benefits';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Invitation from './components/Invitation';
 import Reviews from './components/Reviews';
+import Invitation from './components/Invitation';
+
+// Styles
 import './style.scss';
 
 const LandingPage = () => {

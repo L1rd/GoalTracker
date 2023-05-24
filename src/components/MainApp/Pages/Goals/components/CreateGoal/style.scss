@@ -1,0 +1,301 @@
+@import "~assets/styles/main.scss";
+
+.create-goal {
+	@include flex($align: flex-start, $justify: center, $direction: column);
+	padding: 32px 16px 16px;
+	background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
+	border-radius: 12px;
+	margin: 20px 0 0 20px;
+	animation: showing 0.6s forwards;
+
+	&.close {
+		animation: hide 1.2s forwards;
+
+		.main-goal__global-info {
+			animation: modalContentFadeOut 1.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+		}
+	}
+
+	& .flex {
+		@include flex($align: center, $justify: flex-start, $direction: row);
+		gap: 8px;
+	}
+
+	&__date,
+	&__title {
+		@include flex($align: flex-start, $justify: center, $direction: column);
+		gap: 12px;
+		width: 100%;
+		padding-bottom: 40px;
+		border-bottom: 2px solid #e29b29;
+		margin-bottom: 24px;
+		box-sizing: border-box;
+
+		& span {
+			@include flex($align: center, $justify: flex-end, $direction: row);
+			width: 150px;
+		}
+
+		& div {
+			width: 100%;
+		}
+	}
+
+	&__title {
+		& input {
+			background: #fff6e0;
+			border: 1px solid #e29b29;
+			border-radius: 8px;
+			padding: 0px 8px;
+			height: 33px;
+			outline: none;
+		}
+
+		&__goal-name input {
+			font-family: "Stolzl";
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: 0.005em;
+			color: #0d2569;
+			width: 80%;
+		}
+	}
+
+	&__date {
+		& .date {
+			width: 207px;
+			height: 33px;
+			background: #fff6e0;
+			border: 1px solid #e29b29;
+			border-radius: 8px;
+
+			& .MuiInputBase-input {
+				font-family: "Stolzl";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 150%;
+			}
+
+			& .MuiTouchRipple-root {
+				width: inherit;
+			}
+
+			& .MuiInputAdornment-root {
+				justify-content: flex-end;
+				width: 40px;
+
+				& svg {
+					fill: #e29b29;
+				}
+			}
+
+			& .MuiInputBase-root {
+				height: 33px;
+				border-radius: 8px;
+			}
+
+			& fieldset {
+				border: none;
+				outline: none;
+			}
+		}
+	}
+
+	&__category {
+		width: 100%;
+		margin-bottom: 40px;
+		box-sizing: border-box;
+
+		&-info {
+			@include flex($align: flex-start, $justify: flex-start, $direction: row);
+			gap: 8px;
+			width: 100%;
+
+			& > span {
+				@include flex($align: center, $justify: flex-end, $direction: row);
+				width: 150px;
+			}
+
+			& div {
+				@include flex($align: flex-start, $justify: center, $direction: column);
+
+				& .select {
+					margin-bottom: 12.5px;
+				}
+			}
+		}
+	}
+
+	& .select {
+		background: #fff6e0;
+		height: 33px;
+		width: 207px;
+		border: 1px solid #e29b29;
+		border-radius: 12px 0px 0px 12px;
+		padding: 4px 8px;
+
+		& svg {
+			display: block !important;
+			background: #e29b29;
+			transform: rotate(-90deg);
+			border-radius: 50px;
+			width: 13px;
+			height: 13px;
+			margin-top: 5px;
+			fill: #fff6e0;
+			transition: 0.3s;
+
+			&.MuiSelect-iconOpen {
+				transform: rotate(0deg);
+			}
+		}
+
+		& fieldset {
+			border: none;
+			outline: none;
+		}
+
+		& .MuiTypography-root {
+			font-family: "Stolzl";
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: 0.005em;
+			color: #000000;
+			@include flex($align: center, $justify: flex-start, $direction: row);
+			gap: 16px;
+		}
+	}
+
+	&__add-task {
+		@include flex($align: center, $justify: center, $direction: row);
+		gap: 16px;
+		width: 100%;
+		margin-bottom: 40px;
+
+		& span {
+			font-weight: bold;
+		}
+
+		&::before {
+			height: 28px;
+			width: 28px;
+			content: url("~assets/icons/add-task.svg");
+		}
+
+		&:hover::before {
+			filter: invert(79%) sepia(79%) saturate(3664%) hue-rotate(338deg) brightness(92%) contrast(92%);
+		}
+	}
+
+	&__actions {
+		@include flex($align: center, $justify: flex-end, $direction: row);
+		align-self: flex-end;
+		gap: 24px;
+	}
+
+	&__tasks {
+		@include flex($align: flex-start, $justify: flex-start, $direction: column);
+		gap: 16px;
+		margin-bottom: 16px;
+		width: 100%;
+		overflow-y: auto;
+		max-height: 200px;
+		padding: 5px 5px 5px 0;
+
+		&::-webkit-scrollbar {
+			width: 0.2em;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 5px;
+			background-color: lightgrey;
+		}
+
+		& .goal-full-task {
+			background: #ffefc6;
+			box-shadow: 0px 4px 4px rgba(11, 33, 92, 0.25);
+			padding: 8px 8px 8px 56px;
+			backdrop-filter: blur(8px);
+			border-radius: 8px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+	}
+
+	&__subgoals {
+		@include flex($align: flex-start, $justify: flex-start, $direction: column);
+		gap: 10px;
+		margin-bottom: 16px;
+		width: 100%;
+
+		& > div {
+			width: 100%;
+		}
+	}
+
+	&__radio-type {
+		@include flex($align: center, $justify: flex-start, $direction: row);
+		gap: 10px;
+
+		& .MuiFormGroup-root {
+			width: auto;
+			flex-direction: row;
+
+			& span {
+				width: auto;
+			}
+		}
+	}
+}
+
+.MuiPickersPopper-paper,
+.MuiMenu-paper {
+	font-family: "Stolzl";
+	background: #ffefc6;
+	border: 1px solid #e29b29;
+	border-radius: 12px;
+	box-shadow: none;
+}
+
+.MuiMenu-paper {
+	border-radius: 12px 0 0 12px;
+
+	& ul {
+		padding: 0;
+	}
+
+	& li {
+		&:not(&:last-of-type) {
+			border-bottom: 1px solid #e29b29;
+		}
+
+		& span {
+			@include flex($align: center, $justify: flex-start, $direction: row);
+			gap: 16px;
+		}
+	}
+}
+
+.MuiPickersFadeTransitionGroup-root div {
+	font-family: "Stolzl";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 22px;
+	color: #0d2569;
+}
+
+.MuiDayCalendar-weekDayLabel {
+	font-style: "Stolzl";
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 18px;
+	color: #e29b29;
+}
+
+.isDisabled {
+	opacity: 0.4;
+}

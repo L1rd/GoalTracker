@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-scroll';
+
+// MUI
 import {
 	Box,
 	Button,
@@ -14,9 +16,17 @@ import {
 	Typography,
 	useScrollTrigger,
 } from '@mui/material';
+
+// Icons
 import Logo from 'assets/icons/logo.svg';
+
+// Actions
 import { changeTheme } from 'redux/goals-service/reducer';
+
+// Selectors
 import { selectorGetTheme } from 'redux/goals-service/selectors';
+
+// Styles
 import './style.scss';
 
 const Header = () => {

@@ -1,11 +1,28 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
+import cx from 'classnames';
+
+// MUI
 import { Box, Checkbox, IconButton, Menu, MenuItem, Typography } from '@mui/material';
+
+// Icons
 import Dots from 'assets/icons/dots.svg';
+
+// Styles
 import './style.scss';
 
-export const GoalFullTask = () => {
+interface GoalFullTaskProps {
+	title?: string;
+	time?: string;
+}
+
+export const GoalFullTask: FC<GoalFullTaskProps> = ({ title, time }) => {
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [taskCompeted, setTaskCompeted] = useState(false);
 	const open = Boolean(anchorEl);
+
+	const handleCompleteTask = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setTaskCompeted(event.target.checked);
+	};
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -15,12 +32,16 @@ export const GoalFullTask = () => {
 
 	return (
 		<Box className="goal-full-task">
-			<Box className="goal-full-task__sides">
+			<Box
+				className={cx('goal-full-task__sides', {
+					checked: taskCompeted,
+				})}
+			>
 				<Typography variant="smallDetails" className="goal-full-task__time">
-					12:00
+					{time}
 				</Typography>
 				<Typography variant="body" className="goal-full-task__title">
-					Create cards with letters
+					{title}
 				</Typography>
 			</Box>
 			<Box className="goal-full-task__sides">
@@ -31,6 +52,8 @@ export const GoalFullTask = () => {
 						background: 'none',
 						'& .MuiSvgIcon-root': { fontSize: '30px', color: '#0B215C' },
 					}}
+					value={taskCompeted}
+					onChange={handleCompleteTask}
 				/>
 				<IconButton onClick={handleClick}>
 					<img src={Dots} alt="Dots" />

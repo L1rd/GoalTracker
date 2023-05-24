@@ -1,11 +1,21 @@
-import { Dispatch, SetStateAction } from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
+
+// MUI
+import { Box, Button, IconButton, Typography } from '@mui/material';
+
+// Actions
+import { deleteGoal } from 'redux/goals-service/reducer';
+
+// Utils
+import { getPriority } from 'utils/functions/getPriority';
+
+// Icons
 import Delete from 'assets/icons/delete-icon.svg';
-import HighPriority from 'assets/icons/high-priority.svg';
-import HighestPriority from 'assets/icons/highest-priority.svg';
-import LowestPriority from 'assets/icons/lowest-priority.svg';
-import MediumPriority from 'assets/icons/medium-priority.svg';
+
+// Components
 import CircularProgressWithLabel from '../CircularProgressWithLabel';
+
+// Styles
 import './style.scss';
 
 interface GoalProps {
@@ -16,29 +26,11 @@ interface GoalProps {
 	timeStart: string;
 	timeEnd: string;
 	category: string;
-	setIsShow: Dispatch<SetStateAction<boolean>>;
+	setIsShow?: () => void;
 }
 
 const Goal = ({ progress, title, priority, status, timeStart, timeEnd, category, setIsShow }: GoalProps) => {
-	const getPriority = (priority: number) => {
-		switch (priority) {
-			case 5:
-				return <img src={HighestPriority} alt="highest priority" />;
-			case 4:
-				return <img src={HighPriority} alt="high priority" />;
-			case 3:
-				return <img src={MediumPriority} alt="medium priority" />;
-			case 2:
-				return <img src={HighestPriority} alt="low priority" />;
-			case 1:
-				return <img src={LowestPriority} alt="lowest priority" />;
-
-			default:
-				break;
-		}
-
-		return null;
-	};
+	const dispatch = useDispatch();
 
 	return (
 		<Box className="goal">
@@ -51,7 +43,9 @@ const Goal = ({ progress, title, priority, status, timeStart, timeEnd, category,
 						{getPriority(priority)}
 						<Typography variant="h4">{title}</Typography>
 					</Box>
-					<img src={Delete} alt="delete" className="goal__delete" />
+					<IconButton className="goal__delete" onClick={() => dispatch(deleteGoal(title))}>
+						<img src={Delete} alt="delete" />
+					</IconButton>
 				</Box>
 				<Box className="goal__parameters">
 					<Typography variant="body">
@@ -64,13 +58,7 @@ const Goal = ({ progress, title, priority, status, timeStart, timeEnd, category,
 						<span>Category</span>: {category}
 					</Typography>
 				</Box>
-				<Button
-					variant="buttonLight"
-					size="small"
-					color="secondary"
-					className="goal__view"
-					onClick={() => setIsShow(true)}
-				>
+				<Button variant="buttonLight" size="small" color="secondary" className="goal__view" onClick={setIsShow}>
 					<Typography variant="smallDetails">View goal</Typography>
 				</Button>
 			</Box>

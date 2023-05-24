@@ -1,8 +1,14 @@
-import { Box, Typography, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
+
+// MUI
+import { Box, Typography, useTheme } from '@mui/material';
+
+// Components
 import DailyTasks from './components/DailyTasks';
 import GoalProgress from './components/GoalProgress';
 import TeamUpdates from './components/TeamUpdates';
+
+// Styles
 import './style.scss';
 
 const Dashboard = () => {
@@ -17,11 +23,6 @@ const Dashboard = () => {
 				transform: 'translate(0, 220px)',
 				opacity: 0,
 			}}
-			// initial={{ opacity: 0 }}
-			// animate={{ opacity: 1 }}
-			// exit={{
-			// 	opacity: 0,
-			// }}
 		>
 			<Box className="dashboard__title">
 				<Typography variant="h1" sx={{ color: `${theme.palette.darkYellow}`, marginBottom: '12px' }}>
