@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/GoalTracker/static/css/main.4e189928.css",
-    "main.js": "/GoalTracker/static/js/main.25631f6e.js",
+    "main.js": "/GoalTracker/static/js/main.bc6ded6f.js",
     "static/css/772.f2ff9b4a.chunk.css": "/GoalTracker/static/css/772.f2ff9b4a.chunk.css",
     "static/js/772.03d242bf.chunk.js": "/GoalTracker/static/js/772.03d242bf.chunk.js",
-    "static/css/261.6b4d45e3.chunk.css": "/GoalTracker/static/css/261.6b4d45e3.chunk.css",
-    "static/js/261.13980c74.chunk.js": "/GoalTracker/static/js/261.13980c74.chunk.js",
+    "static/css/582.f00d4cae.chunk.css": "/GoalTracker/static/css/582.f00d4cae.chunk.css",
+    "static/js/582.c30abb21.chunk.js": "/GoalTracker/static/js/582.c30abb21.chunk.js",
     "static/css/86.2032735c.chunk.css": "/GoalTracker/static/css/86.2032735c.chunk.css",
     "static/js/86.a6509fd3.chunk.js": "/GoalTracker/static/js/86.a6509fd3.chunk.js",
     "static/css/320.2032735c.chunk.css": "/GoalTracker/static/css/320.2032735c.chunk.css",
@@ -38,6 +38,7 @@
     "static/media/tracking.svg": "/GoalTracker/static/media/tracking.08b75c4bc035306cbe90344ea197a7c6.svg",
     "static/media/teamwork.svg": "/GoalTracker/static/media/teamwork.9e2008f2fde9aed88a46cff970dc3a9c.svg",
     "static/media/invitation.svg": "/GoalTracker/static/media/invitation.3ea7f83b8beea86253c3ba8f3043b14b.svg",
+    "static/media/empty-goal-state.png": "/GoalTracker/static/media/empty-goal-state.1d53bde1217a785975f4.png",
     "static/media/state_3.svg": "/GoalTracker/static/media/state_3.f69e6ecd81e9cdddc7ef.svg",
     "static/media/state_4.svg": "/GoalTracker/static/media/state_4.e018737a50f9eb374b9b.svg",
     "static/media/state_5.svg": "/GoalTracker/static/media/state_5.87a22ae68559299d6a8b.svg",
@@ -79,11 +80,11 @@
     "static/media/add-task.svg": "/GoalTracker/static/media/add-task.132374bf8bde0df865ca.svg",
     "static/media/add.svg": "/GoalTracker/static/media/add.981fd7ea76bc5f173120.svg",
     "main.4e189928.css.map": "/GoalTracker/static/css/main.4e189928.css.map",
-    "main.25631f6e.js.map": "/GoalTracker/static/js/main.25631f6e.js.map",
+    "main.bc6ded6f.js.map": "/GoalTracker/static/js/main.bc6ded6f.js.map",
     "772.f2ff9b4a.chunk.css.map": "/GoalTracker/static/css/772.f2ff9b4a.chunk.css.map",
     "772.03d242bf.chunk.js.map": "/GoalTracker/static/js/772.03d242bf.chunk.js.map",
-    "261.6b4d45e3.chunk.css.map": "/GoalTracker/static/css/261.6b4d45e3.chunk.css.map",
-    "261.13980c74.chunk.js.map": "/GoalTracker/static/js/261.13980c74.chunk.js.map",
+    "582.f00d4cae.chunk.css.map": "/GoalTracker/static/css/582.f00d4cae.chunk.css.map",
+    "582.c30abb21.chunk.js.map": "/GoalTracker/static/js/582.c30abb21.chunk.js.map",
     "86.2032735c.chunk.css.map": "/GoalTracker/static/css/86.2032735c.chunk.css.map",
     "86.a6509fd3.chunk.js.map": "/GoalTracker/static/js/86.a6509fd3.chunk.js.map",
     "320.2032735c.chunk.css.map": "/GoalTracker/static/css/320.2032735c.chunk.css.map",
@@ -99,6 +100,6 @@
   },
   "entrypoints": [
     "static/css/main.4e189928.css",
-    "static/js/main.25631f6e.js"
+    "static/js/main.bc6ded6f.js"
   ]
 }
