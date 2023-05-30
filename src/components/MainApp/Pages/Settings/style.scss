@@ -1,0 +1,93 @@
+@import "~assets/styles/main.scss";
+
+.settings {
+	padding: 32px 0 0 0;
+
+	&__header {
+		@include flex($align: center, $justify: space-between, $direction: row);
+		width: 865px;
+		background: linear-gradient(270deg, #ffefc6 0%, #ffd260 100%);
+		box-shadow: 4px 4px 8px rgba(11, 33, 92, 0.75);
+		border-radius: 0px 12px 12px 0px;
+		padding: 18px 32px;
+		margin-bottom: 20px;
+
+		&-title {
+			font-weight: 500px;
+			color: #0b215c;
+		}
+	}
+
+	& .flex {
+		@include flex($align: flex-start, $justify: center, $direction: column);
+	}
+
+	&__row {
+		@include flex($align: flex-start, $justify: center, $direction: row);
+		gap: 50px;
+	}
+
+	&__input-element {
+		@include flex($align: flex-start, $justify: center, $direction: column);
+		gap: 15px;
+	}
+
+	&__info {
+		@include flex($align: center, $justify: center, $direction: column);
+		padding: 100px 16px;
+		background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
+		border-radius: 12px;
+		margin: 20px 0 0 20px;
+	}
+
+	&__actions {
+		@include flex($align: center, $justify: center, $direction: row);
+		gap: 15px;
+		margin-top: 50px;
+	}
+
+	&__language,
+	&__theme {
+		width: 100%;
+
+		& .MuiInputBase-root {
+			width: 100%;
+		}
+
+		& .MuiSelect-select {
+			background: #fff6e0;
+			border: 1px solid $blue;
+			box-shadow: 4px 4px 8px rgba(11, 33, 92, 0.25);
+			border-radius: 8px;
+			height: 40px;
+			width: 100%;
+			padding: 0 10px;
+			box-sizing: border-box;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		& fieldset {
+			border: none;
+			outline: none;
+		}
+
+		& .MuiSelect-icon {
+			display: block !important;
+			background: #0b215c;
+			transform: rotate(-90deg);
+			border-radius: 50px;
+			width: 13px;
+			height: 13px;
+			margin-top: 5px;
+			fill: #fff6e0;
+			transition: 0.3s;
+
+			&.MuiSelect-iconOpen {
+				transform: rotate(0deg);
+			}
+		}
+	}
+}

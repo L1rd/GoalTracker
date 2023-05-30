@@ -1,14 +1,24 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Typography } from '@mui/material';
-import Logo from 'assets/icons/logo.svg';
+import { useTranslation } from 'react-i18next';
 import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
+
+// MUI
+import { Box, Button, Typography } from '@mui/material';
+
+// Icons
+import Logo from 'assets/icons/logo.svg';
+
+// Components
 import CustomInput from 'shared/components/CustomInput';
+
+// Schemas
 import { signupSchema } from 'utils/schemas';
 
 const SignUpWithEmail = () => {
+	const { t } = useTranslation('auth');
 	const navigate = useNavigate();
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,14 +39,14 @@ const SignUpWithEmail = () => {
 			}}
 		>
 			<Typography onClick={() => navigate(-1)} variant="subtitle" className="auth__back">
-				Back
+				{t('back')}
 			</Typography>
 			<Box className="auth__logo">
 				<img src={Logo} alt="logo" />
 				<Typography>goalrizer</Typography>
 			</Box>
 			<Typography variant="h4" className="auth__title" sx={{ marginBottom: '45px !important' }}>
-				Create an account
+				{t('create-an-account')}
 			</Typography>
 			<Box className="auth__inputs">
 				<Formik
@@ -46,10 +56,10 @@ const SignUpWithEmail = () => {
 				>
 					{({ isSubmitting }) => (
 						<Form>
-							<CustomInput label="Nickname" name="nickname" type="text" />
-							<CustomInput label="Email" name="email" type="email" />
-							<CustomInput label="Password" name="password" type="password" />
-							<CustomInput label="Confirm password" name="confirmPassword" type="password" />
+							<CustomInput label={t('nickname')} name="nickname" type="text" />
+							<CustomInput label={t('email')} name="email" type="email" />
+							<CustomInput label={t('password')} name="password" type="password" />
+							<CustomInput label={t('confirm-password')} name="confirmPassword" type="password" />
 							<Button
 								color="primary"
 								variant="buttonDark"
@@ -57,18 +67,18 @@ const SignUpWithEmail = () => {
 								type="submit"
 								disabled={isSubmitting}
 							>
-								<Typography variant="body">Sign Up</Typography>
+								<Typography variant="body">{t('sign-up')}</Typography>
 							</Button>
 						</Form>
 					)}
 				</Formik>
 			</Box>
 			<Typography variant="reviews" className="auth__terms">
-				By clicking the “Sign up” button, you are creating a Goalrizer account and therefore you agree to
-				Goalrizer Company’s <span>Terms of Use</span> and <span>Privacy Policy</span> .
+				{t('create-agree')} <span>{t('terms-of-use')}</span> {t('and')} <span>{t('privacy-policy')}</span> .
 			</Typography>
 			<Typography variant="smallDetails" className="auth__link">
-				Already have an account? <span onClick={() => navigate('/GoalTracker/Auth/LogIn/')}>Log In</span>
+				{t('already-have-account')}{' '}
+				<span onClick={() => navigate('/GoalTracker/Auth/LogIn/')}>{t('log-in')}</span>
 			</Typography>
 		</motion.div>
 	);

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -21,21 +20,22 @@ import {
 import Logo from 'assets/icons/logo.svg';
 
 // Actions
-import { changeTheme } from 'redux/goals-service/reducer';
+import { changeLanguage, changeTheme } from 'redux/goals-service/reducer';
 
 // Selectors
-import { selectorGetTheme } from 'redux/goals-service/selectors';
+import { selectorGetLanguage, selectorGetTheme } from 'redux/goals-service/selectors';
 
 // Styles
 import './style.scss';
 
 const Header = () => {
-	const [language, setLanguage] = useState('en');
+	const language = useSelector(selectorGetLanguage);
+	const dispatch = useDispatch();
 	const { i18n } = useTranslation('landing');
 	const { t } = useTranslation('landing');
 
 	const handleChange = async (event: SelectChangeEvent) => {
-		setLanguage(event.target.value);
+		dispatch(changeLanguage(event.target.value));
 		await i18n.changeLanguage(event.target.value);
 	};
 	const theme = useSelector(selectorGetTheme);
@@ -43,7 +43,6 @@ const Header = () => {
 		target: window,
 	});
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
 
 	const hadndleChangeTheme = () => {
 		if (theme === 'theme-dark') {

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { useTranslation } from 'react-i18next';
 import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
@@ -30,6 +31,7 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({
 	isShowError,
 	setIsShowError,
 }) => {
+	const { t } = useTranslation('mainApp');
 	const [inputValue, setInputValue] = useState('');
 	const { enableCloseEffect, handleCloseModal } = useEnableEffect(setIsShow);
 
@@ -55,11 +57,11 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({
 				})}
 			>
 				<Box className="add-modal__header">
-					<Typography variant="subtitle">Add new category</Typography>
+					<Typography variant="subtitle">{t('add-new-category')}</Typography>
 				</Box>
 				<Box className="add-modal__content">
 					<TextField
-						label="Сategory name"
+						label={t('category-name')}
 						variant="outlined"
 						value={inputValue}
 						onChange={event => handleEnterInfo(event)}
@@ -68,7 +70,7 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({
 					/>
 					<Box className="add-modal__buttons">
 						<Button variant="buttonLight" color="secondary" size="medium" onClick={handleCloseModal}>
-							<Typography variant="smallDetails">Canсel</Typography>
+							<Typography variant="smallDetails">{t('cancel')}</Typography>
 						</Button>
 						<Button
 							variant="buttonDark"
@@ -77,13 +79,13 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({
 							disabled={!inputValue}
 							onClick={handleAddCategory}
 						>
-							<Typography variant="smallDetails">Add category</Typography>
+							<Typography variant="smallDetails">{t('add-category')}</Typography>
 						</Button>
 					</Box>
 				</Box>
 				<Snackbar open={isShowError} autoHideDuration={4000} onClose={() => setIsShowError(false)}>
 					<Alert onClose={() => setIsShowError(false)} severity="error" sx={{ width: '100%' }}>
-						<Typography variant="subtitle">There is already a category with that name!</Typography>
+						<Typography variant="subtitle">{t('category-with-same-name')}</Typography>
 					</Alert>
 				</Snackbar>
 			</Box>

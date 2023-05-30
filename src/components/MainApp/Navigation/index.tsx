@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import cx from 'classnames';
@@ -19,10 +20,15 @@ import Dashboard from 'assets/icons/dashboard.svg';
 import Goals from 'assets/icons/goals.svg';
 import Team from 'assets/icons/team.svg';
 
+// Components
+import LogOutModal from './LogOutModal';
+
 // Styles
 import './style.scss';
 
 const Navigation = () => {
+	const { t } = useTranslation('mainApp');
+	const [isShowLogOutModal, setIsShowLogOutModal] = useState(false);
 	const theme = useTheme();
 	const currentPage = useSelector(selectorGetCurrentPage);
 	const dispatch = useDispatch();
@@ -32,27 +38,32 @@ const Navigation = () => {
 	const PAGES_LIST = [
 		{
 			icon: Dashboard,
-			title: 'Dashboard',
+			title: 'dashboard',
 			path: 'Dashboard',
 		},
 		{
 			icon: Team,
-			title: 'My team',
-			path: '',
+			title: 'my-teams',
+			path: 'My Teams',
 		},
 		{
 			icon: Goals,
-			title: 'Goals',
+			title: 'goals',
 			path: 'Goals',
 		},
 		{
 			icon: Calendar,
-			title: 'Calendar',
-			path: '',
+			title: 'calendar',
+			path: 'Calendar',
 		},
 	];
 
 	const handleChangeCurrentPage = (page: string) => dispatch(changePage(page));
+
+	const handleOpenSettings = () => {
+		navigate('Settings');
+		handleChangeCurrentPage('Settings');
+	};
 
 	useEffect(() => {
 		if (param['*']) dispatch(changePage(param['*']));
@@ -82,20 +93,20 @@ const Navigation = () => {
 					sx={{ color: `${theme.palette.darkYellow}`, marginBottom: '55px' }}
 					onClick={() => navigate('Goals/CreateGoal')}
 				>
-					Add new goal
+					{t('add-new-goal')}
 				</Typography>
 				<Box className="navigation__pages">
 					{PAGES_LIST.map(page => (
 						<Box
 							className={cx('navigation__link', {
-								choosen: currentPage?.includes(page.title),
+								choosen: currentPage?.includes(page.path),
 							})}
 							onClick={() => navigate(page.path)}
 							key={page.title}
 						>
 							<img src={page.icon} alt={page.title} />
 							<Typography variant="subtitle" sx={{ color: `${theme.palette.lightYellow}` }}>
-								{page.title}
+								{t(page.title)}
 							</Typography>
 						</Box>
 					))}
@@ -107,9 +118,9 @@ const Navigation = () => {
 							choosen: currentPage === 'Settings',
 						})}
 						sx={{ color: `${theme.palette.lightYellow}` }}
-						onClick={() => handleChangeCurrentPage('Settings')}
+						onClick={handleOpenSettings}
 					>
-						Settings
+						{t('settings')}
 					</Typography>
 					<Typography
 						variant="subtitle"
@@ -117,12 +128,13 @@ const Navigation = () => {
 							choosen: currentPage === 'Log out',
 						})}
 						sx={{ color: `${theme.palette.lightYellow}` }}
-						onClick={() => navigate('/GoalTracker/')}
+						onClick={() => setIsShowLogOutModal(true)}
 					>
-						Log out
+						{t('log-out')}
 					</Typography>
 				</Box>
 			</Box>
+			<LogOutModal isShow={isShowLogOutModal} setIsShow={setIsShowLogOutModal} />
 		</Box>
 	);
 };

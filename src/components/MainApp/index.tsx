@@ -8,6 +8,7 @@ import { Box } from '@mui/material';
 import Dashboard from './Pages/Dashboard';
 import Goals from './Pages/Goals';
 import Navigation from './Navigation';
+import Settings from './Pages/Settings';
 
 const GoalTracker = () => {
 	const location = useLocation();
@@ -27,6 +28,7 @@ const GoalTracker = () => {
 				<Routes location={location}>
 					<Route path="/Dashboard/" element={<Dashboard />} />
 					<Route path="/Goals/*" element={<Goals />} />
+					<Route path="/Settings/" element={<Settings />} />
 				</Routes>
 			</AnimatePresence>
 		</Box>

@@ -1,4 +1,5 @@
 import { FC, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 import dayjs, { Dayjs } from 'dayjs';
 
@@ -24,6 +25,7 @@ interface CreateSubGoalProps {
 }
 
 const CreateSubGoal: FC<CreateSubGoalProps> = ({ goal }) => {
+	const { t } = useTranslation('mainApp');
 	const [isShowCreateTaskModal, setIsShowCreateTaskModal] = useState(false);
 	const { enableCloseEffect, handleCloseModal } = useEnableEffect(undefined, -1);
 	const [isShowError, setIsShowError] = useState(false);
@@ -93,12 +95,12 @@ const CreateSubGoal: FC<CreateSubGoalProps> = ({ goal }) => {
 				})}
 			>
 				<Box className="create-subgoal__header">
-					<Typography variant="subtitle">Goal Name:</Typography>
+					<Typography variant="subtitle">{t('goal-name')}:</Typography>
 					<Typography variant="h4">{goal.title}</Typography>
 				</Box>
 
 				<Box className="create-subgoal__title">
-					<Typography variant="subtitle">Subgoal Name:</Typography>
+					<Typography variant="subtitle">{t('subgoal-name')}:</Typography>
 					<input
 						type="text"
 						placeholder="Reach level A1 in Spanish"
@@ -107,7 +109,7 @@ const CreateSubGoal: FC<CreateSubGoalProps> = ({ goal }) => {
 				</Box>
 				<Box className="create-subgoal__date">
 					<Box className="create-subgoal__date-start flex">
-						<Typography variant="subtitle">Start Date:</Typography>
+						<Typography variant="subtitle">{t('start-date')}:</Typography>
 						<DatePicker
 							className="date"
 							defaultValue={yesterday}
@@ -116,7 +118,7 @@ const CreateSubGoal: FC<CreateSubGoalProps> = ({ goal }) => {
 						/>
 					</Box>
 					<Box className="create-subgoal__date-end flex">
-						<Typography variant="subtitle">End Date:</Typography>
+						<Typography variant="subtitle">{t('end-date')}:</Typography>
 						<DatePicker
 							className="date"
 							defaultValue={today}
@@ -140,12 +142,12 @@ const CreateSubGoal: FC<CreateSubGoalProps> = ({ goal }) => {
 					onClick={() => setIsShowCreateTaskModal(true)}
 				>
 					<Typography variant="body" className="goals__header-title">
-						Add a task
+						{t('add-a-task')}
 					</Typography>
 				</Button>
 				<Box className="create-subgoal__actions">
 					<Button color="secondary" variant="buttonLight" size="small" onClick={handleClosePage}>
-						<Typography variant="body">Cancel</Typography>
+						<Typography variant="body">{t('cancel')}</Typography>
 					</Button>
 					<Button
 						color="primary"
@@ -157,7 +159,7 @@ const CreateSubGoal: FC<CreateSubGoalProps> = ({ goal }) => {
 						})}
 						disabled={!isButtonDisabled}
 					>
-						<Typography variant="body">Save subgoal</Typography>
+						<Typography variant="body">{t('save-subgoal')}</Typography>
 					</Button>
 				</Box>
 				<CreateGoalTaskModal
@@ -169,7 +171,7 @@ const CreateSubGoal: FC<CreateSubGoalProps> = ({ goal }) => {
 			</Box>
 			<Snackbar open={isShowError} autoHideDuration={4000} onClose={() => setIsShowError(false)}>
 				<Alert onClose={() => setIsShowError(false)} severity="error" sx={{ width: '100%' }}>
-					<Typography variant="subtitle">There is already a subgoal with that name!</Typography>
+					<Typography variant="subtitle">{t('subgoal-with-same-name')}</Typography>
 				</Alert>
 			</Snackbar>
 		</>

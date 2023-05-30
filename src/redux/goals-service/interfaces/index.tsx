@@ -6,4 +6,5 @@ export interface IGoalReducer {
 	statuses: GoalStatus[];
 	theme: string;
 	currentPage: string;
+	language: string;
 }

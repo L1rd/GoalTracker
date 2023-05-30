@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // MUI
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
@@ -89,6 +90,7 @@ interface SubGoalProps {
 }
 
 export const SubGoalComponent: FC<SubGoalProps> = ({ isExpanded, handleChangeExpanded, subGoal }) => {
+	const { t } = useTranslation('mainApp');
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
 	const open = Boolean(anchorEl);
@@ -113,8 +115,8 @@ export const SubGoalComponent: FC<SubGoalProps> = ({ isExpanded, handleChangeExp
 						<img src={Dots} alt="Dots" />
 					</IconButton>
 					<Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-						<MenuItem onClick={handleClose}>Edit</MenuItem>
-						<MenuItem onClick={handleClose}>Delete</MenuItem>
+						<MenuItem onClick={handleClose}>{t('edit')}</MenuItem>
+						<MenuItem onClick={handleClose}>{t('delete')}</MenuItem>
 					</Menu>
 				</Box>
 			</AccordionSummary>
