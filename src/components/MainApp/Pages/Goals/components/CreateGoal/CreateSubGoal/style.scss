@@ -39,7 +39,7 @@
 
 		& span {
 			@include flex($align: center, $justify: flex-end, $direction: row);
-			width: 150px;
+			width: 180px;
 		}
 
 		& div {
@@ -71,7 +71,7 @@
 
 		& span {
 			@include flex($align: center, $justify: flex-end, $direction: row);
-			width: 150px;
+			width: 180px;
 		}
 
 		& div {

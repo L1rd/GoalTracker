@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import cx from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 // MUI
 import { Box, Button, Typography } from '@mui/material';
@@ -26,6 +27,7 @@ interface MainGoalProps {
 }
 
 const MainGoal: FC<MainGoalProps> = ({ goal }) => {
+	const { t } = useTranslation('mainApp');
 	const { enableCloseEffect, handleCloseModal } = useEnableEffect(undefined, -1);
 	const [expanded, setExpanded] = useState<string | false>(false);
 	const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -51,21 +53,21 @@ const MainGoal: FC<MainGoalProps> = ({ goal }) => {
 						<Box className="main-goal__columns">
 							<Box className="main-goal__date">
 								<Typography className="main-goal__date-info" variant="body">
-									<span className="first-info">Start: </span>
+									<span className="first-info">{t('start-date')}: </span>
 									{goal.start}
 								</Typography>
 								<Typography className="main-goal__date-info" variant="body">
-									<span className="first-info">End: </span>
+									<span className="first-info">{t('end-date')}: </span>
 									{goal.end}
 								</Typography>
 							</Box>
 							<Box className="main-goal__add">
 								<Typography className="main-goal__add-info" variant="body">
-									<span className="first-info">Status: </span>
+									<span className="first-info">{t('status')}: </span>
 									{goal.status}
 								</Typography>
 								<Typography className="main-goal__add-info" variant="body">
-									<span className="first-info">Category: </span>
+									<span className="first-info">{t('category')}: </span>
 									{goal.category}
 								</Typography>
 							</Box>
@@ -93,10 +95,10 @@ const MainGoal: FC<MainGoalProps> = ({ goal }) => {
 
 			<Box className="main-goal__actions">
 				<Button color="secondary" variant="buttonLight" size="small" onClick={handleCloseModal}>
-					<Typography variant="body">Go Back</Typography>
+					<Typography variant="body">{t('go-back')}</Typography>
 				</Button>
 				<Button color="primary" variant="buttonDark" size="small">
-					<Typography variant="body">Edit</Typography>
+					<Typography variant="body">{t('edit')}</Typography>
 				</Button>
 			</Box>
 		</Box>

@@ -9,6 +9,7 @@ import {
 	updateCategoryOperation,
 	updateCategoryStatus,
 	deleteGoalOperation,
+	changeLanguageOperation,
 } from './operations';
 
 const initialState: IGoalReducer = {
@@ -32,24 +33,25 @@ const initialState: IGoalReducer = {
 	],
 	statuses: [
 		{
-			title: 'Complete',
+			title: 'complete',
 			count: 0,
 		},
 		{
-			title: 'In Progress',
+			title: 'in-progress',
 			count: 0,
 		},
 		{
-			title: 'On Hold',
+			title: 'on-hold',
 			count: 0,
 		},
 		{
-			title: 'Timed Out',
+			title: 'timed-out',
 			count: 0,
 		},
 	],
 	theme: 'theme-dark',
 	currentPage: '',
+	language: 'en',
 };
 
 export const goalsSlice = createSlice({
@@ -64,6 +66,7 @@ export const goalsSlice = createSlice({
 		updateCategory: updateCategoryOperation,
 		updateStatus: updateCategoryStatus,
 		deleteGoal: deleteGoalOperation,
+		changeLanguage: changeLanguageOperation,
 	},
 });
 
@@ -76,5 +79,6 @@ export const {
 	updateCategory,
 	updateStatus,
 	deleteGoal,
+	changeLanguage,
 } = goalsSlice.actions;
 export default goalsSlice.reducer;

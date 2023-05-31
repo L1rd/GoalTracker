@@ -1,26 +1,12 @@
 @import "~assets/styles/main.scss";
 
-.add-modal {
+.delete-modal {
 	position: fixed;
 	z-index: 1000;
 	background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
 	border-radius: 24px;
 	animation: show-add-modal 0.5s;
-
-	&__input {
-		margin: 32px 0;
-		border-radius: 8px;
-
-		& label {
-			font-family: "Stolzl";
-			font-style: normal;
-			font-weight: 400;
-			line-height: 150%;
-			font-size: 14px;
-			letter-spacing: 0.004em;
-			color: rgba(13, 37, 105, 0.5);
-		}
-	}
+	padding: 48px 16px;
 
 	&__wrapper {
 		@include flex($align: center, $justify: center, $direction: row);
@@ -33,28 +19,42 @@
 		left: 0;
 	}
 
-	&__header {
-		background: $darkBlue;
-		padding: 7px 73px;
-		text-align: center;
-		border-radius: 24px 24px 0 0;
+	&__title {
+		@include flex($align: center, $justify: center, $direction: row);
+		color: $darkBlue;
+		font-weight: bold;
+		margin-bottom: 32px;
 
 		& span {
-			color: $lightYellow;
+			@include text-ellipsis();
+			max-width: 150px;
 		}
 	}
 
 	&__content {
 		@include flex($align: center, $justify: center, $direction: column);
-		padding: 16px 24px;
+		text-align: center;
 	}
 
-	&__buttons {
+	&__actions {
 		@include flex($align: center, $justify: center, $direction: row);
-		gap: 22px;
+		gap: 16px;
+	}
+
+	&__close-icon {
+		position: absolute;
+		right: 10px;
+		top: 10px;
 	}
 
 	&.close {
 		animation: hide-add-modal 0.5s;
 	}
+}
+
+.delete-icon {
+	margin-bottom: 24px;
+	width: 48px;
+	height: 54px;
+	filter: invert(40%) sepia(75%) saturate(7228%) hue-rotate(348deg) brightness(89%) contrast(89%);
 }

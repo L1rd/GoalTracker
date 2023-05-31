@@ -1,14 +1,24 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+
+// MUI
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material';
+
+// Icons
 import Logo from 'assets/icons/logo.svg';
 import AuthImg from 'assets/images/auth-img.svg';
-import { motion } from 'framer-motion';
+
+// Components
 import SignUpWithEmail from './SignUpWithEmail';
+
+// Styles
 import '../style.scss';
 
 const SignUpPage = () => {
+	const { t } = useTranslation('auth');
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -35,17 +45,19 @@ const SignUpPage = () => {
 										<Typography>goalrizer</Typography>
 									</Box>
 									<Typography variant="h4" className="auth__title">
-										Create an account
+										{t('create-an-account')}
 									</Typography>
 									<Box className="auth__buttons">
 										<Button>
-											<Typography variant="smallDetails">Continue with Google</Typography>
+											<Typography variant="smallDetails">{t('continue-with-google')}</Typography>
 										</Button>
 										<Button>
-											<Typography variant="smallDetails">Continue with Facebook</Typography>
+											<Typography variant="smallDetails">
+												{t('continue-with-facebook')}
+											</Typography>
 										</Button>
 										<Button onClick={() => navigate('/GoalTracker/Auth/SignUp/SignUpWithEmail/')}>
-											<Typography variant="smallDetails">Continue with email</Typography>
+											<Typography variant="smallDetails">{t('continue-with-email')}</Typography>
 										</Button>
 									</Box>
 									<FormControlLabel
@@ -64,14 +76,14 @@ const SignUpPage = () => {
 												letterSpacing: '0.004em',
 											},
 										}}
-										label="I wish to receive news and promotions from Goalrizer Company by email."
+										label={t('wish-recieve-news-promotions')}
 									/>
 									<Typography variant="reviews" className="auth__agreement">
-										By continuing, you agree to Goalrizer Company’s Terms of Use and Privacy Policy.
+										{t('agree-policy')}.
 									</Typography>
 									<Typography variant="smallDetails" className="auth__link">
-										Already have an account?{' '}
-										<span onClick={() => navigate('/GoalTracker/Auth/LogIn/')}>Log In up</span>
+										{t('already-have-account')}{' '}
+										<span onClick={() => navigate('/GoalTracker/Auth/LogIn/')}>{t('log-in')}</span>
 									</Typography>
 								</motion.div>
 							}

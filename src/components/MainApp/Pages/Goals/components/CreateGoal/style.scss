@@ -33,7 +33,7 @@
 
 		& span {
 			@include flex($align: center, $justify: flex-end, $direction: row);
-			width: 150px;
+			width: 180px;
 		}
 
 		& div {
@@ -115,7 +115,7 @@
 
 			& > span {
 				@include flex($align: center, $justify: flex-end, $direction: row);
-				width: 150px;
+				width: 180px;
 			}
 
 			& div {
@@ -261,7 +261,7 @@
 }
 
 .MuiMenu-paper {
-	border-radius: 12px 0 0 12px;
+	border-radius: 12px;
 
 	& ul {
 		padding: 0;

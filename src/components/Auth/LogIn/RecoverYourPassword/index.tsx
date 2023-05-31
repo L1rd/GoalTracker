@@ -1,14 +1,24 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Typography } from '@mui/material';
-import Logo from 'assets/icons/logo.svg';
+import { useTranslation } from 'react-i18next';
 import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
+
+// MUI
+import { Box, Button, Typography } from '@mui/material';
+
+// Icons
+import Logo from 'assets/icons/logo.svg';
+
+// Components
 import CustomInput from 'shared/components/CustomInput';
+
+// Schemas
 import { recoverYourPasswordSchema } from 'utils/schemas';
 
 const RecoverYourPassword = () => {
+	const { t } = useTranslation('auth');
 	const navigate = useNavigate();
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,28 +39,27 @@ const RecoverYourPassword = () => {
 			}}
 		>
 			<Typography onClick={() => navigate(-1)} variant="subtitle" className="auth__back">
-				Back
+				{t('back')}
 			</Typography>
 			<Box className="auth__logo">
 				<img src={Logo} alt="logo" />
 				<Typography>goalrizer</Typography>
 			</Box>
 			<Typography variant="h4" className="auth__title">
-				Recover your password
+				{t('recover-password')}
 			</Typography>
 			<Typography
 				variant="smallDetails"
 				className="auth__recover-password"
 				sx={{ marginBottom: '50px', textAlign: 'center', fontWeight: 'bold' }}
 			>
-				Enter the email that you used when register to recover your password. You will receive a password reset
-				link.
+				{t('enter-email-for-recovering')}
 			</Typography>
 			<Box className="auth__inputs">
 				<Formik initialValues={{ email: '' }} validationSchema={recoverYourPasswordSchema} onSubmit={onSubmit}>
 					{({ isSubmitting }) => (
 						<Form>
-							<CustomInput label="Email" name="email" type="email" />
+							<CustomInput label={t('email')} name="email" type="email" />
 							<Button
 								color="primary"
 								variant="buttonDark"
@@ -59,14 +68,14 @@ const RecoverYourPassword = () => {
 								type="submit"
 								disabled={isSubmitting}
 							>
-								<Typography variant="smallDetails">Send link</Typography>
+								<Typography variant="smallDetails">{t('send-link')}</Typography>
 							</Button>
 						</Form>
 					)}
 				</Formik>
 			</Box>
 			<Typography variant="smallDetails" sx={{ textAlign: 'center' }}>
-				If you need further assistance contact our support team
+				{t('contact-support-team')}
 			</Typography>
 		</motion.div>
 	);

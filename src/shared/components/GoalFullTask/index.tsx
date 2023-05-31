@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 // MUI
@@ -16,6 +17,7 @@ interface GoalFullTaskProps {
 }
 
 export const GoalFullTask: FC<GoalFullTaskProps> = ({ title, time }) => {
+	const { t } = useTranslation('mainApp');
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const [taskCompeted, setTaskCompeted] = useState(false);
 	const open = Boolean(anchorEl);
@@ -59,8 +61,8 @@ export const GoalFullTask: FC<GoalFullTaskProps> = ({ title, time }) => {
 					<img src={Dots} alt="Dots" />
 				</IconButton>
 				<Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-					<MenuItem onClick={handleClose}>Edit</MenuItem>
-					<MenuItem onClick={handleClose}>Delete</MenuItem>
+					<MenuItem onClick={handleClose}>{t('edit')}</MenuItem>
+					<MenuItem onClick={handleClose}>{t('delete')}</MenuItem>
 				</Menu>
 			</Box>
 		</Box>

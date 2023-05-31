@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Box, Typography } from '@mui/material';
 import cx from 'classnames';
+import { useTranslation } from 'react-i18next';
 import { useField } from 'formik';
 import './style.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomInput = ({ label, ...props }: any) => {
+	const { t } = useTranslation('auth');
 	const [field, meta] = useField(props);
 
 	return (
@@ -22,7 +24,7 @@ const CustomInput = ({ label, ...props }: any) => {
 			/>
 			{meta.touched && meta.error && (
 				<Typography variant="reviews" className="error">
-					{meta.error}
+					{t(meta.error)}
 				</Typography>
 			)}
 		</Box>

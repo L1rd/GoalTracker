@@ -1,12 +1,18 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+
+// MUI
 import { Box, Typography } from '@mui/material';
+
+// Icons
 import Logo from 'assets/icons/logo.svg';
 import EmailMessage from 'assets/icons/mail-with-message.svg';
-import { motion } from 'framer-motion';
 
 const SendOnEmail = () => {
+	const { t } = useTranslation('auth');
 	const navigate = useNavigate();
 
 	return (
@@ -21,7 +27,7 @@ const SendOnEmail = () => {
 			}}
 		>
 			<Typography onClick={() => navigate('/GoalTracker/Auth/LogIn/')} variant="subtitle" className="auth__back">
-				Back
+				{t('back')}
 			</Typography>
 			<Box className="auth__logo">
 				<img src={Logo} alt="logo" />
@@ -38,12 +44,12 @@ const SendOnEmail = () => {
 				}}
 			>
 				<img src={EmailMessage} alt="email-message" />
-				<Typography variant="subtitle">We`ve sent you an email with a link to reset your password.</Typography>
+				<Typography variant="subtitle">{t('sent-email')}</Typography>
 			</Box>
 			<Typography variant="smallDetails" sx={{ marginBottom: '32px' }}>
-				Check your spam and promotions folder if it doesn`t appear in your main mailbox.
+				{t('check-email')}
 			</Typography>
-			<Typography variant="link">Didn’t receive the email?</Typography>
+			<Typography variant="link">{t('didn`t-recieve-email')}</Typography>
 		</motion.div>
 	);
 };

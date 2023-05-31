@@ -47,3 +47,7 @@ export const updateCategoryStatus = (state: IGoalReducer, { payload }: PayloadAc
 export const deleteGoalOperation = (state: IGoalReducer, { payload }: PayloadAction<string>) => {
 	state.goals = state.goals.filter(item => item.title !== payload);
 };
+
+export const changeLanguageOperation = (state: IGoalReducer, { payload }: PayloadAction<string>) => {
+	state.language = payload;
+};

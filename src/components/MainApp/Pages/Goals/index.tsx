@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
 import cx from 'classnames';
@@ -36,6 +37,7 @@ import MainGoal from './components/MainGoal';
 import './style.scss';
 
 const Goals = () => {
+	const { t } = useTranslation('mainApp');
 	const dispatch = useDispatch();
 	const goals = useSelector(selectorGetGoals);
 	const statuses = useSelector(selectorGetStatuses);
@@ -95,20 +97,20 @@ const Goals = () => {
 			case 'Goal':
 				return (
 					<Typography variant="h2" className="goals__header-title">
-						Goal overview
+						{t('goal-overview')}
 					</Typography>
 				);
 			case 'CreateGoal':
 				return (
 					<Typography variant="h2" className="goals__header-title">
-						Set a goal
+						{t('set-a-goal')}
 					</Typography>
 				);
 
 			case 'CreateGoal/CreateSubGoal':
 				return (
 					<Typography variant="h2" className="goals__header-title">
-						Set a subgoal
+						{t('set-a-subgoal')}
 					</Typography>
 				);
 
@@ -116,7 +118,7 @@ const Goals = () => {
 				return (
 					<>
 						<Typography variant="h2" className="goals__header-title">
-							My goals
+							{t('my-goals')}
 						</Typography>
 						<Button
 							variant="buttonDark"
@@ -125,7 +127,7 @@ const Goals = () => {
 							onClick={() => navigate('CreateGoal')}
 						>
 							<Typography variant="body" className="goals__header-title">
-								Create goal
+								{t('create-goal')}
 							</Typography>
 						</Button>
 					</>
@@ -157,7 +159,7 @@ const Goals = () => {
 							<Box className="goals__filter">
 								<Box className="goals__categories">
 									<Box className="goals__categories-title">
-										<Typography variant="subtitle">Category</Typography>
+										<Typography variant="subtitle">{t('category')}</Typography>
 										<Box onClick={handleEditCategory}>
 											<img
 												src={!isCheck ? EditCategory : EditCategoryAccept}
@@ -208,7 +210,7 @@ const Goals = () => {
 												})}
 												onClick={() => setIsShowModal(true)}
 											>
-												<Typography variant="body">Add category</Typography>
+												<Typography variant="body">{t('add-category')}</Typography>
 												<img src={AddCategory} alt="add" />
 											</Box>
 										)}
@@ -223,20 +225,20 @@ const Goals = () => {
 								</Box>
 								<Box className="goals__statuses">
 									<Box className="goals__statuses-title">
-										<Typography variant="subtitle">Status</Typography>
+										<Typography variant="subtitle">{t('status')}</Typography>
 									</Box>
 									<Box className="goals__status-list">
 										{statuses.map(status => (
 											<Box
 												onClick={() =>
-													setIsChoosen(prev => ({ ...prev, status: status.title }))
+													setIsChoosen(prev => ({ ...prev, status: t(status.title) }))
 												}
 												className={cx('goals__status', {
-													choosen: isChoosen.status === status.title,
+													choosen: isChoosen.status === t(status.title),
 												})}
 												key={status.title}
 											>
-												<Typography variant="body">{status.title}</Typography>
+												<Typography variant="body">{t(status.title)}</Typography>
 												<Box className="goals__category-count">{status.count}</Box>
 											</Box>
 										))}
@@ -270,7 +272,7 @@ const Goals = () => {
 							) : (
 								<Box className="goals__list-empty">
 									<img src={EmptyStateIcon} alt="empty state icon" />
-									<Typography variant="body">You have no goals created yet</Typography>
+									<Typography variant="body">{t('goals-empty-state')}</Typography>
 								</Box>
 							)}
 						</Box>

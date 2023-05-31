@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import dayjs, { Dayjs } from 'dayjs';
+import { useTranslation } from 'react-i18next';
 import { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { motion } from 'framer-motion';
@@ -23,7 +25,6 @@ import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 
 // Styles
 import './style.scss';
-import dayjs, { Dayjs } from 'dayjs';
 
 interface CreateGoalTaskModalProps {
 	isShow: boolean;
@@ -56,6 +57,7 @@ const dropIn = {
 const containerEl = document.getElementById('portal-root');
 
 const CreateGoalTaskModal: FC<CreateGoalTaskModalProps> = ({ isShow, setIsShow, setTask, tasks }) => {
+	const { t } = useTranslation('mainApp');
 	const [isShowError, setIsShowError] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 	const [time, setTime] = useState<Dayjs | null>(dayjs());
@@ -78,13 +80,13 @@ const CreateGoalTaskModal: FC<CreateGoalTaskModalProps> = ({ isShow, setIsShow, 
 	const { Mon, Tue, Wed, Thu, Fri, Sat, Sun } = days;
 
 	const WEEK = [
-		{ title: 'Mon', state: Mon },
-		{ title: 'Tue', state: Tue },
-		{ title: 'Wed', state: Wed },
-		{ title: 'Thu', state: Thu },
-		{ title: 'Fri', state: Fri },
-		{ title: 'Sat', state: Sat },
-		{ title: 'Sun', state: Sun },
+		{ title: 'mon', state: Mon },
+		{ title: 'tue', state: Tue },
+		{ title: 'wed', state: Wed },
+		{ title: 'thu', state: Thu },
+		{ title: 'fri', state: Fri },
+		{ title: 'sat', state: Sat },
+		{ title: 'sun', state: Sun },
 	];
 
 	const handleChangeDay = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -166,11 +168,11 @@ const CreateGoalTaskModal: FC<CreateGoalTaskModalProps> = ({ isShow, setIsShow, 
 		<Box className="create-task__wrapper">
 			<motion.div variants={dropIn} initial="hidden" animate="visible" exit="exit" className="create-task">
 				<Box className="create-task__header">
-					<Typography variant="h4">NEW TASK</Typography>
+					<Typography variant="h4">{t('new-task')}</Typography>
 				</Box>
 				<Box className="create-task__main-info">
 					<Box className="create-task__title">
-						<Typography variant="subtitle">Task:</Typography>
+						<Typography variant="subtitle">{t('task')}:</Typography>
 						<input
 							type="text"
 							placeholder="Create cards with letters"
@@ -178,7 +180,7 @@ const CreateGoalTaskModal: FC<CreateGoalTaskModalProps> = ({ isShow, setIsShow, 
 						/>
 					</Box>
 					<Box className="create-task__reminder">
-						<Typography variant="subtitle">Remind me:</Typography>
+						<Typography variant="subtitle">{t('remind-me')}:</Typography>
 						<Box className="create-task__reminder__frequency">
 							<RadioGroup
 								defaultValue="Custom"
@@ -186,10 +188,10 @@ const CreateGoalTaskModal: FC<CreateGoalTaskModalProps> = ({ isShow, setIsShow, 
 								value={period}
 								onChange={handleChangePeriod}
 							>
-								<FormControlLabel value="Every day" control={<Radio />} label="Every day" />
-								<FormControlLabel value="On weekdays" control={<Radio />} label="On weekdays" />
-								<FormControlLabel value="On weekends" control={<Radio />} label="On weekends" />
-								<FormControlLabel value="Custom" control={<Radio />} label="Custom" />
+								<FormControlLabel value="Every day" control={<Radio />} label={t('every-day')} />
+								<FormControlLabel value="On weekdays" control={<Radio />} label={t('on-weekdays')} />
+								<FormControlLabel value="On weekends" control={<Radio />} label={t('on-weekends')} />
+								<FormControlLabel value="Custom" control={<Radio />} label={t('custom')} />
 							</RadioGroup>
 							<FormGroup>
 								{WEEK.map(item => (
@@ -202,14 +204,14 @@ const CreateGoalTaskModal: FC<CreateGoalTaskModalProps> = ({ isShow, setIsShow, 
 											/>
 										}
 										key={item.title}
-										label={item.title}
+										label={t(item.title)}
 									/>
 								))}
 							</FormGroup>
 						</Box>
 					</Box>
 					<Box className="create-task__time">
-						<Typography variant="subtitle">Time:</Typography>
+						<Typography variant="subtitle">{t('time')}:</Typography>
 						<MobileTimePicker
 							defaultValue={dayjs('2022-04-17T15:30')}
 							value={time}
@@ -220,7 +222,7 @@ const CreateGoalTaskModal: FC<CreateGoalTaskModalProps> = ({ isShow, setIsShow, 
 				</Box>
 				<Box className="create-task__actions">
 					<Button color="secondary" variant="buttonLight" size="small" onClick={() => setIsShow(false)}>
-						<Typography variant="body">Cancel</Typography>
+						<Typography variant="body">{t('cancel')}</Typography>
 					</Button>
 					<Button
 						color="primary"
@@ -229,13 +231,13 @@ const CreateGoalTaskModal: FC<CreateGoalTaskModalProps> = ({ isShow, setIsShow, 
 						onClick={handleCreateTask}
 						disabled={!isButtonDisabled}
 					>
-						<Typography variant="body">Add task</Typography>
+						<Typography variant="body">{t('add-a-task')}</Typography>
 					</Button>
 				</Box>
 			</motion.div>
 			<Snackbar open={isShowError} autoHideDuration={4000} onClose={() => setIsShowError(false)}>
 				<Alert onClose={() => setIsShowError(false)} severity="error" sx={{ width: '30%', right: 0 }}>
-					<Typography variant="subtitle">There is already a task with that name!</Typography>
+					<Typography variant="subtitle">{t('task-with-same-name')}</Typography>
 				</Alert>
 			</Snackbar>
 		</Box>,

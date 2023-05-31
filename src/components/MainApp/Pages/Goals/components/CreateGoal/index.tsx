@@ -1,4 +1,5 @@
 import { FC, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import dayjs, { Dayjs } from 'dayjs';
 import cx from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
@@ -45,6 +46,7 @@ import CreateSubGoal from './CreateSubGoal';
 import './style.scss';
 
 const CreateGoal: FC = () => {
+	const { t } = useTranslation('mainApp');
 	const dispatch = useDispatch();
 	const goals = useSelector(selectorGetGoals);
 	const categories = useSelector(selectorGetCategories);
@@ -168,7 +170,7 @@ const CreateGoal: FC = () => {
 						>
 							<Box className="create-goal__title">
 								<Box className="create-goal__title__goal-name flex">
-									<Typography variant="subtitle">Goal Name:</Typography>
+									<Typography variant="subtitle">{t('goal-name')}:</Typography>
 									<input
 										type="text"
 										placeholder="Reach level A1 in Spanish"
@@ -182,19 +184,29 @@ const CreateGoal: FC = () => {
 									/>
 								</Box>
 								<Box className="create-goal__radio-type">
-									<Typography variant="subtitle">Goal Type:</Typography>
+									<Typography variant="subtitle">{t('goal-type')}:</Typography>
 									<RadioGroup
 										defaultValue="Multi-step"
 										name="radio-buttons-group"
 										value={type}
 										onChange={handleChangeType}
 									>
-										<FormControlLabel value="Simple" control={<Radio />} label="Simple" />
-										<FormControlLabel value="Multi-step" control={<Radio />} label="Multi-step" />
+										<FormControlLabel
+											value="Simple"
+											control={<Radio />}
+											label={t('simple')}
+											disabled={tasks.length !== 0 || goal.subgoals.length !== 0}
+										/>
+										<FormControlLabel
+											value="Multi-step"
+											control={<Radio />}
+											label={t('multi-step')}
+											disabled={tasks.length !== 0 || goal.subgoals.length !== 0}
+										/>
 									</RadioGroup>
 								</Box>
 								<Box className="create-goal__title__priority flex">
-									<Typography variant="subtitle">Priority:</Typography>
+									<Typography variant="subtitle">{t('priority')}:</Typography>
 									<Select
 										value={priority}
 										label="Priority"
@@ -202,23 +214,32 @@ const CreateGoal: FC = () => {
 										onChange={handleChangePriority}
 									>
 										<MenuItem value={1}>
-											<Typography variant="body">{getPriority(1)}Lowest priority</Typography>
+											<Typography variant="body">
+												{getPriority(1)}
+												{t('lowest-priority')}
+											</Typography>
 										</MenuItem>
 										<MenuItem value={2}>
-											<Typography variant="body">{getPriority(2)}Medium priority</Typography>
+											<Typography variant="body">
+												{getPriority(2)} {t('medium-priority')}
+											</Typography>
 										</MenuItem>
 										<MenuItem value={3}>
-											<Typography variant="body">{getPriority(3)}High priority</Typography>
+											<Typography variant="body">
+												{getPriority(3)} {t('high-priority')}
+											</Typography>
 										</MenuItem>
 										<MenuItem value={4}>
-											<Typography variant="body">{getPriority(4)}Highest priority</Typography>
+											<Typography variant="body">
+												{getPriority(4)} {t('highest-priority')}
+											</Typography>
 										</MenuItem>
 									</Select>
 								</Box>
 							</Box>
 							<Box className="create-goal__date">
 								<Box className="create-goal__date-start flex">
-									<Typography variant="subtitle">Start Date:</Typography>
+									<Typography variant="subtitle">{t('start-date')}:</Typography>
 									<DatePicker
 										className="date"
 										defaultValue={yesterday}
@@ -227,7 +248,7 @@ const CreateGoal: FC = () => {
 									/>
 								</Box>
 								<Box className="create-goal__date-end flex">
-									<Typography variant="subtitle">End Date:</Typography>
+									<Typography variant="subtitle">{t('end-date')}:</Typography>
 									<DatePicker
 										className="date"
 										defaultValue={today}
@@ -238,7 +259,7 @@ const CreateGoal: FC = () => {
 							</Box>
 							<Box className="create-goal__category">
 								<Box className="create-goal__category-info">
-									<Typography variant="subtitle">Category:</Typography>
+									<Typography variant="subtitle">{t('category')}:</Typography>
 									<Select
 										value={category}
 										label="Category"
@@ -280,7 +301,7 @@ const CreateGoal: FC = () => {
 									onClick={() => setIsShowCreateTaskModal(true)}
 								>
 									<Typography variant="body" className="goals__header-title">
-										Add a task
+										{t('add-a-task')}
 									</Typography>
 								</Button>
 							) : (
@@ -295,14 +316,14 @@ const CreateGoal: FC = () => {
 									disabled={goal.title === ''}
 								>
 									<Typography variant="body" className="goals__header-title">
-										Add a subgoal
+										{t('add-a-subgoal')}
 									</Typography>
 								</Button>
 							)}
 
 							<Box className="create-goal__actions">
 								<Button color="secondary" variant="buttonLight" size="small" onClick={handleClosePage}>
-									<Typography variant="body">Cancel</Typography>
+									<Typography variant="body">{t('cancel')}</Typography>
 								</Button>
 								<Button
 									color="primary"
@@ -314,7 +335,7 @@ const CreateGoal: FC = () => {
 									})}
 									disabled={!isButtonDisabled}
 								>
-									<Typography variant="body">Save goal</Typography>
+									<Typography variant="body">{t('save-goal')}</Typography>
 								</Button>
 							</Box>
 							<CreateGoalTaskModal
@@ -326,7 +347,7 @@ const CreateGoal: FC = () => {
 						</Box>
 						<Snackbar open={isShowError} autoHideDuration={4000} onClose={() => setIsShowError(false)}>
 							<Alert onClose={() => setIsShowError(false)} severity="error" sx={{ width: '100%' }}>
-								<Typography variant="subtitle">There is already a goal with that name!</Typography>
+								<Typography variant="subtitle">{t('goal-with-same-name')}</Typography>
 							</Alert>
 						</Snackbar>
 					</>
