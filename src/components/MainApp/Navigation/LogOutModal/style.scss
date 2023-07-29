@@ -48,6 +48,6 @@
 	}
 
 	&.close {
-		animation: hide-add-modal 0.5s;
+		animation: hide-add-modal 0.5s forwards;
 	}
 }

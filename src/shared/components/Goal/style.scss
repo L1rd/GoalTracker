@@ -8,6 +8,7 @@
 	filter: drop-shadow(4px 4px 8px rgba(11, 33, 92, 0.75));
 	border-radius: 12px;
 	width: 555px;
+   box-sizing: border-box;
 
 	&__progress {
 		@include flex($align: center, $justify: center, $direction: row);

@@ -10,7 +10,7 @@ import Goals from './Pages/Goals';
 import RoadMap from './Pages/RoadMap';
 import Navigation from './Navigation';
 import Settings from './Pages/Settings';
-import CreateRoadmap from './Pages/Roadmap/CreateRoadmap';
+import SubscriptionPage from './Pages/Subscription';
 
 const GoalTracker = () => {
 	const location = useLocation();
@@ -32,7 +32,7 @@ const GoalTracker = () => {
 					<Route path="/Goals/*" element={<Goals />} />
 					<Route path="/RoadMap/*" element={<RoadMap />} />
 					<Route path="/Settings/" element={<Settings />} />
-					<Route path="/CreateRoadmap/" element={<CreateRoadmap />} />
+					<Route path="/Subscription" element={<SubscriptionPage />} />
 				</Routes>
 			</AnimatePresence>
 		</Box>

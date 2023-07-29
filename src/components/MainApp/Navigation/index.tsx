@@ -53,13 +53,18 @@ const Navigation = () => {
 		},
 		{
 			icon: Goals,
-			title: 'RoadMap',
+			title: 'RoadMaps',
 			path: 'roadMap',
 		},
 		{
 			icon: Calendar,
 			title: 'calendar',
-			path: 'CreateRoadmap',
+			path: 'Calendar',
+		},
+		{
+			icon: Goals,
+			title: 'subscription-plans',
+			path: 'Subscription',
 		},
 	];
 

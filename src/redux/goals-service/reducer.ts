@@ -10,6 +10,7 @@ import {
 	updateCategoryStatus,
 	deleteGoalOperation,
 	changeLanguageOperation,
+	createRoadmapOperation,
 } from './operations';
 
 const initialState: IGoalReducer = {
@@ -52,6 +53,7 @@ const initialState: IGoalReducer = {
 	theme: 'theme-dark',
 	currentPage: '',
 	language: 'en',
+	roadmaps: [],
 };
 
 export const goalsSlice = createSlice({
@@ -67,6 +69,7 @@ export const goalsSlice = createSlice({
 		updateStatus: updateCategoryStatus,
 		deleteGoal: deleteGoalOperation,
 		changeLanguage: changeLanguageOperation,
+		createRoadmap: createRoadmapOperation,
 	},
 });
 
@@ -80,5 +83,6 @@ export const {
 	updateStatus,
 	deleteGoal,
 	changeLanguage,
+	createRoadmap,
 } = goalsSlice.actions;
 export default goalsSlice.reducer;

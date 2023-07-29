@@ -47,7 +47,7 @@ const Goals = () => {
 	const [isShowModal, setIsShowModal] = useState(false);
 	const [isShowError, setIsShowError] = useState(false);
 	const param = useParams();
-	const [isChoosen, setIsChoosen] = useState({ category: 'All', status: 'In Progress' });
+	const [isChoosen, setIsChoosen] = useState({ category: 'All', status: 'in-progress' });
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const [currentGoal, setCurrentGoal] = useState<any>();
 	const { enableCloseEffect, handleCloseModal } = useEnableEffect(setIsCheck);
@@ -234,7 +234,7 @@ const Goals = () => {
 													setIsChoosen(prev => ({ ...prev, status: t(status.title) }))
 												}
 												className={cx('goals__status', {
-													choosen: isChoosen.status === t(status.title),
+													choosen: t(isChoosen.status) === t(status.title),
 												})}
 												key={status.title}
 											>
@@ -253,7 +253,7 @@ const Goals = () => {
 											goal =>
 												(goal.category === isChoosen.category ||
 													isChoosen.category === 'All') &&
-												goal.status === isChoosen.status
+												t(goal.status) === t(isChoosen.status)
 										)
 										.map((goal: GoalInterface) => (
 											<Goal

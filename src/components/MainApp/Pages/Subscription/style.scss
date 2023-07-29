@@ -1,0 +1,47 @@
+@import "~assets/styles/main.scss";
+
+.subscription {
+	&__header {
+		@include flex($align: center, $justify: space-between, $direction: row);
+		width: 865px;
+		background: linear-gradient(270deg, #ffefc6 0%, #ffd260 100%);
+		box-shadow: 4px 4px 8px rgba(11, 33, 92, 0.75);
+		border-radius: 0px 12px 12px 0px;
+		padding: 18px 32px;
+		margin-bottom: 20px;
+
+		&-title {
+			font-weight: 500px;
+			color: #0b215c;
+		}
+	}
+	&__plans {
+		@include flex($align: center, $justify: flex-start, $direction: row);
+		gap: 24px;
+		margin-left: 20px;
+	}
+	&__plan {
+		@include flex($align: stretch, $justify: flex-start, $direction: column);		
+		border-radius: 20px;
+		background-color: #ffefc6;
+		box-shadow: 4px 4px 8px 0px rgba(255, 210, 96, 0.5);
+		width: 295px;
+		height: 369px;
+		padding: 0 0 20px 0;
+		&__header {
+			@include flex($align: center, $justify: space-between, $direction: row);
+			border-bottom: 1px solid darkblue;
+			padding: 25px;
+			border-radius: 20px 20px 0px 0px;
+			background: #fff6e0;
+		}
+		&__description {
+			flex: 1 0 auto;
+			padding: 10px;
+			& ul{
+				@include flex($align: stretch, $justify: flex-start, $direction: column);
+				gap: 10px;
+			}
+		}
+	}
+}

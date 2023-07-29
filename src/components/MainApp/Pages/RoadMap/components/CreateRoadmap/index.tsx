@@ -2,11 +2,7 @@ import { FC, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import dayjs, { Dayjs } from 'dayjs';
 import cx from 'classnames';
-import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-
-// Selectors
-import { selectorGetGoals } from 'redux/goals-service/selectors';
 
 // MUI
 import { Alert, Box, Button, Snackbar, Typography } from '@mui/material';
@@ -22,11 +18,17 @@ import { useEnableEffect } from 'shared/hooks/useEnableEffect';
 import './style.scss';
 import { GoalInterface } from 'utils/interfaces/goal';
 import Goal from 'shared/components/Goal';
+import { useDispatch } from 'react-redux';
+import { DispatchType } from 'redux/store';
+import { createRoadmap } from 'redux/goals-service/reducer';
+import GoalsListModal from './components/GoalsListModal';
 
 const CreateRoadmap: FC = () => {
 	const { t } = useTranslation('mainApp');
-	const goals = useSelector(selectorGetGoals);
+	const dispatch: DispatchType = useDispatch();
 	const { enableCloseEffect, handleCloseModal } = useEnableEffect(undefined, -1);
+	const [goals, setGoals] = useState([]);
+	const [isShowModal, setIsShowModal] = useState(false);
 	const [isShowError, setIsShowError] = useState(false);
 	const today = dayjs();
 	const [roadmap, setRoadmap] = useState<RoadmapInterface>({
@@ -34,7 +36,7 @@ const CreateRoadmap: FC = () => {
 		createdAt: today.format('DD/MM/YYYY'),
 		author: '',
 		stackOfTechnology: '',
-		goals: [],
+		goals,
 	});
 
 	const handleClosePage = () => {
@@ -62,13 +64,17 @@ const CreateRoadmap: FC = () => {
 			!!roadmap.createdAt &&
 			!!roadmap.author &&
 			!!roadmap.stackOfTechnology &&
-			!!roadmap.goals,
+			roadmap.goals.length >= 2,
 		[roadmap]
 	);
 
+	const handleSaveRoadmap = () => {
+		dispatch(createRoadmap(roadmap));
+		handleClosePage();
+	};
+
 	return (
 		<motion.div
-			className="goals"
 			initial={{ transform: 'translate(0, -220px)', opacity: 0 }}
 			animate={{ transform: 'translate(0, 0)', opacity: 1 }}
 			exit={{
@@ -76,9 +82,6 @@ const CreateRoadmap: FC = () => {
 				opacity: 0,
 			}}
 		>
-			<Box className="goals__header">
-				<Typography variant="h2">Creating Roadmap</Typography>
-			</Box>
 			<Box
 				className={cx('create-roadmap', {
 					close: enableCloseEffect,
@@ -103,11 +106,11 @@ const CreateRoadmap: FC = () => {
 					<input
 						type="text"
 						placeholder="Artem"
-						value={roadmap.title}
+						value={roadmap.author}
 						onChange={event =>
 							setRoadmap((prev: RoadmapInterface) => ({
 								...prev,
-								title: event.target.value,
+								author: event.target.value,
 							}))
 						}
 					/>
@@ -117,11 +120,11 @@ const CreateRoadmap: FC = () => {
 					<input
 						type="text"
 						placeholder="Frontend"
-						value={roadmap.title}
+						value={roadmap.stackOfTechnology}
 						onChange={event =>
 							setRoadmap((prev: RoadmapInterface) => ({
 								...prev,
-								title: event.target.value,
+								stackOfTechnology: event.target.value,
 							}))
 						}
 					/>
@@ -136,7 +139,7 @@ const CreateRoadmap: FC = () => {
 					/>
 				</Box>
 				{!!goals.length && (
-					<Box className="create-goal__tasks">
+					<Box className="create-roadmap__tasks">
 						{goals.map((goal: GoalInterface) => (
 							<Goal
 								progress={100}
@@ -146,12 +149,27 @@ const CreateRoadmap: FC = () => {
 								timeStart={goal.start}
 								timeEnd={goal.end}
 								category={goal.category}
-								setIsShow={() => null}
 								key={goal.title}
+								sx={{
+									filter: 'none !important',
+									border: '1px solid #0d2569',
+									width: '100% !important',
+								}}
 							/>
 						))}
 					</Box>
 				)}
+				<Button
+					size="medium"
+					color="primary"
+					variant="buttonLight"
+					className={cx('create-goal__add-task')}
+					onClick={() => setIsShowModal(true)}
+				>
+					<Typography variant="body" className="goals__header-title">
+						Add a goal
+					</Typography>
+				</Button>
 
 				<Box className="create-goal__actions">
 					<Button color="secondary" variant="buttonLight" size="small" onClick={handleClosePage}>
@@ -166,11 +184,19 @@ const CreateRoadmap: FC = () => {
 							isDisabled: !isButtonDisabled,
 						})}
 						disabled={!isButtonDisabled}
+						onClick={handleSaveRoadmap}
 					>
-						<Typography variant="body">{t('save-goal')}</Typography>
+						<Typography variant="body">Save RoadMap</Typography>
 					</Button>
 				</Box>
 			</Box>
+			<GoalsListModal
+				isShow={isShowModal}
+				setIsShow={setIsShowModal}
+				title="Select Goals For Roadmap"
+				setRoadmapsGoals={setGoals}
+				roadmapsGoals={goals}
+			/>
 			<Snackbar open={isShowError} autoHideDuration={4000} onClose={() => setIsShowError(false)}>
 				<Alert onClose={() => setIsShowError(false)} severity="error" sx={{ width: '100%' }}>
 					<Typography variant="subtitle">{t('goal-with-same-name')}</Typography>

@@ -1,0 +1,44 @@
+@import "~assets/styles/main.scss";
+
+.roadmap {
+	@include flex($align: center, $justify: center, $direction: column);
+	gap: 10px;
+	position: fixed;
+	animation: show-add-modal 0.5s;
+	z-index: 1000;
+	width: 70%;
+	height: 700px;
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+
+	&__wrapper {
+		@include flex($align: center, $justify: center, $direction: row);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.4);
+		z-index: 10001;
+		top: 0;
+		left: 0;
+	}
+	&.close {
+		animation: hide-add-modal 0.5s forwards;
+	}
+
+	&__goal {
+		@include flex($align: center, $justify: center, $direction: column);
+		gap: 10px;
+	}
+
+	&__box {
+		background-color: $brown;
+		color: $blue;
+		padding: 12px;
+	}
+}
+
+.flex {
+	@include flex($align: center, $justify: center, $direction: row);
+	gap: 10px;
+}

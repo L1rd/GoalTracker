@@ -7,7 +7,9 @@
     border-radius: 12px;
     margin: 20px 0 0 20px;
     gap: 15px;
-    &__title, &__author-name, &__stack-of-technology {
+    &__title,
+    &__author-name,
+    &__stack-of-technology {
         @include flex($align: flex-start, $justify: flex-start, $direction: row);
         gap: 10px;
         & input {
@@ -27,7 +29,8 @@
         }
     }
 
-    &__title, &__date {
+    &__title,
+    &__date {
         width: 100%;
         padding-bottom: 40px;
         border-bottom: 2px solid #e29b29;
@@ -35,7 +38,9 @@
         box-sizing: border-box;
     }
 
-    &__title, &__author-name, &__stack-of-technology {
+    &__title,
+    &__author-name,
+    &__stack-of-technology {
         & span {
             @include flex($align: center, $justify: flex-end, $direction: row);
             width: 290px;
@@ -96,5 +101,13 @@
 
     &__stack-of-technology span {
         width: 290px;
+    }
+
+    &__tasks {
+        width: 100%;
+        @include flex($align: flex-start, $justify: flex-start, $direction: column);
+        gap: 10px;
+        overflow-y: auto;
+        height: 200px;
     }
 }

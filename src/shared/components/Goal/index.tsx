@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // MUI
-import { Box, Button, IconButton, Typography } from '@mui/material';
+import { Box, Button, IconButton, SxProps, Theme, Typography } from '@mui/material';
 
 // Utils
 import { getPriority } from 'utils/functions/getPriority';
@@ -26,14 +26,27 @@ interface GoalProps {
 	timeEnd: string;
 	category: string;
 	setIsShow?: () => void;
+	onClick?: () => void;
+	sx?: SxProps<Theme> | undefined;
 }
 
-const Goal = ({ progress, title, priority, status, timeStart, timeEnd, category, setIsShow }: GoalProps) => {
+const Goal = ({
+	progress,
+	title,
+	priority,
+	status,
+	timeStart,
+	timeEnd,
+	category,
+	setIsShow,
+	onClick,
+	sx,
+}: GoalProps) => {
 	const [isShowDeleteGoalModal, setIsShowDeleteGoalModal] = useState(false);
 	const { t } = useTranslation('mainApp');
 
 	return (
-		<Box className="goal">
+		<Box className="goal" onClick={onClick} sx={sx}>
 			<Box className="goal__progress">
 				<CircularProgressWithLabel value={progress} />
 			</Box>
@@ -58,9 +71,17 @@ const Goal = ({ progress, title, priority, status, timeStart, timeEnd, category,
 						<span>{t('category')}</span>: {category}
 					</Typography>
 				</Box>
-				<Button variant="buttonLight" size="small" color="secondary" className="goal__view" onClick={setIsShow}>
-					<Typography variant="smallDetails">{t('view-goal')}</Typography>
-				</Button>
+				{setIsShow && (
+					<Button
+						variant="buttonLight"
+						size="small"
+						color="secondary"
+						className="goal__view"
+						onClick={setIsShow}
+					>
+						<Typography variant="smallDetails">{t('view-goal')}</Typography>
+					</Button>
+				)}
 			</Box>
 			<DeleteGoalModal
 				isShow={isShowDeleteGoalModal}
