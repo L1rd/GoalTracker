@@ -1,0 +1,100 @@
+@import "~assets/styles/main.scss";
+
+.create-roadmap {
+    @include flex($align: flex-start, $justify: center, $direction: column);
+    padding: 32px 16px 16px;
+    background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
+    border-radius: 12px;
+    margin: 20px 0 0 20px;
+    gap: 15px;
+    &__title, &__author-name, &__stack-of-technology {
+        @include flex($align: flex-start, $justify: flex-start, $direction: row);
+        gap: 10px;
+        & input {
+            background: #fff6e0;
+            border: 1px solid #e29b29;
+            border-radius: 8px;
+            padding: 0 8px;
+            height: 33px;
+            outline: none;
+            font-family: "Stolzl", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            letter-spacing: 0.005em;
+            color: #0d2569;
+            width: 80%;
+        }
+    }
+
+    &__title, &__date {
+        width: 100%;
+        padding-bottom: 40px;
+        border-bottom: 2px solid #e29b29;
+        margin-bottom: 24px;
+        box-sizing: border-box;
+    }
+
+    &__title, &__author-name, &__stack-of-technology {
+        & span {
+            @include flex($align: center, $justify: flex-end, $direction: row);
+            width: 290px;
+        }
+    }
+
+    &__title span {
+        width: 215px;
+    }
+
+    &__date {
+        @include flex($align: flex-start, $justify: flex-start, $direction: row);
+        gap: 10px;
+        & .date {
+            width: 207px;
+            height: 33px;
+            background: #fff6e0;
+            border: 1px solid #e29b29;
+            border-radius: 8px;
+
+            & .MuiInputBase-input {
+                font-family: "Stolzl", sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 150%;
+            }
+
+            & .MuiTouchRipple-root {
+                width: inherit;
+            }
+
+            & .MuiInputAdornment-root {
+                justify-content: flex-end;
+                width: 40px;
+
+                & svg {
+                    fill: #e29b29;
+                }
+            }
+
+            & .MuiInputBase-root {
+                height: 33px;
+                border-radius: 8px;
+            }
+
+            & fieldset {
+                border: none;
+                outline: none;
+            }
+        }
+
+        & span {
+            @include flex($align: center, $justify: flex-end, $direction: row);
+            width: 201px;
+        }
+    }
+
+    &__stack-of-technology span {
+        width: 290px;
+    }
+}
