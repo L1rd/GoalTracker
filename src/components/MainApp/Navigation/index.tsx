@@ -59,7 +59,7 @@ const Navigation = () => {
 		{
 			icon: Calendar,
 			title: 'calendar',
-			path: 'Calendar',
+			path: 'CreateRoadmap',
 		},
 	];
 
