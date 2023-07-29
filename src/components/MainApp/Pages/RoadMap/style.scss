@@ -1,0 +1,180 @@
+@import "~assets/styles/main.scss";
+
+.roadMap {
+	padding: 32px 0 0 0;
+
+	&__header {
+		@include flex($align: center, $justify: space-between, $direction: row);
+		width: 865px;
+		background: linear-gradient(270deg, #ffefc6 0%, #ffd260 100%);
+		box-shadow: 4px 4px 8px rgba(11, 33, 92, 0.75);
+		border-radius: 0px 12px 12px 0px;
+		padding: 18px 32px;
+		margin-bottom: 20px;
+
+		&-title {
+			font-weight: 500px;
+			color: #0b215c;
+		}
+	}
+
+	&__main-info {
+		@include flex($align: flex-start, $justify: flex-start, $direction: row);
+		gap: 20px;
+	}
+
+	&__filter {
+		background: #0d2569;
+		width: 224px;
+		box-shadow: 4px 4px 4px rgba(11, 33, 92, 0.75);
+		border-radius: 12px;
+		padding: 16px;
+		margin-left: 28px;
+	}
+
+	&__categories,
+	&__statuses {
+		margin-bottom: 24px;
+
+		&-title {
+			@include flex($align: center, $justify: flex-start, $direction: row);
+			gap: 12px;
+			color: #ffd260;
+			margin-bottom: 16px;
+
+			& img {
+				cursor: pointer;
+				transition: 0.5s;
+
+				&:hover {
+					filter: brightness(70%) contrast(100%);
+				}
+			}
+		}
+	}
+
+	&__category,
+	&__status {
+		@include flex($align: center, $justify: space-between, $direction: row);
+		width: 100%;
+		cursor: pointer;
+		transition: all 0.5s ease-in-out;
+
+		&-add {
+			@include flex($align: center, $justify: space-between, $direction: row);
+			cursor: pointer;
+			width: 100%;
+			animation: show 0.5s;
+
+			&.hide {
+				animation: hide 0.5s;
+			}
+
+			&:hover {
+				& span {
+					color: #8ea6fc;
+				}
+				& img {
+					filter: invert(57%) sepia(80%) saturate(400%) hue-rotate(194deg) brightness(101%) contrast(98%);
+				}
+			}
+
+			& span {
+				transition: 0.5s;
+				color: #ffd260;
+			}
+
+			& img {
+				transition: 0.5s;
+				height: 15px;
+			}
+		}
+
+		&:hover,
+		&.choosen {
+			& span {
+				color: #ffd260;
+			}
+
+			& .goals__category-count {
+				background-color: #2647ac;
+			}
+		}
+
+		&-list {
+			@include flex($align: flex-start, $justify: flex-start, $direction: column);
+			gap: 12px;
+			padding: 0 43px 0 24px;
+
+			& .categories {
+				@include flex($align: flex-start, $justify: flex-start, $direction: column);
+				gap: 12px;
+				max-height: 205px;
+				width: 100%;
+				overflow: auto;
+				padding-right: 10px;
+
+				&::-webkit-scrollbar {
+					width: 0.3em;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					border-radius: 5px;
+					background-color: #ffefc6;
+				}
+			}
+		}
+
+		& span {
+			@include text-ellipsis();
+			color: #ffefc6;
+			max-width: 250px;
+			transition: all 0.5s ease-in-out;
+		}
+
+		&-count {
+			background: #0b215c;
+			border-radius: 4px;
+			padding: 5px;
+			font-family: "Stolzl";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 14px;
+			text-align: center;
+			color: #ffefc6;
+			transition: all 0.5s ease-in-out;
+		}
+	}
+
+	&__list {
+		@include flex($align: flex-start, $justify: flex-start, $direction: column);
+		height: 83vh;
+		overflow-y: auto;
+		overflow-x: visible;
+		gap: 17px;
+		padding-right: 5px;
+
+		&-empty {
+			@include flex($align: center, $justify: center, $direction: column);
+			margin: 90px auto 0 auto;
+			color: $lightYellow;
+			opacity: 0.8;
+
+			& img {
+				height: 150px;
+				margin-bottom: 15px;
+				filter: invert(91%) sepia(15%) saturate(683%) hue-rotate(332deg) brightness(105%) contrast(101%);
+			}
+		}
+
+		&::-webkit-scrollbar {
+			width: 0.5em;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 5px;
+			background-color: lightgrey;
+		}
+	}
+}
