@@ -1,0 +1,47 @@
+@import "~assets/styles/main.scss";
+
+.roadMapBlock {
+	@include flex($align: center, $justify: flex-start, $direction: row);
+	gap: 16px;
+	padding: 16px;
+	background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
+	filter: drop-shadow(4px 4px 8px rgba(11, 33, 92, 0.75));
+	border-radius: 12px;
+	// width: 555px;
+  margin: 20px;
+
+	&__header {
+		@include flex($align: center, $justify: space-between, $direction: row);
+		margin-bottom: 8px;
+		width: 100%;
+
+		&-title {
+			@include flex($align: center, $justify: flex-start, $direction: row);
+			gap: 8px;
+			color: #0d2569;
+			font-weight: bolder !important;
+			& h4 {
+				@include text-ellipsis();
+				max-width: 250px;
+			}
+		}
+	}
+
+	&__info {
+		@include flex($align: flex-start, $justify: center, $direction: column);
+		width: 100%;
+	}
+
+	&__parameters {
+		@include flex($align: flex-start, $justify: center, $direction: column);
+		gap: 2px;
+
+		& span span {
+			font-weight: bold;
+		}
+	}
+
+	&__view {
+		align-self: flex-end;
+	}
+}

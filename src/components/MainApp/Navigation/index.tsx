@@ -52,6 +52,11 @@ const Navigation = () => {
 			path: 'Goals',
 		},
 		{
+			icon: Goals,
+			title: 'RoadMap',
+			path: 'roadMap',
+		},
+		{
 			icon: Calendar,
 			title: 'calendar',
 			path: 'Calendar',
