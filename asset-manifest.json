@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/GoalTracker/static/css/main.4e189928.css",
-    "main.js": "/GoalTracker/static/js/main.987a51ea.js",
+    "main.js": "/GoalTracker/static/js/main.8b488bb3.js",
     "static/css/772.f2ff9b4a.chunk.css": "/GoalTracker/static/css/772.f2ff9b4a.chunk.css",
     "static/js/772.c1a6d99d.chunk.js": "/GoalTracker/static/js/772.c1a6d99d.chunk.js",
-    "static/css/858.46d9b75d.chunk.css": "/GoalTracker/static/css/858.46d9b75d.chunk.css",
-    "static/js/858.97cb972c.chunk.js": "/GoalTracker/static/js/858.97cb972c.chunk.js",
+    "static/css/858.ea2774d8.chunk.css": "/GoalTracker/static/css/858.ea2774d8.chunk.css",
+    "static/js/858.2ebf34a8.chunk.js": "/GoalTracker/static/js/858.2ebf34a8.chunk.js",
     "static/css/86.3049402d.chunk.css": "/GoalTracker/static/css/86.3049402d.chunk.css",
     "static/js/86.3b02df2f.chunk.js": "/GoalTracker/static/js/86.3b02df2f.chunk.js",
     "static/css/320.3049402d.chunk.css": "/GoalTracker/static/css/320.3049402d.chunk.css",
@@ -81,11 +81,11 @@
     "static/media/add-task.svg": "/GoalTracker/static/media/add-task.132374bf8bde0df865ca.svg",
     "static/media/add.svg": "/GoalTracker/static/media/add.981fd7ea76bc5f173120.svg",
     "main.4e189928.css.map": "/GoalTracker/static/css/main.4e189928.css.map",
-    "main.987a51ea.js.map": "/GoalTracker/static/js/main.987a51ea.js.map",
+    "main.8b488bb3.js.map": "/GoalTracker/static/js/main.8b488bb3.js.map",
     "772.f2ff9b4a.chunk.css.map": "/GoalTracker/static/css/772.f2ff9b4a.chunk.css.map",
     "772.c1a6d99d.chunk.js.map": "/GoalTracker/static/js/772.c1a6d99d.chunk.js.map",
-    "858.46d9b75d.chunk.css.map": "/GoalTracker/static/css/858.46d9b75d.chunk.css.map",
-    "858.97cb972c.chunk.js.map": "/GoalTracker/static/js/858.97cb972c.chunk.js.map",
+    "858.ea2774d8.chunk.css.map": "/GoalTracker/static/css/858.ea2774d8.chunk.css.map",
+    "858.2ebf34a8.chunk.js.map": "/GoalTracker/static/js/858.2ebf34a8.chunk.js.map",
     "86.3049402d.chunk.css.map": "/GoalTracker/static/css/86.3049402d.chunk.css.map",
     "86.3b02df2f.chunk.js.map": "/GoalTracker/static/js/86.3b02df2f.chunk.js.map",
     "320.3049402d.chunk.css.map": "/GoalTracker/static/css/320.3049402d.chunk.css.map",
@@ -100,6 +100,6 @@
   },
   "entrypoints": [
     "static/css/main.4e189928.css",
-    "static/js/main.987a51ea.js"
+    "static/js/main.8b488bb3.js"
   ]
 }
