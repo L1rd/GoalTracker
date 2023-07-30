@@ -1,12 +1,14 @@
 @import "~assets/styles/main.scss";
 
-.delete-modal {
+.goals-list-modal {
 	position: fixed;
 	z-index: 1000;
 	background: url("~assets/images/tracking-background.svg") center / cover no-repeat;
 	border-radius: 24px;
 	animation: show-add-modal 0.5s;
-	padding: 48px 16px;
+	padding: 48px 46px;
+	height: 500px;
+	width: 620px;
 
 	&__wrapper {
 		@include flex($align: center, $justify: center, $direction: row);
@@ -32,8 +34,11 @@
 	}
 
 	&__content {
-		@include flex($align: center, $justify: center, $direction: column);
+		@include flex($align: flex-start, $justify: flex-start, $direction: column);
+		gap: 30px;
 		text-align: center;
+		overflow-y: auto;
+		height: 400px;
 	}
 
 	&__actions {

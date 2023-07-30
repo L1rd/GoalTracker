@@ -1,5 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { GoalCategory, GoalInterface, GoalStatus } from 'utils/interfaces/goal';
+import { RoadmapInterface } from 'utils/interfaces/roadmap';
 import { IGoalReducer } from './interfaces';
 
 export const changeThemeOperation = (state: IGoalReducer, { payload }: PayloadAction<string>) => {
@@ -50,4 +51,8 @@ export const deleteGoalOperation = (state: IGoalReducer, { payload }: PayloadAct
 
 export const changeLanguageOperation = (state: IGoalReducer, { payload }: PayloadAction<string>) => {
 	state.language = payload;
+};
+
+export const createRoadmapOperation = (state: IGoalReducer, { payload }: PayloadAction<RoadmapInterface>) => {
+	state.roadmaps = [...state.roadmaps, payload];
 };

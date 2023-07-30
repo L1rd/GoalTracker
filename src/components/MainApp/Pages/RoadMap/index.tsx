@@ -1,15 +1,48 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Route, Routes, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Box, Button, Typography } from '@mui/material';
-import { RoadMapBlock } from './components/roadMapBlock/roadMapBlock';
 
 // MUI
 
 // Styles
 import './style.scss';
+import { useMemo } from 'react';
+import { RoadMapList } from './components/RoadMapList';
+import CreateRoadmap from './components/CreateRoadmap';
 
 const RoadMap = () => {
+	const param = useParams();
 	const navigate = useNavigate();
+
+	const getTitle = useMemo(() => {
+		switch (param['*']) {
+			case 'CreateRoadmap':
+				return (
+					<Typography variant="h2" className="roadMap__header-title">
+						Creating Roadmap
+					</Typography>
+				);
+
+			default:
+				return (
+					<>
+						<Typography variant="h2" className="roadMap__header-title">
+							RoadMaps
+						</Typography>
+						<Button
+							variant="buttonDark"
+							color="primary"
+							size="medium"
+							onClick={() => navigate('CreateRoadmap')}
+						>
+							<Typography variant="body" className="roadMap__header-title">
+								Create RoadMap
+							</Typography>
+						</Button>
+					</>
+				);
+		}
+	}, [param]);
 
 	return (
 		<motion.div
@@ -21,18 +54,11 @@ const RoadMap = () => {
 				opacity: 0,
 			}}
 		>
-			<Box className="roadMap__header">
-				<Typography variant="h2" className="roadMap__header-title">
-					RoadMap
-				</Typography>
-				<Button variant="buttonDark" color="primary" size="medium" onClick={() => navigate('CreateGoal')}>
-					<Typography variant="body" className="roadMap__header-title">
-						Create RoadMap
-					</Typography>
-				</Button>
-			</Box>
-
-			<RoadMapBlock title="Create roadMap" timeStart="CreatedAt:" task="Stack of Technology:" author="Author:" />
+			<Box className="roadMap__header">{getTitle}</Box>
+			<Routes>
+				<Route path="/" element={<RoadMapList />} />
+				<Route path="/CreateRoadmap/" element={<CreateRoadmap />} />
+			</Routes>
 		</motion.div>
 	);
 };

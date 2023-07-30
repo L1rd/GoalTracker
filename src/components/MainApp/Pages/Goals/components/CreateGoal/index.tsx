@@ -66,7 +66,7 @@ const CreateGoal: FC = () => {
 		start: yesterday.format('DD/MM/YYYY'),
 		end: today.format('DD/MM/YYYY'),
 		progress: 0,
-		status: 'In Progress',
+		status: 'in-progress',
 		tasks: [],
 		subgoals: [],
 		type,
@@ -102,7 +102,7 @@ const CreateGoal: FC = () => {
 			subgoals: [],
 			type: '',
 			progress: 0,
-			status: 'In Progress',
+			status: 'in-progress',
 		});
 	};
 
@@ -121,7 +121,7 @@ const CreateGoal: FC = () => {
 					subgoals: goal.subgoals,
 					type: goal.type,
 					progress: 0,
-					status: 'In Progress',
+					status: 'in-progress',
 				})
 			);
 			handleClosePage();
