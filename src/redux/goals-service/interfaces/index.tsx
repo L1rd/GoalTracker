@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GoalCategory, GoalInterface, GoalStatus } from 'utils/interfaces/goal';
-import { RoadmapInterface } from 'utils/interfaces/roadmap';
 
 export interface IGoalReducer {
 	goals: GoalInterface[];
@@ -8,5 +8,5 @@ export interface IGoalReducer {
 	theme: string;
 	currentPage: string;
 	language: string;
-	roadmaps: RoadmapInterface[];
+	roadmaps: any[];
 }

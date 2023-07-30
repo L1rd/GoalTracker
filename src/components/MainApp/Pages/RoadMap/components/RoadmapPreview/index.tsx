@@ -45,15 +45,17 @@ const RoadmapPreview: FC<RoadmapPreviewProps> = ({ isShow, setIsShow, currentGoa
 									<Box className="flex">
 										<Box className="roadmap__box">
 											<ul>
-												{goal.tasks.map((item: GoalTask) => (
-													<li>{item.title}</li>
+												{goal.tasks.map((item: GoalTask, index) => (
+													<li>
+														{index + 1}. {item.title}
+													</li>
 												))}
 											</ul>
 										</Box>
 										<ArrowBackIcon />
 									</Box>
 								) : (
-									<Box sx={{ flexGrow: '1', height: '100px' }} />
+									<Box sx={{ width: '10% !important', height: '100px' }} />
 								)}
 								<Box className="roadmap__goal">
 									<Box className="roadmap__box">
@@ -72,8 +74,10 @@ const RoadmapPreview: FC<RoadmapPreviewProps> = ({ isShow, setIsShow, currentGoa
 													<ArrowDownwardIcon />
 													<Box className="roadmap__box">
 														<ul>
-															{subgoal.tasks.map(task => (
-																<li>{task.title}</li>
+															{subgoal.tasks.map((task, index) => (
+																<li>
+																	{index + 1}. {task.title}
+																</li>
 															))}
 														</ul>
 													</Box>
@@ -82,7 +86,7 @@ const RoadmapPreview: FC<RoadmapPreviewProps> = ({ isShow, setIsShow, currentGoa
 										</Box>
 									</Box>
 								) : (
-									<Box sx={{ flexGrow: '1', height: '100px' }} />
+									<Box sx={{ width: '10% !important', height: '100px' }} />
 								)}
 							</Box>
 							<ArrowDownwardIcon sx={{ height: '60px' }} />

@@ -1,16 +1,17 @@
 @import "~assets/styles/main.scss";
 
 .roadmap {
-	@include flex($align: center, $justify: center, $direction: column);
+	@include flex($align: center, $justify: flex-start, $direction: column);
 	gap: 10px;
 	position: fixed;
 	animation: show-add-modal 0.5s;
 	z-index: 1000;
 	width: 70%;
-	height: 700px;
+	height: 80%;
 	background-color: white;
 	padding: 20px;
 	border-radius: 10px;
+	overflow-y: auto;
 
 	&__wrapper {
 		@include flex($align: center, $justify: center, $direction: row);
@@ -35,6 +36,10 @@
 		background-color: $brown;
 		color: $blue;
 		padding: 12px;
+		& ul {
+			@include flex($align: flex-start, $justify: center, $direction: column);
+			gap: 5px;
+		}
 	}
 }
 
